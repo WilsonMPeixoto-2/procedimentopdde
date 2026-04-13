@@ -1,16 +1,43 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { ManualLayout } from "@/components/ManualLayout";
+import { Apresentacao } from "@/components/sections/Apresentacao";
+import { Escopo } from "@/components/sections/Escopo";
+import { Abertura } from "@/components/sections/Abertura";
+import { Instrucao } from "@/components/sections/Instrucao";
+import { Inclusao } from "@/components/sections/Inclusao";
+import { Autenticacao } from "@/components/sections/Autenticacao";
+import { Assinatura } from "@/components/sections/Assinatura";
+import { Finalizacao } from "@/components/sections/Finalizacao";
+import { Modelos } from "@/components/sections/Modelos";
+import { ChecklistSection } from "@/components/sections/Checklist";
+import { Contatos } from "@/components/sections/Contatos";
+import { Referencias } from "@/components/sections/Referencias";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
+const sectionComponents: Record<string, React.FC> = {
+  apresentacao: Apresentacao,
+  escopo: Escopo,
+  abertura: Abertura,
+  instrucao: Instrucao,
+  inclusao: Inclusao,
+  autenticacao: Autenticacao,
+  assinatura: Assinatura,
+  finalizacao: Finalizacao,
+  modelos: Modelos,
+  checklist: ChecklistSection,
+  contatos: Contatos,
+  referencias: Referencias,
 };
 
-const Index = PlaceholderIndex;
+const Index = () => {
+  const [activeSection, setActiveSection] = useState("apresentacao");
+
+  const SectionComponent = sectionComponents[activeSection] || Apresentacao;
+
+  return (
+    <ManualLayout activeSection={activeSection} onSectionChange={setActiveSection}>
+      <SectionComponent />
+    </ManualLayout>
+  );
+};
 
 export default Index;
