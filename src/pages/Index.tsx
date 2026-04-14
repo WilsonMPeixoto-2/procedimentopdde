@@ -1,4 +1,5 @@
 import { ManualLayout } from "@/components/ManualLayout";
+import { Hero } from "@/components/sections/Hero";
 import { Apresentacao } from "@/components/sections/Apresentacao";
 import { Escopo } from "@/components/sections/Escopo";
 import { Abertura } from "@/components/sections/Abertura";
