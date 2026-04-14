@@ -1,4 +1,5 @@
 import { Callout } from "../Callout";
+import { SystemPreview, SeiTreeItem, SeiButton } from "../SystemPreview";
 
 export function Autenticacao() {
   return (
@@ -45,6 +46,32 @@ export function Autenticacao() {
         Os originais físicos devem permanecer arquivados na unidade escolar pelo prazo
         regulamentar.
       </p>
+
+      <SystemPreview title="Autenticação de documento digitalizado">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="sm:w-52 border-r border-border sm:pr-4">
+            <div className="text-[11px] uppercase tracking-wide text-muted-foreground font-semibold font-sans mb-2">
+              Árvore do processo
+            </div>
+            <SeiTreeItem icon="📄" label="Ofício de Encaminhamento" />
+            <SeiTreeItem icon="🧾" label="Nota Fiscal nº 4521" active />
+            <SeiTreeItem icon="📝" label="Ata de Aprovação" />
+          </div>
+          <div className="flex-1 space-y-3">
+            <div className="text-[11px] uppercase tracking-wide text-muted-foreground font-semibold font-sans">
+              Opções do documento
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <SeiButton>📋 Consultar</SeiButton>
+              <SeiButton primary>✔ Autenticar</SeiButton>
+              <SeiButton>🔗 Mover</SeiButton>
+            </div>
+            <div className="mt-2 p-3 border border-dashed border-[hsl(var(--tip-border))] bg-[hsl(var(--tip-bg))] rounded text-[12px] font-sans text-[hsl(var(--tip-fg))]">
+              <strong>Tipo de conferência:</strong> Documento digitalizado — confere com o original.
+            </div>
+          </div>
+        </div>
+      </SystemPreview>
     </section>
   );
 }
