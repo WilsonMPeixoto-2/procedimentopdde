@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Sidebar } from "./Sidebar";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 
 interface ManualLayoutProps {
   children: React.ReactNode;
