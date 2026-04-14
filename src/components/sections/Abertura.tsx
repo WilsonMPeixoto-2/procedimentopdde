@@ -1,4 +1,5 @@
 import { Callout } from "../Callout";
+import { SystemPreview, SeiMenu, SeiField, SeiButton } from "../SystemPreview";
 
 export function Abertura() {
   return (
@@ -31,21 +32,28 @@ export function Abertura() {
         <strong>Iniciar Processo</strong> e use esse atalho para começar a autuação.
       </p>
 
-      <div className="system-preview">
-        <div className="font-sans text-xs uppercase tracking-wider text-muted-foreground mb-2">
-          Visualização do sistema
-        </div>
-        <div className="bg-background rounded p-3 border border-border">
-          <div className="text-sm font-sans">
-            <div className="font-semibold mb-2">Menu lateral do SEI!RIO</div>
-            <div className="space-y-1 text-muted-foreground">
-              <div>📊 Estatísticas</div>
-              <div>⭐ Favoritos</div>
-              <div className="font-semibold text-primary">▶ Iniciar Processo</div>
+      <SystemPreview title="Menu lateral do SEI!RIO">
+        <div className="flex gap-4">
+          <div className="w-48 border-r border-border pr-4">
+            <div className="text-[11px] uppercase tracking-wide text-muted-foreground font-semibold font-sans mb-2">
+              Menu Principal
             </div>
+            <SeiMenu
+              items={[
+                "📊  Estatísticas da Unidade",
+                "⭐  Favoritos",
+                "▶  Iniciar Processo",
+                "🔍  Pesquisa",
+                "📁  Base de Conhecimento",
+              ]}
+              activeIndex={2}
+            />
+          </div>
+          <div className="flex-1 flex items-center justify-center text-[12px] text-muted-foreground font-sans italic">
+            Clique em "Iniciar Processo" para abrir o formulário de autuação.
           </div>
         </div>
-      </div>
+      </SystemPreview>
 
       <h2>1.3. Tipo correto de processo</h2>
       <p>
@@ -59,6 +67,33 @@ export function Abertura() {
           <code>GESTÃO DOS CONSELHOS MUNICIPAIS DE EDUCAÇÃO: PRESTAÇÃO DE CONTAS DO CONSELHO ESCOLA COMUNIDADE - CEC</code>
         </p>
       </Callout>
+
+      <SystemPreview title="Seleção do tipo de processo">
+        <div className="space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] uppercase tracking-wide text-muted-foreground font-semibold font-sans">
+              Tipo do Processo:
+            </span>
+            <div className="flex-1 border border-border rounded px-2 py-1 text-[12px] font-sans bg-[hsl(var(--muted)/0.3)]">
+              prestação de contas cec
+            </div>
+            <SeiButton>🔍 Pesquisar</SeiButton>
+          </div>
+          <div className="border border-border rounded overflow-hidden">
+            <div className="px-3 py-1.5 bg-[hsl(var(--muted))] text-[11px] font-sans font-semibold text-muted-foreground">
+              Resultados da busca
+            </div>
+            <div className="text-[12px] font-sans">
+              <div className="px-3 py-2 bg-[hsl(var(--primary)/0.08)] text-[hsl(var(--primary))] font-semibold border-l-3 border-[hsl(var(--primary))]">
+                ✔ GESTÃO DOS CONSELHOS MUNICIPAIS DE EDUCAÇÃO: PRESTAÇÃO DE CONTAS DO CONSELHO ESCOLA COMUNIDADE - CEC
+              </div>
+              <div className="px-3 py-2 text-muted-foreground border-t border-border">
+                ✗ GESTÃO DOS CONSELHOS MUNICIPAIS DE EDUCAÇÃO: PRESTAÇÃO DE CONTAS — OUTROS
+              </div>
+            </div>
+          </div>
+        </div>
+      </SystemPreview>
 
       <h2>1.4. Classificação por Assuntos</h2>
       <p>
@@ -100,6 +135,21 @@ export function Abertura() {
           </tr>
         </tbody>
       </table>
+
+      <SystemPreview title="Formulário de autuação — campos preenchidos">
+        <div className="space-y-0">
+          <SeiField label="Tipo do Processo" value="GESTÃO DOS CONSELHOS MUNICIPAIS DE EDUCAÇÃO: PRESTAÇÃO DE CONTAS DO CONSELHO ESCOLA COMUNIDADE - CEC" />
+          <SeiField label="Classificação" value="03.04.01.02 - PRESTAÇÃO DE CONTAS DO CONSELHO ESCOLA COMUNIDADE - CEC" />
+          <SeiField label="Especificação" value="PDDE — Exercício 2025 — E/CRE (04.30.502) — Ciep Elis Regina — 00.000.000/0001-00" highlight />
+          <SeiField label="Interessados" value="E/4a.CRE/GAD · Ciep Elis Regina" />
+          <SeiField label="Nível de Acesso" value="Público" />
+          <SeiField label="Observações" value="INSERIR CNPJ DO CEC DA UNIDADE (00.000.000/0001-00)" />
+        </div>
+        <div className="mt-4 flex gap-2">
+          <SeiButton primary>Salvar</SeiButton>
+          <SeiButton>Cancelar</SeiButton>
+        </div>
+      </SystemPreview>
 
       <Callout type="tip" title="Exemplo prático">
         <p>
@@ -184,6 +234,20 @@ export function Abertura() {
         Com essa ação, o sistema cria o processo e passa a exibir o número único que identificará
         formalmente o expediente no SEI!RIO.
       </p>
+
+      <SystemPreview title="Processo criado com sucesso">
+        <div className="text-center py-3">
+          <div className="text-[11px] uppercase tracking-wide text-muted-foreground font-semibold font-sans mb-1">
+            Número Único de Protocolo (NUP)
+          </div>
+          <div className="text-xl font-mono font-bold text-[hsl(var(--primary))]">
+            000704.000123/2026-45
+          </div>
+          <div className="text-[11px] text-muted-foreground font-sans mt-2">
+            Registre este número no controle interno da GCGR.
+          </div>
+        </div>
+      </SystemPreview>
 
       <Callout type="tip" title="Após a criação">
         <p>
