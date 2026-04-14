@@ -4,7 +4,6 @@ import { Menu, X } from "lucide-react";
 
 interface ManualLayoutProps {
   children: React.ReactNode;
-  activeSection: string;
   onSectionChange: (section: string) => void;
 }
 
