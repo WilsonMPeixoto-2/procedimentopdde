@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ManualLayout } from "@/components/ManualLayout";
 import { Apresentacao } from "@/components/sections/Apresentacao";
 import { Escopo } from "@/components/sections/Escopo";
@@ -13,29 +12,39 @@ import { ChecklistSection } from "@/components/sections/Checklist";
 import { Contatos } from "@/components/sections/Contatos";
 import { Referencias } from "@/components/sections/Referencias";
 
-const sectionComponents: Record<string, React.FC> = {
-  apresentacao: Apresentacao,
-  escopo: Escopo,
-  abertura: Abertura,
-  instrucao: Instrucao,
-  inclusao: Inclusao,
-  autenticacao: Autenticacao,
-  assinatura: Assinatura,
-  finalizacao: Finalizacao,
-  modelos: Modelos,
-  checklist: ChecklistSection,
-  contatos: Contatos,
-  referencias: Referencias,
-};
-
 const Index = () => {
-  const [activeSection, setActiveSection] = useState("apresentacao");
-
-  const SectionComponent = sectionComponents[activeSection] || Apresentacao;
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
-    <ManualLayout activeSection={activeSection} onSectionChange={setActiveSection}>
-      <SectionComponent />
+    <ManualLayout onSectionChange={scrollToSection}>
+      <Apresentacao />
+      <hr className="my-12 border-border" />
+      <Escopo />
+      <hr className="my-12 border-border" />
+      <Abertura />
+      <hr className="my-12 border-border" />
+      <Instrucao />
+      <hr className="my-12 border-border" />
+      <Inclusao />
+      <hr className="my-12 border-border" />
+      <Autenticacao />
+      <hr className="my-12 border-border" />
+      <Assinatura />
+      <hr className="my-12 border-border" />
+      <Finalizacao />
+      <hr className="my-12 border-border" />
+      <Modelos />
+      <hr className="my-12 border-border" />
+      <ChecklistSection />
+      <hr className="my-12 border-border" />
+      <Contatos />
+      <hr className="my-12 border-border" />
+      <Referencias />
     </ManualLayout>
   );
 };
