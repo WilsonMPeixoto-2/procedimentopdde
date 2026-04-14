@@ -1,5 +1,4 @@
 interface SidebarProps {
-  activeSection: string;
   onSectionChange: (section: string) => void;
 }
 
@@ -18,10 +17,9 @@ const sections = [
   { id: "referencias", label: "Referências", number: "8" },
 ];
 
-export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
+export function Sidebar({ onSectionChange }: SidebarProps) {
   return (
     <div className="sidebar-nav flex flex-col h-full">
-      {/* Header */}
       <div className="px-5 py-6 border-b border-sidebar-border">
         <div className="text-xs font-semibold uppercase tracking-wider text-sidebar-primary mb-1">
           Procedimento Operacional Padrão
@@ -34,7 +32,6 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
         </div>
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1 overflow-y-auto py-4 px-3">
         <div className="text-[10px] font-semibold uppercase tracking-widest text-sidebar-foreground/40 px-3 mb-2">
           Sumário
@@ -43,7 +40,6 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
           <a
             key={s.id}
             href={`#${s.id}`}
-            className={activeSection === s.id ? "active" : ""}
             onClick={(e) => {
               e.preventDefault();
               onSectionChange(s.id);
@@ -59,7 +55,6 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
         ))}
       </nav>
 
-      {/* Footer */}
       <div className="px-5 py-4 border-t border-sidebar-border text-[11px] text-sidebar-foreground/30">
         4ª CRE · GAD · Abril 2026
       </div>

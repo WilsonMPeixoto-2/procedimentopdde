@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { ManualLayout } from "@/components/ManualLayout";
 import { Apresentacao } from "@/components/sections/Apresentacao";
 import { Escopo } from "@/components/sections/Escopo";
@@ -12,21 +11,6 @@ import { Modelos } from "@/components/sections/Modelos";
 import { ChecklistSection } from "@/components/sections/Checklist";
 import { Contatos } from "@/components/sections/Contatos";
 import { Referencias } from "@/components/sections/Referencias";
-
-const sectionIds = [
-  "apresentacao",
-  "escopo",
-  "abertura",
-  "instrucao",
-  "inclusao",
-  "autenticacao",
-  "assinatura",
-  "finalizacao",
-  "modelos",
-  "checklist",
-  "contatos",
-  "referencias",
-];
 
 const Index = () => {
   const scrollToSection = (sectionId: string) => {
