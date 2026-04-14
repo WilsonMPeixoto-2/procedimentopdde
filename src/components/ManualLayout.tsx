@@ -7,7 +7,7 @@ interface ManualLayoutProps {
   onSectionChange: (section: string) => void;
 }
 
-export function ManualLayout({ children, activeSection, onSectionChange }: ManualLayoutProps) {
+export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
