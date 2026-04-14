@@ -23,6 +23,7 @@ const Index = () => {
 
   return (
     <ManualLayout onSectionChange={scrollToSection}>
+      <Hero />
       <Apresentacao />
       <hr className="my-12 border-border" />
       <Escopo />
