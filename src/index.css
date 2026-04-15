@@ -169,37 +169,18 @@
   color: hsl(var(--heading-color));
 }
 
-/* Callout boxes */
-.callout {
-  margin: 1.5rem 0;
-  padding: 1rem 1.25rem;
-  border-left: 4px solid hsl(var(--callout-border));
-  background: hsl(var(--callout-bg));
-  border-radius: 0 var(--radius) var(--radius) 0;
-  font-size: 0.93em;
-  line-height: 1.65;
-}
+/* Callout boxes — now handled by Callout component with Tailwind classes */
 .callout p:last-child {
   margin-bottom: 0;
 }
 
-.callout-tip {
-  border-left-color: hsl(var(--tip-border));
-  background: hsl(var(--tip-bg));
-}
-
-.callout-warning {
-  border-left-color: hsl(var(--warning-border));
-  background: hsl(var(--warning-bg));
-}
-
 /* System visualization */
 .system-preview {
-  margin: 1.5rem 0;
-  padding: 1rem;
-  background: hsl(220 20% 96%);
+  margin: 2rem 0;
+  padding: 1.25rem;
+  background: hsl(220 20% 97%);
   border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
+  border-radius: 0.5rem;
   font-family: 'Inter', sans-serif;
   font-size: 0.9em;
 }
@@ -211,24 +192,28 @@
 
 .sidebar-nav a {
   text-decoration: none;
-  color: hsl(var(--sidebar-foreground));
+  color: hsl(var(--sidebar-foreground) / 0.7);
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.45rem 0.85rem;
   border-radius: var(--radius);
-  font-size: 0.88rem;
-  line-height: 1.4;
-  transition: all 0.15s;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+  margin-bottom: 1px;
 }
 
 .sidebar-nav a:hover {
   background: hsl(var(--sidebar-accent));
   color: hsl(var(--sidebar-accent-foreground));
+  border-left-color: hsl(var(--sidebar-foreground) / 0.2);
 }
 
 .sidebar-nav a.active {
   background: hsl(var(--sidebar-accent));
   color: hsl(var(--sidebar-primary));
   font-weight: 600;
+  border-left-color: hsl(var(--sidebar-primary));
 }
 
 /* Checklist */
