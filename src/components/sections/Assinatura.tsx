@@ -4,7 +4,6 @@ import { SystemPreview, SeiTreeItem, SeiButton } from "../SystemPreview";
 export function Assinatura() {
   return (
     <section id="assinatura">
-      </p>
 
       <p>
         O bloco de assinatura reúne os documentos internos do SEI!RIO que necessitam de

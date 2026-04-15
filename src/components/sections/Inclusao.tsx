@@ -4,7 +4,6 @@ import { SystemPreview, SeiTreeItem, SeiField, SeiButton } from "../SystemPrevie
 export function Inclusao() {
   return (
     <section id="inclusao">
-      </p>
 
       <p>
         Nesta etapa, os documentos reunidos na instrução processual serão inseridos na árvore

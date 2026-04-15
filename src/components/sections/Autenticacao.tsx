@@ -4,7 +4,6 @@ import { SystemPreview, SeiTreeItem, SeiButton } from "../SystemPreview";
 export function Autenticacao() {
   return (
     <section id="autenticacao">
-      </p>
 
       <p>
         A autenticação administrativa no SEI!RIO aplica-se exclusivamente a documentos

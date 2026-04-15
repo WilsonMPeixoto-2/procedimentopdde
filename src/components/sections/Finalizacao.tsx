@@ -3,7 +3,6 @@ import { Callout } from "../Callout";
 export function Finalizacao() {
   return (
     <section id="finalizacao">
-      </p>
 
       <p>
         Após a remessa, o processo segue para análise da GAD. Nesta fase, a unidade escolar
