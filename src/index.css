@@ -266,3 +266,14 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Scroll offset for sticky header */
+section[id] {
+  scroll-margin-top: 60px;
+}
+
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 24px;
+  }
+}
