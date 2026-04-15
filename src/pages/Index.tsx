@@ -1,5 +1,6 @@
 import { ManualLayout } from "@/components/ManualLayout";
 import { Hero } from "@/components/sections/Hero";
+import { SectionBanner } from "@/components/SectionBanner";
 import { Apresentacao } from "@/components/sections/Apresentacao";
 import { Escopo } from "@/components/sections/Escopo";
 import { Abertura } from "@/components/sections/Abertura";
@@ -13,8 +14,8 @@ import { ChecklistSection } from "@/components/sections/Checklist";
 import { Contatos } from "@/components/sections/Contatos";
 import { Referencias } from "@/components/sections/Referencias";
 
-const SectionDivider = () => (
-  <div className="my-16 flex items-center gap-3 px-2">
+const ContentDivider = () => (
+  <div className="my-12 flex items-center gap-3 px-2">
     <div className="flex-1 h-px bg-gradient-to-r from-transparent to-border" />
     <div className="flex gap-1">
       <span className="w-1.5 h-1.5 rounded-full bg-primary/20" />
@@ -36,28 +37,74 @@ const Index = () => {
   return (
     <ManualLayout onSectionChange={scrollToSection}>
       <Hero />
+
       <Apresentacao />
-      <SectionDivider />
+      <ContentDivider />
       <Escopo />
-      <SectionDivider />
+
+      <SectionBanner
+        number={1}
+        title="Abertura do Processo"
+        subtitle="Acesso ao SEI!RIO, criação do processo, numeração e identificação."
+        id="abertura-banner"
+      />
       <Abertura />
-      <SectionDivider />
+
+      <SectionBanner
+        number={2}
+        title="Instrução Processual"
+        subtitle="Criação de documentos internos, despacho e ofício no SEI!RIO."
+        id="instrucao-banner"
+      />
       <Instrucao />
-      <SectionDivider />
+
+      <SectionBanner
+        number={3}
+        title="Inclusão de Documentos"
+        subtitle="Como incluir documentos digitalizados e nato-digitais no SEI!RIO."
+        id="inclusao-banner"
+      />
       <Inclusao />
-      <SectionDivider />
+
+      <SectionBanner
+        number={4}
+        title="Autenticação de Documentos"
+        subtitle="Procedimento para autenticar documentos externos no SEI!RIO."
+        id="autenticacao-banner"
+      />
       <Autenticacao />
-      <SectionDivider />
+
+      <SectionBanner
+        number={5}
+        title="Bloco de Assinatura"
+        subtitle="Criação do bloco, assinaturas internas, despacho de encaminhamento e remessa."
+        id="assinatura-banner"
+      />
       <Assinatura />
-      <SectionDivider />
+
+      <SectionBanner
+        number={6}
+        title="Despacho e Finalização"
+        subtitle="Análise pela GAD, diligências e etapas finais de aprovação."
+        id="finalizacao-banner"
+      />
       <Finalizacao />
-      <SectionDivider />
+
+      <ContentDivider />
+
       <Modelos />
-      <SectionDivider />
+      <ContentDivider />
       <ChecklistSection />
-      <SectionDivider />
+
+      <SectionBanner
+        number={7}
+        title="Contatos"
+        subtitle="Canais de atendimento e suporte da GAD/4ª CRE."
+        id="contatos-banner"
+      />
       <Contatos />
-      <SectionDivider />
+
+      <ContentDivider />
       <Referencias />
     </ManualLayout>
   );
