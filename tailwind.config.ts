@@ -61,7 +61,7 @@ export default {
         },
       },
       fontFamily: {
-        serif: ["Merriweather", "Georgia", "Times New Roman", "serif"],
+        heading: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },

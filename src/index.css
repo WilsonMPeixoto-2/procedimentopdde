@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,7 +12,7 @@
     --card-foreground: 215 15% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 215 15% 15%;
-    --primary: 215 50% 34%;
+    --primary: 224 64% 33%;
     --primary-foreground: 0 0% 100%;
     --secondary: 40 15% 94%;
     --secondary-foreground: 215 15% 15%;
@@ -24,7 +24,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 220 15% 88%;
     --input: 220 15% 88%;
-    --ring: 215 50% 34%;
+    --ring: 224 64% 33%;
     --radius: 0.5rem;
 
     /* Manual-specific tokens */
@@ -62,7 +62,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 16px;
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
@@ -78,7 +78,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     color: hsl(var(--heading-color));
     line-height: 1.3;
     text-align: left;

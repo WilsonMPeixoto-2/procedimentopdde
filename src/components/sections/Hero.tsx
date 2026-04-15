@@ -26,10 +26,10 @@ export function Hero() {
           Procedimento Operacional Padrão
         </div>
 
-        <h1 className="!border-0 !pb-0 text-foreground text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-2 tracking-tight font-sans after:hidden text-center mx-auto">
+        <h1 className="!border-0 !pb-0 text-foreground text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-2 tracking-tight after:hidden text-center mx-auto">
           Prestação de Contas
         </h1>
-        <h1 className="!border-0 !pb-0 text-primary text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-6 tracking-tight font-sans after:hidden text-center mx-auto">
+        <h1 className="!border-0 !pb-0 text-primary text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-6 tracking-tight after:hidden text-center mx-auto">
           PDDE no SEI!RIO
         </h1>
 
