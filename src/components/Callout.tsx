@@ -39,14 +39,14 @@ export function Callout({ type = "info", title, children }: CalloutProps) {
   const colors = typeColors[type];
 
   return (
-    <div className={`my-6 rounded-r-lg border-l-4 ${colors.border} ${colors.bg} px-5 py-4`}>
+    <div className={`my-6 rounded-lg border-l-4 ${colors.border} ${colors.bg} px-5 py-4 shadow-sm`}>
       {title && (
-        <div className={`flex items-center gap-2.5 font-sans text-sm font-semibold mb-2 ${colors.title}`}>
+        <div className={`flex items-center gap-2.5 font-sans text-sm font-bold mb-2.5 ${colors.title}`}>
           <span className={colors.icon}>{icons[type]}</span>
           <span>{title}</span>
         </div>
       )}
-      <div className="text-[0.92em] leading-relaxed">{children}</div>
+      <div className="text-[0.92em] leading-relaxed opacity-90">{children}</div>
     </div>
   );
 }

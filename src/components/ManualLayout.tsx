@@ -25,7 +25,6 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
   const handleDownloadPDF = async () => {
     setGenerating(true);
     try {
-      // Use browser print to PDF
       window.print();
     } finally {
       setGenerating(false);
@@ -70,25 +69,25 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
             onClick={() => setSidebarOpen(true)}
             className="p-2 rounded-lg hover:bg-muted transition-colors"
           >
-            <Menu className="w-5 h-5" />
+            <Menu className="w-5 h-5 text-foreground" />
           </button>
-          <span className="font-sans text-sm font-semibold text-heading truncate flex-1">
+          <span className="font-sans text-sm font-bold text-heading truncate flex-1">
             POP — Prestação de Contas PDDE
           </span>
           <button
             onClick={handlePrint}
-            className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
+            className="p-2 rounded-lg hover:bg-muted transition-colors text-primary/70 hover:text-primary"
             title="Imprimir"
           >
-            <Printer className="w-4 h-4" />
+            <Printer className="w-4.5 h-4.5" />
           </button>
           <button
             onClick={handleDownloadPDF}
             disabled={generating}
-            className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
+            className="p-2 rounded-lg bg-primary/10 hover:bg-primary/15 transition-colors text-primary"
             title="Baixar PDF"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-4.5 h-4.5" />
           </button>
         </div>
 
@@ -96,7 +95,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
         <div className="hidden lg:flex items-center justify-end gap-2 px-6 py-3 print:hidden">
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-sans font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-sans font-semibold text-muted-foreground hover:text-foreground hover:bg-muted border border-transparent hover:border-border transition-all"
           >
             <Printer className="w-4 h-4" />
             Imprimir
@@ -104,7 +103,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
           <button
             onClick={handleDownloadPDF}
             disabled={generating}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-sans font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-sans font-bold bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-md shadow-primary/20"
           >
             <Download className="w-4 h-4" />
             Baixar PDF
