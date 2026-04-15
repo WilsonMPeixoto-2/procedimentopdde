@@ -4,10 +4,6 @@ import { SystemPreview, SeiTreeItem, SeiButton } from "../SystemPreview";
 export function Autenticacao() {
   return (
     <section id="autenticacao">
-      <div className="section-number">Seção 4</div>
-      <h1>Autenticação de Documentos</h1>
-      <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6">
-        Procedimento para autenticar documentos externos no SEI!RIO.
       </p>
 
       <p>

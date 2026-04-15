@@ -3,10 +3,6 @@ import { Callout } from "../Callout";
 export function Finalizacao() {
   return (
     <section id="finalizacao">
-      <div className="section-number">Seção 6</div>
-      <h1>Despacho e Finalização</h1>
-      <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6">
-        Análise pela GAD, diligências e etapas finais de aprovação.
       </p>
 
       <p>

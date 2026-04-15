@@ -4,10 +4,6 @@ import { SystemPreview, SeiTreeItem, SeiButton } from "../SystemPreview";
 export function Assinatura() {
   return (
     <section id="assinatura">
-      <div className="section-number">Seção 5</div>
-      <h1>Bloco de Assinatura</h1>
-      <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6">
-        Criação do bloco, assinaturas internas, despacho de encaminhamento e remessa.
       </p>
 
       <p>
