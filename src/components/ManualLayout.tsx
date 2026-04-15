@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { Menu, X } from "lucide-react";
+import { ReadingProgress } from "./ReadingProgress";
+import { BackToTop } from "./BackToTop";
 
 interface ManualLayoutProps {
   children: React.ReactNode;
@@ -17,6 +19,9 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
 
   return (
     <div className="flex min-h-screen">
+      <ReadingProgress />
+      <BackToTop />
+
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-40 bg-foreground/40 backdrop-blur-sm lg:hidden transition-opacity"

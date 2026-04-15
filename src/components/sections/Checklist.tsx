@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Square } from "lucide-react";
+import { Check, Square, CheckCircle2 } from "lucide-react";
 
 const blocoA = [
   "Rol de materiais, bens e serviços priorizados (planejamento do gasto aprovado pelo Conselho/CEC)",
@@ -20,6 +20,26 @@ const blocoB = [
   "Termo de doação ou instrumento patrimonial equivalente, quando exigido",
   "Declaração de autenticidade, se ainda exigida no fluxo vigente da CRE/SME",
 ];
+
+function ProgressBar({ done, total }: { done: number; total: number }) {
+  const pct = total > 0 ? (done / total) * 100 : 0;
+  const isComplete = done === total;
+
+  return (
+    <div className="flex items-center gap-3 mb-4 font-sans">
+      <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
+        <div
+          className={`h-full rounded-full transition-all duration-300 ease-out ${isComplete ? "bg-[hsl(var(--tip-border))]" : "bg-primary"}`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <span className={`text-xs font-semibold tabular-nums ${isComplete ? "text-[hsl(var(--tip-fg))]" : "text-muted-foreground"}`}>
+        {done}/{total}
+      </span>
+      {isComplete && <CheckCircle2 className="w-4 h-4 text-[hsl(var(--tip-fg))]" />}
+    </div>
+  );
+}
 
 export function ChecklistSection() {
   const [checkedA, setCheckedA] = useState<boolean[]>(new Array(blocoA.length).fill(false));
@@ -42,46 +62,48 @@ export function ChecklistSection() {
         Use esta lista para conferir a documentação antes de remeter o processo.
       </p>
 
-      <h2>Bloco A — Documentos federais mínimos ({doneA}/{blocoA.length})</h2>
+      <h2>Bloco A — Documentos federais mínimos</h2>
       <p>
         Núcleo da comprovação da execução e da prestação de contas.
       </p>
-      <div className="space-y-1 mb-8">
+      <ProgressBar done={doneA} total={blocoA.length} />
+      <div className="space-y-0.5 mb-8">
         {blocoA.map((item, i) => (
           <button
             key={i}
             onClick={() => toggle(checkedA, setCheckedA, i)}
-            className="checklist-item w-full text-left cursor-pointer hover:bg-muted/40 rounded px-2 py-1.5 transition-colors"
+            className="checklist-item w-full text-left cursor-pointer hover:bg-muted/50 rounded-lg px-3 py-2.5 transition-all duration-150 group"
           >
             {checkedA[i] ? (
-              <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <Check className="w-4 h-4 text-[hsl(var(--tip-fg))] shrink-0 mt-0.5" />
             ) : (
-              <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+              <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5 group-hover:text-primary transition-colors" />
             )}
-            <span className={checkedA[i] ? "line-through text-muted-foreground" : ""}>
+            <span className={`transition-colors ${checkedA[i] ? "line-through text-muted-foreground" : ""}`}>
               {item}
             </span>
           </button>
         ))}
       </div>
 
-      <h2>Bloco B — Instrução complementar ({doneB}/{blocoB.length})</h2>
+      <h2>Bloco B — Instrução complementar</h2>
       <p>
         Inclua quando o objeto, o fluxo local ou a rotina patrimonial/documental exigir reforço.
       </p>
-      <div className="space-y-1">
+      <ProgressBar done={doneB} total={blocoB.length} />
+      <div className="space-y-0.5">
         {blocoB.map((item, i) => (
           <button
             key={i}
             onClick={() => toggle(checkedB, setCheckedB, i)}
-            className="checklist-item w-full text-left cursor-pointer hover:bg-muted/40 rounded px-2 py-1.5 transition-colors"
+            className="checklist-item w-full text-left cursor-pointer hover:bg-muted/50 rounded-lg px-3 py-2.5 transition-all duration-150 group"
           >
             {checkedB[i] ? (
-              <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <Check className="w-4 h-4 text-[hsl(var(--tip-fg))] shrink-0 mt-0.5" />
             ) : (
-              <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+              <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5 group-hover:text-primary transition-colors" />
             )}
-            <span className={checkedB[i] ? "line-through text-muted-foreground" : ""}>
+            <span className={`transition-colors ${checkedB[i] ? "line-through text-muted-foreground" : ""}`}>
               {item}
             </span>
           </button>

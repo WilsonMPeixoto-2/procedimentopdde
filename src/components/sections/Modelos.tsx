@@ -1,4 +1,4 @@
-import { FileText, ExternalLink } from "lucide-react";
+import { FileText, ExternalLink, Download } from "lucide-react";
 
 const modelos = [
   {
@@ -26,6 +26,13 @@ const modelos = [
   },
 ];
 
+const typeBadgeColors: Record<string, string> = {
+  "Modelo editável": "bg-primary/10 text-primary",
+  "Exemplo preenchido": "bg-[hsl(var(--tip-bg))] text-[hsl(var(--tip-fg))]",
+  "Referência visual": "bg-[hsl(var(--callout-bg))] text-[hsl(var(--callout-fg))]",
+  "Complementar local": "bg-[hsl(var(--warning-bg))] text-[hsl(var(--warning-fg))]",
+};
+
 export function Modelos() {
   return (
     <section id="modelos">
@@ -43,23 +50,32 @@ export function Modelos() {
       {modelos.map((cat) => (
         <div key={cat.category}>
           <h3>{cat.category}</h3>
-          <div className="space-y-2 mb-6">
+          <div className="space-y-2.5 mb-8">
             {cat.items.map((item) => (
               <a
                 key={item.file}
                 href={`https://pdde-gad-cre-04.lovable.app/models/${item.file}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 p-3 rounded border border-border hover:bg-muted/50 transition-colors no-underline"
+                className="group flex items-start gap-3 p-4 rounded-lg border border-border hover:border-primary/30 hover:bg-accent/30 hover:shadow-sm transition-all duration-200 no-underline"
               >
-                <FileText className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                <div className="p-2 rounded-md bg-primary/10 group-hover:bg-primary/15 transition-colors">
+                  <FileText className="w-4 h-4 text-primary" />
+                </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-sans text-sm font-semibold text-heading">{item.name}</div>
-                  <div className="font-sans text-xs text-muted-foreground">
-                    {item.type} · {item.size}
+                  <div className="font-sans text-sm font-semibold text-heading group-hover:text-primary transition-colors">
+                    {item.name}
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 mt-1">
+                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold font-sans ${typeBadgeColors[item.type] || ""}`}>
+                      {item.type}
+                    </span>
+                    <span className="font-sans text-[11px] text-muted-foreground">
+                      {item.size}
+                    </span>
                   </div>
                 </div>
-                <ExternalLink className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                <Download className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 mt-1 transition-colors" />
               </a>
             ))}
           </div>

@@ -1,19 +1,23 @@
 import { Callout } from "../Callout";
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 function Expandable({ title, children }: { title: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-border rounded my-4">
+    <div className="border border-border rounded-lg my-4 overflow-hidden transition-shadow hover:shadow-sm">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 font-sans text-sm font-semibold text-heading hover:bg-muted/50 transition-colors"
+        className="w-full flex items-center justify-between px-5 py-3.5 font-sans text-sm font-semibold text-heading hover:bg-muted/50 transition-colors"
       >
         {title}
-        {open ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
-      {open && <div className="px-4 pb-4 text-[0.92em]">{children}</div>}
+      <div
+        className={`overflow-hidden transition-all duration-250 ease-out ${open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
+      >
+        <div className="px-5 pb-4 pt-1 text-[0.92em] border-t border-border">{children}</div>
+      </div>
     </div>
   );
 }
