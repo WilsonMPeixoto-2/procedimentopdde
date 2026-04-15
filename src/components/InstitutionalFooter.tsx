@@ -2,11 +2,18 @@ import { Building2, Phone, Mail } from "lucide-react";
 
 export function InstitutionalFooter() {
   return (
-    <div className="mt-16 mb-4">
+    <div className="mt-20 mb-4">
+      {/* Divider */}
+      <div className="flex items-center gap-4 mb-10">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="w-2 h-2 rounded-full bg-primary/30" />
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      </div>
+
       {/* GAD Card */}
-      <div className="rounded-2xl bg-gradient-to-b from-[hsl(210,30%,96%)] to-background border border-border/60 p-6 sm:p-8 text-center">
+      <div className="rounded-2xl bg-gradient-to-b from-accent to-background border border-border/60 p-6 sm:p-8 text-center shadow-sm">
         <div className="flex items-center justify-center gap-2 text-muted-foreground font-sans text-sm mb-2">
-          <Building2 className="w-4 h-4" />
+          <Building2 className="w-4 h-4 text-primary/60" />
           4ª Coordenadoria Regional de Educação
         </div>
 
@@ -14,7 +21,7 @@ export function InstitutionalFooter() {
           Gerência de Administração (GAD)
         </h3>
 
-        <p className="font-sans text-sm text-muted-foreground mb-5">
+        <p className="font-sans text-sm text-muted-foreground mb-5 max-w-md mx-auto">
           Este documento foi elaborado pela Gerência de Administração da 4ª CRE para
           auxiliar diretores e gestores escolares na prestação de contas do PDDE.
         </p>
@@ -32,7 +39,7 @@ export function InstitutionalFooter() {
       </div>
 
       {/* Developer credits */}
-      <div className="mt-6 pt-6 border-t border-border text-center">
+      <div className="mt-8 pt-6 border-t border-border/50 text-center">
         <p className="font-sans text-sm text-muted-foreground mb-1">
           Desenvolvido por <strong className="text-foreground font-semibold">Wilson M. Peixoto</strong> — SME/RJ
         </p>
