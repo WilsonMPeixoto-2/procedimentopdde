@@ -349,7 +349,9 @@ section[id] {
 
 /* Print styles */
 @media print {
-  body {
+  html, body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     font-size: 11pt;
     line-height: 1.6;
     color: #000;
@@ -366,13 +368,7 @@ section[id] {
     color: #1a1a2e;
   }
 
-  h1::after {
-    background: #2563a0;
-  }
-
-  h2 {
-    border-left-color: #2563a0;
-  }
+  /* Keep the newly introduced premium typography logic for print */
 
   section {
     page-break-inside: avoid;
@@ -383,12 +379,12 @@ section[id] {
   }
 
   th {
-    background: #2563a0 !important;
+    background: hsl(var(--primary)) !important;
     color: #fff !important;
   }
 
   a {
-    color: #2563a0;
+    color: hsl(var(--primary));
     text-decoration: none;
   }
 
@@ -413,5 +409,7 @@ section[id] {
   .system-preview {
     border: 1px solid #ccc;
     box-shadow: none;
+    /* Ensure mockups don't get cut in half across pages */
+    page-break-inside: avoid;
   }
 }
