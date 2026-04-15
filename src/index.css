@@ -68,6 +68,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    color: hsl(220 20% 22%);
   }
 
   /* Justified text for prose content */
@@ -82,32 +83,61 @@
     font-family: 'Inter', system-ui, sans-serif;
     color: hsl(var(--heading-color));
     line-height: 1.3;
+    text-align: left;
   }
 
   h1 {
     font-size: 1.85rem;
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     letter-spacing: -0.025em;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: hsl(var(--primary));
+    border-radius: 2px;
   }
 
   h2 {
     font-size: 1.35rem;
     font-weight: 700;
     margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.25rem;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.5rem;
     padding-left: 0.85rem;
     border-left: 4px solid hsl(var(--primary));
     border-bottom: 1px solid hsl(var(--section-divider));
     text-align: left;
+    color: hsl(var(--heading-color));
   }
 
   h3 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
+    color: hsl(var(--heading-color));
+    position: relative;
+    padding-left: 0.75rem;
+  }
+
+  h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
   }
 
   h4 {
@@ -115,15 +145,17 @@
     font-weight: 600;
     margin-top: 1.5rem;
     margin-bottom: 0.4rem;
+    color: hsl(220 20% 28%);
   }
 
   code {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85em;
     background: hsl(var(--code-bg));
-    padding: 0.15em 0.4em;
+    padding: 0.2em 0.45em;
     border-radius: 4px;
     font-weight: 500;
+    border: 1px solid hsl(var(--border));
   }
 
   a {
@@ -132,10 +164,11 @@
     text-decoration-color: hsl(var(--link-color) / 0.3);
     text-underline-offset: 3px;
     transition: all 0.2s ease;
+    font-weight: 500;
   }
   a:hover {
     text-decoration-color: hsl(var(--link-color));
-    color: hsl(210 60% 30%);
+    color: hsl(210 60% 28%);
   }
 
   table {
@@ -147,39 +180,49 @@
     border-radius: 0.5rem;
     overflow: hidden;
     border: 1px solid hsl(var(--border));
+    box-shadow: 0 1px 3px hsl(var(--foreground) / 0.04);
   }
   th, td {
-    padding: 0.65rem 0.85rem;
+    padding: 0.7rem 0.9rem;
     text-align: left;
     border-bottom: 1px solid hsl(var(--border));
   }
   th {
     font-weight: 600;
-    color: hsl(var(--heading-color));
-    background: hsl(var(--muted));
-    font-size: 0.85em;
+    color: hsl(var(--primary-foreground));
+    background: hsl(var(--primary));
+    font-size: 0.82em;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
   }
   tr:last-child td {
     border-bottom: none;
   }
+  tr:nth-child(even) td {
+    background: hsl(var(--muted) / 0.35);
+  }
   tr:hover td {
-    background: hsl(var(--muted) / 0.4);
+    background: hsl(var(--accent) / 0.6);
   }
 }
 
 /* Prose content styling */
 .prose-manual p {
-  margin-bottom: 1.15em;
+  margin-bottom: 1.2em;
   hanging-punctuation: first;
   text-align: justify;
   text-justify: inter-word;
+  line-height: 1.85;
+}
+
+/* First paragraph of a section — slightly larger */
+.prose-manual section > p:first-of-type {
+  font-size: 1.02em;
 }
 
 /* Section dividers between major sections */
 .prose-manual > section + section {
-  padding-top: 1.5rem;
+  padding-top: 2rem;
   border-top: 1px solid hsl(var(--section-divider));
 }
 
@@ -198,11 +241,13 @@
 }
 
 .prose-manual li {
-  margin-bottom: 0.45em;
+  margin-bottom: 0.5em;
+  line-height: 1.7;
 }
 
 .prose-manual li::marker {
   color: hsl(var(--primary));
+  font-weight: 700;
 }
 
 .prose-manual strong {
@@ -214,11 +259,11 @@
 .prose-manual section#apresentacao > p:first-of-type::first-letter {
   float: left;
   font-family: 'Inter', sans-serif;
-  font-size: 3.2em;
+  font-size: 3.4em;
   font-weight: 800;
-  line-height: 0.85;
-  padding-right: 0.1em;
-  padding-top: 0.05em;
+  line-height: 0.82;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
   color: hsl(var(--primary));
 }
 
@@ -230,12 +275,13 @@
 /* System visualization */
 .system-preview {
   margin: 2rem 0;
-  padding: 1.25rem;
-  background: hsl(220 20% 97%);
+  padding: 1.5rem;
+  background: hsl(0 0% 100%);
   border: 1px solid hsl(var(--border));
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-family: 'Inter', sans-serif;
   font-size: 0.9em;
+  box-shadow: 0 4px 16px hsl(var(--foreground) / 0.06), 0 1px 3px hsl(var(--foreground) / 0.04);
 }
 
 /* Sidebar navigation */
@@ -255,7 +301,7 @@
   padding: 0.5rem 0;
   font-family: 'Inter', sans-serif;
   font-size: 0.92em;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* Section number */
@@ -263,22 +309,22 @@
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   color: hsl(var(--primary));
-  font-size: 0.75em;
+  font-size: 0.72em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.6rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background: hsl(var(--accent));
-  padding: 0.25rem 0.75rem 0.25rem 0;
+  padding: 0.3rem 0.85rem 0.3rem 0;
   border-radius: 0 0.25rem 0.25rem 0;
 }
 
 .section-number::before {
   content: '';
   display: inline-block;
-  width: 24px;
+  width: 28px;
   height: 3px;
   background: hsl(var(--primary));
   border-radius: 2px;
@@ -340,7 +386,7 @@ section[id] {
     background: #fff;
   }
 
-  .print\\:hidden,
+  .print\:hidden,
   .no-print {
     display: none !important;
   }
@@ -348,6 +394,10 @@ section[id] {
   h1, h2, h3, h4 {
     page-break-after: avoid;
     color: #1a1a2e;
+  }
+
+  h1::after {
+    background: #2563a0;
   }
 
   h2 {
@@ -360,6 +410,11 @@ section[id] {
 
   table {
     page-break-inside: avoid;
+  }
+
+  th {
+    background: #2563a0 !important;
+    color: #fff !important;
   }
 
   a {

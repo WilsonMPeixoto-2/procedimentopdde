@@ -5,18 +5,23 @@ import { ChevronDown } from "lucide-react";
 function Expandable({ title, children }: { title: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-border rounded-lg my-4 overflow-hidden transition-shadow hover:shadow-sm">
+    <div className={`border rounded-lg my-4 overflow-hidden transition-all duration-200 ${open ? "border-primary/30 shadow-md" : "border-border hover:shadow-sm hover:border-primary/15"}`}>
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-5 py-3.5 font-sans text-sm font-semibold text-heading hover:bg-muted/50 transition-colors"
+        className={`w-full flex items-center justify-between px-5 py-3.5 font-sans text-sm font-semibold transition-colors ${
+          open ? "bg-accent/60 text-heading" : "text-heading hover:bg-muted/50"
+        }`}
       >
-        {title}
-        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+        <span className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+          {title}
+        </span>
+        <ChevronDown className={`w-4 h-4 text-primary transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
       <div
         className={`overflow-hidden transition-all duration-250 ease-out ${open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
       >
-        <div className="px-5 pb-4 pt-1 text-[0.92em] border-t border-border">{children}</div>
+        <div className="px-5 pb-4 pt-3 text-[0.92em] border-t border-border/60 bg-background">{children}</div>
       </div>
     </div>
   );

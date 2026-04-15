@@ -26,17 +26,17 @@ function ProgressBar({ done, total }: { done: number; total: number }) {
   const isComplete = done === total;
 
   return (
-    <div className="flex items-center gap-3 mb-4 font-sans">
-      <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
+    <div className="flex items-center gap-3 mb-5 font-sans">
+      <div className="flex-1 h-2.5 rounded-full bg-muted overflow-hidden shadow-inner">
         <div
           className={`h-full rounded-full transition-all duration-300 ease-out ${isComplete ? "bg-[hsl(var(--tip-border))]" : "bg-primary"}`}
           style={{ width: `${pct}%` }}
         />
       </div>
-      <span className={`text-xs font-semibold tabular-nums ${isComplete ? "text-[hsl(var(--tip-fg))]" : "text-muted-foreground"}`}>
+      <span className={`text-xs font-bold tabular-nums min-w-[36px] text-right ${isComplete ? "text-[hsl(var(--tip-fg))]" : "text-muted-foreground"}`}>
         {done}/{total}
       </span>
-      {isComplete && <CheckCircle2 className="w-4 h-4 text-[hsl(var(--tip-fg))]" />}
+      {isComplete && <CheckCircle2 className="w-5 h-5 text-[hsl(var(--tip-fg))]" />}
     </div>
   );
 }
@@ -58,7 +58,7 @@ export function ChecklistSection() {
     <section id="checklist">
       <div className="section-number">Recurso</div>
       <h1>Checklist — Prestação de Contas do PDDE</h1>
-      <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6">
+      <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6 !text-left">
         Use esta lista para conferir a documentação antes de remeter o processo.
       </p>
 
@@ -67,19 +67,23 @@ export function ChecklistSection() {
         Núcleo da comprovação da execução e da prestação de contas.
       </p>
       <ProgressBar done={doneA} total={blocoA.length} />
-      <div className="space-y-0.5 mb-8">
+      <div className="space-y-1 mb-8">
         {blocoA.map((item, i) => (
           <button
             key={i}
             onClick={() => toggle(checkedA, setCheckedA, i)}
-            className="checklist-item w-full text-left cursor-pointer hover:bg-muted/50 rounded-lg px-3 py-2.5 transition-all duration-150 group"
+            className={`checklist-item w-full text-left cursor-pointer rounded-lg px-3.5 py-3 transition-all duration-150 group border ${
+              checkedA[i]
+                ? "bg-[hsl(var(--tip-bg))] border-[hsl(var(--tip-border)/0.3)]"
+                : "border-transparent hover:bg-muted/50 hover:border-border"
+            }`}
           >
             {checkedA[i] ? (
-              <Check className="w-4 h-4 text-[hsl(var(--tip-fg))] shrink-0 mt-0.5" />
+              <Check className="w-4.5 h-4.5 text-[hsl(var(--tip-fg))] shrink-0 mt-0.5" />
             ) : (
-              <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5 group-hover:text-primary transition-colors" />
+              <Square className="w-4.5 h-4.5 text-muted-foreground/50 shrink-0 mt-0.5 group-hover:text-primary transition-colors" />
             )}
-            <span className={`transition-colors ${checkedA[i] ? "line-through text-muted-foreground" : ""}`}>
+            <span className={`transition-colors ${checkedA[i] ? "line-through text-muted-foreground/70" : ""}`}>
               {item}
             </span>
           </button>
@@ -91,19 +95,23 @@ export function ChecklistSection() {
         Inclua quando o objeto, o fluxo local ou a rotina patrimonial/documental exigir reforço.
       </p>
       <ProgressBar done={doneB} total={blocoB.length} />
-      <div className="space-y-0.5">
+      <div className="space-y-1">
         {blocoB.map((item, i) => (
           <button
             key={i}
             onClick={() => toggle(checkedB, setCheckedB, i)}
-            className="checklist-item w-full text-left cursor-pointer hover:bg-muted/50 rounded-lg px-3 py-2.5 transition-all duration-150 group"
+            className={`checklist-item w-full text-left cursor-pointer rounded-lg px-3.5 py-3 transition-all duration-150 group border ${
+              checkedB[i]
+                ? "bg-[hsl(var(--tip-bg))] border-[hsl(var(--tip-border)/0.3)]"
+                : "border-transparent hover:bg-muted/50 hover:border-border"
+            }`}
           >
             {checkedB[i] ? (
-              <Check className="w-4 h-4 text-[hsl(var(--tip-fg))] shrink-0 mt-0.5" />
+              <Check className="w-4.5 h-4.5 text-[hsl(var(--tip-fg))] shrink-0 mt-0.5" />
             ) : (
-              <Square className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5 group-hover:text-primary transition-colors" />
+              <Square className="w-4.5 h-4.5 text-muted-foreground/50 shrink-0 mt-0.5 group-hover:text-primary transition-colors" />
             )}
-            <span className={`transition-colors ${checkedB[i] ? "line-through text-muted-foreground" : ""}`}>
+            <span className={`transition-colors ${checkedB[i] ? "line-through text-muted-foreground/70" : ""}`}>
               {item}
             </span>
           </button>
