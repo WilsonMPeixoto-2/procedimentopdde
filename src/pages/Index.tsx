@@ -39,8 +39,9 @@ const Index = () => {
     <ManualLayout onSectionChange={scrollToSection}>
       <Hero />
 
-      <Apresentacao />
-      <ContentDivider />
+      <div className="max-w-prose mx-auto px-5 sm:px-6 pb-12 prose-manual print:max-w-none print:px-8">
+        <Apresentacao />
+        <ContentDivider />
       <Escopo />
 
       <SectionBanner
@@ -109,6 +110,7 @@ const Index = () => {
       <Referencias />
 
       <InstitutionalFooter />
+      </div>
     </ManualLayout>
   );
 };

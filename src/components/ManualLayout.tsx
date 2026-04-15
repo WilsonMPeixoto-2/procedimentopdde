@@ -110,7 +110,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
           </button>
         </div>
 
-        <div className="max-w-prose mx-auto px-5 sm:px-6 py-10 lg:py-12 prose-manual print:max-w-none print:px-8">
+        <div className="w-full flex-1">
           {children}
         </div>
       </main>
