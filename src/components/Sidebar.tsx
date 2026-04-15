@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 interface SidebarProps {
   onSectionChange: (section: string) => void;
 }
@@ -18,44 +20,71 @@ const sections = [
 ];
 
 export function Sidebar({ onSectionChange }: SidebarProps) {
+  const [activeId, setActiveId] = useState("apresentacao");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length > 0) {
+          setActiveId(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
+    );
+
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="sidebar-nav flex flex-col h-full">
       <div className="px-5 py-6 border-b border-sidebar-border">
-        <div className="text-xs font-semibold uppercase tracking-wider text-sidebar-primary mb-1">
+        <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-sidebar-primary mb-1">
           Procedimento Operacional Padrão
         </div>
-        <div className="text-sm text-sidebar-foreground/70">
+        <div className="text-sm text-sidebar-foreground/70 font-medium">
           Prestação de Contas PDDE
         </div>
-        <div className="text-xs text-sidebar-foreground/40 mt-1">
+        <div className="text-[11px] text-sidebar-foreground/35 mt-1.5">
           4ª CRE · GAD · v 2.5
         </div>
       </div>
 
       <nav className="flex-1 overflow-y-auto py-4 px-3">
-        <div className="text-[10px] font-semibold uppercase tracking-widest text-sidebar-foreground/40 px-3 mb-2">
+        <div className="text-[10px] font-semibold uppercase tracking-widest text-sidebar-foreground/35 px-3 mb-3">
           Sumário
         </div>
-        {sections.map((s) => (
-          <a
-            key={s.id}
-            href={`#${s.id}`}
-            onClick={(e) => {
-              e.preventDefault();
-              onSectionChange(s.id);
-            }}
-          >
-            {s.number && (
-              <span className="inline-block w-5 text-sidebar-foreground/40 text-xs font-mono mr-1">
-                {s.number}.
-              </span>
-            )}
-            {s.label}
-          </a>
-        ))}
+        {sections.map((s) => {
+          const isActive = activeId === s.id;
+          return (
+            <a
+              key={s.id}
+              href={`#${s.id}`}
+              className={isActive ? "active" : ""}
+              onClick={(e) => {
+                e.preventDefault();
+                onSectionChange(s.id);
+              }}
+            >
+              {s.number && (
+                <span className="inline-block w-5 text-sidebar-foreground/40 text-xs font-mono mr-1">
+                  {s.number}.
+                </span>
+              )}
+              {s.label}
+            </a>
+          );
+        })}
       </nav>
 
-      <div className="px-5 py-4 border-t border-sidebar-border text-[11px] text-sidebar-foreground/30">
+      <div className="px-5 py-4 border-t border-sidebar-border text-[11px] text-sidebar-foreground/25">
         4ª CRE · GAD · Abril 2026
       </div>
     </div>

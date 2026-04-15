@@ -13,6 +13,12 @@ import { ChecklistSection } from "@/components/sections/Checklist";
 import { Contatos } from "@/components/sections/Contatos";
 import { Referencias } from "@/components/sections/Referencias";
 
+const SectionDivider = () => (
+  <div className="my-14 flex items-center gap-4">
+    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+  </div>
+);
+
 const Index = () => {
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
@@ -25,27 +31,27 @@ const Index = () => {
     <ManualLayout onSectionChange={scrollToSection}>
       <Hero />
       <Apresentacao />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Escopo />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Abertura />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Instrucao />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Inclusao />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Autenticacao />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Assinatura />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Finalizacao />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Modelos />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <ChecklistSection />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Contatos />
-      <hr className="my-12 border-border" />
+      <SectionDivider />
       <Referencias />
     </ManualLayout>
   );
