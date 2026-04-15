@@ -39,7 +39,7 @@ const Index = () => {
     <ManualLayout onSectionChange={scrollToSection}>
       <Hero />
 
-      <div className="max-w-prose mx-auto px-5 sm:px-6 pb-12 prose-manual print:max-w-none print:px-8">
+      <div className="prose prose-slate dark:prose-invert max-w-prose mx-auto px-5 sm:px-6 pb-12 prose-manual print:max-w-none print:px-8">
         <Apresentacao />
         <ContentDivider />
       <Escopo />
