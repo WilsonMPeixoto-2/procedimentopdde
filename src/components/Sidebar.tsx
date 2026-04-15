@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { BookOpen, FileText, FolderOpen, Shield, PenTool, Send, Phone, Scale, ClipboardList, Paperclip, FileCheck } from "lucide-react";
 
+import { useScrollSpy } from "@/hooks/use-scroll-spy";
+
 interface SidebarProps {
   onSectionChange: (section: string) => void;
 }
@@ -27,7 +29,8 @@ const groups = [
 ];
 
 export function Sidebar({ onSectionChange }: SidebarProps) {
-  const [activeId, setActiveId] = useState("apresentacao");
+  const sectionIds = sections.map((s) => s.id);
+  const activeSection = useScrollSpy(sectionIds, 120);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -39,26 +42,8 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
       }
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible.length > 0) {
-          setActiveId(visible[0].target.id);
-        }
-      },
-      { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-    );
-
-    sections.forEach((s) => {
-      const el = document.getElementById(s.id);
-      if (el) observer.observe(el);
-    });
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
@@ -112,7 +97,7 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
                 </div>
               )}
               {groupSections.map((s) => {
-                const isActive = activeId === s.id;
+                const isActive = activeSection === s.id;
                 const Icon = s.icon;
                 return (
                   <a
@@ -120,7 +105,7 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
                     href={`#${s.id}`}
                     className={`group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] transition-all duration-200 mb-0.5 ${
                       isActive
-                        ? "bg-sidebar-primary/12 text-sidebar-primary font-semibold shadow-sm"
+                        ? "bg-sidebar-primary/12 text-sidebar-primary font-semibold shadow-sm active"
                         : "text-sidebar-foreground/60 hover:text-sidebar-foreground/90 hover:bg-sidebar-accent/60"
                     }`}
                     style={{ textDecoration: 'none', borderLeft: 'none' }}
