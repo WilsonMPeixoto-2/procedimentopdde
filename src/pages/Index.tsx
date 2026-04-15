@@ -14,8 +14,14 @@ import { Contatos } from "@/components/sections/Contatos";
 import { Referencias } from "@/components/sections/Referencias";
 
 const SectionDivider = () => (
-  <div className="my-14 flex items-center gap-4">
-    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+  <div className="my-16 flex items-center gap-3 px-2">
+    <div className="flex-1 h-px bg-gradient-to-r from-transparent to-border" />
+    <div className="flex gap-1">
+      <span className="w-1.5 h-1.5 rounded-full bg-primary/20" />
+      <span className="w-1.5 h-1.5 rounded-full bg-primary/35" />
+      <span className="w-1.5 h-1.5 rounded-full bg-primary/20" />
+    </div>
+    <div className="flex-1 h-px bg-gradient-to-l from-transparent to-border" />
   </div>
 );
 
