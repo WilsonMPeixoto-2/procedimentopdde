@@ -32,25 +32,6 @@ export function Apresentacao() {
         esses materiais, em parceria com vocês.
       </p>
 
-      <div className="mt-8 pt-6 border-t border-border">
-        <div className="font-sans text-xs uppercase tracking-wider text-muted-foreground mb-4">
-          Assinam esta apresentação
-        </div>
-        <div className="space-y-3">
-          <div>
-            <div className="font-sans font-semibold text-heading text-[0.95em]">
-              Fátima das Graças Lima Barros
-            </div>
-            <div className="text-sm text-muted-foreground">Coordenadora – E/4ª CRE</div>
-          </div>
-          <div>
-            <div className="font-sans font-semibold text-heading text-[0.95em]">
-              Bianca Barreto da Fonseca Coelho
-            </div>
-            <div className="text-sm text-muted-foreground">Gerente – E/4ª CRE/GAD</div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }
