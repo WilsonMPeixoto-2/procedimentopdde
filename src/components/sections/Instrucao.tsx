@@ -79,13 +79,6 @@ export function Instrucao() {
         </p>
       </Expandable>
 
-      <Callout type="warning" title="Importante">
-        <p>
-          Não use esta seção como substituta de uma orientação completa sobre execução
-          financeira do PDDE. Aqui o foco é apenas a instrução processual.
-        </p>
-      </Callout>
-
       <h2>2.2. Autenticação de documento digitalizado</h2>
       <p>
         Documentos escaneados de originais físicos devem ser autenticados no SEI!RIO no momento
@@ -95,13 +88,6 @@ export function Instrucao() {
           Resolução CD/FNDE nº 15/2021
         </a>. Para a classificação detalhada entre digitalizado e nato-digital, consulte a{" "}
         <a href="#inclusao">Seção 3</a>.
-      </p>
-
-      <h2>2.3. O que vem em seguida</h2>
-      <p>
-        Ao concluir esta etapa, você já deve saber quais peças entram no processo, quais ainda
-        precisam ser produzidas no SEI!RIO e quais exigirão autenticação. A próxima seção mostra
-        como inserir documentos digitalizados e nato-digitais com classificação correta.
       </p>
     </section>
   );
