@@ -95,7 +95,9 @@
     margin-top: 3rem;
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid hsl(var(--section-divider));
+    padding-left: 0.85rem;
+    border-left: 4px solid hsl(var(--primary));
+    border-bottom: none;
   }
 
   h3 {
