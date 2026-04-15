@@ -4,11 +4,6 @@ import { SystemPreview, SeiMenu, SeiField, SeiButton } from "../SystemPreview";
 export function Abertura() {
   return (
     <section id="abertura">
-      <div className="section-number">Seção 1</div>
-      <h1>Abertura do Processo</h1>
-      <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6">
-        Acesso ao SEI!RIO, criação do processo, numeração e identificação.
-      </p>
 
       <h2>1.1. Sobre esta etapa</h2>
       <p>
