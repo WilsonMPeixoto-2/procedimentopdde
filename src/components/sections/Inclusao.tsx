@@ -4,11 +4,6 @@ import { SystemPreview, SeiTreeItem, SeiField, SeiButton } from "../SystemPrevie
 export function Inclusao() {
   return (
     <section id="inclusao">
-      <div className="section-number">Seção 3</div>
-      <h1>Inclusão de Documentos Externos</h1>
-      <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6">
-        Como incluir documentos digitalizados e nato-digitais no SEI!RIO.
-      </p>
 
       <p>
         Nesta etapa, os documentos reunidos na instrução processual serão inseridos na árvore

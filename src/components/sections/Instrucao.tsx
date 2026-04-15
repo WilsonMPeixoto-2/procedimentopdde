@@ -25,11 +25,6 @@ function Expandable({ title, children }: { title: string; children: React.ReactN
 export function Instrucao() {
   return (
     <section id="instrucao">
-      <div className="section-number">Seção 2</div>
-      <h1>Instrução Processual</h1>
-      <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6">
-        Organização documental, regras operacionais e modelos de apoio.
-      </p>
 
       <p>
         Esta etapa reúne o <strong>núcleo documental</strong> da instrução processual. O foco é
