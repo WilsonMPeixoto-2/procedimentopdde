@@ -1,5 +1,6 @@
 import { ManualLayout } from "@/components/ManualLayout";
 import { Hero } from "@/components/sections/Hero";
+import { InstitutionalFooter } from "@/components/InstitutionalFooter";
 import { SectionBanner } from "@/components/SectionBanner";
 import { Apresentacao } from "@/components/sections/Apresentacao";
 import { Escopo } from "@/components/sections/Escopo";
@@ -106,6 +107,8 @@ const Index = () => {
 
       <ContentDivider />
       <Referencias />
+
+      <InstitutionalFooter />
     </ManualLayout>
   );
 };

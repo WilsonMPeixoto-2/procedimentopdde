@@ -301,3 +301,63 @@ section[id] {
   background: hsl(var(--primary) / 0.15);
   color: hsl(var(--heading-color));
 }
+
+/* Print styles */
+@media print {
+  body {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+  }
+
+  .print\\:hidden,
+  .no-print {
+    display: none !important;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    color: #1a1a2e;
+  }
+
+  h2 {
+    border-left-color: #2563a0;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  table {
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: #2563a0;
+    text-decoration: none;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: #666;
+    word-break: break-all;
+  }
+
+  /* Print header */
+  @page {
+    margin: 2cm 1.5cm;
+    @bottom-center {
+      content: "POP — Prestação de Contas PDDE · 4ª CRE/GAD";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #999;
+    }
+  }
+
+  .system-preview {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}

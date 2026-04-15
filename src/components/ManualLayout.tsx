@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Sidebar } from "./Sidebar";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X, Printer, Download } from "lucide-react";
 import { ReadingProgress } from "./ReadingProgress";
 import { BackToTop } from "./BackToTop";
 
@@ -11,10 +11,25 @@ interface ManualLayoutProps {
 
 export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [generating, setGenerating] = useState(false);
 
   const handleSectionChange = (section: string) => {
     setSidebarOpen(false);
     onSectionChange(section);
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  const handleDownloadPDF = async () => {
+    setGenerating(true);
+    try {
+      // Use browser print to PDF
+      window.print();
+    } finally {
+      setGenerating(false);
+    }
   };
 
   return (
@@ -24,7 +39,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
 
       {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-foreground/50 backdrop-blur-sm lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-foreground/50 backdrop-blur-sm lg:hidden transition-opacity duration-300 print:hidden ${
           sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setSidebarOpen(false)}
@@ -32,7 +47,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-50 h-full w-[270px] bg-sidebar overflow-y-auto transition-transform duration-300 ease-out lg:translate-x-0 ${
+        className={`fixed top-0 left-0 z-50 h-full w-[270px] bg-sidebar overflow-y-auto transition-transform duration-300 ease-out lg:translate-x-0 print:hidden ${
           sidebarOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
         }`}
       >
@@ -48,9 +63,9 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 lg:ml-[270px]">
+      <main className="flex-1 lg:ml-[270px] print:ml-0">
         {/* Mobile header */}
-        <div className="sticky top-0 z-30 flex items-center gap-3 border-b border-border bg-background/95 backdrop-blur-md px-4 py-2.5 lg:hidden shadow-sm">
+        <div className="sticky top-0 z-30 flex items-center gap-2 border-b border-border bg-background/95 backdrop-blur-md px-4 py-2.5 lg:hidden shadow-sm print:hidden">
           <button
             onClick={() => setSidebarOpen(true)}
             className="p-2 rounded-lg hover:bg-muted transition-colors"
@@ -60,12 +75,43 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
           <span className="font-sans text-sm font-semibold text-heading truncate flex-1">
             POP — Prestação de Contas PDDE
           </span>
-          <button className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground">
-            <Search className="w-4 h-4" />
+          <button
+            onClick={handlePrint}
+            className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
+            title="Imprimir"
+          >
+            <Printer className="w-4 h-4" />
+          </button>
+          <button
+            onClick={handleDownloadPDF}
+            disabled={generating}
+            className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
+            title="Baixar PDF"
+          >
+            <Download className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="max-w-prose mx-auto px-5 sm:px-6 py-10 lg:py-16 prose-manual">
+        {/* Desktop action bar */}
+        <div className="hidden lg:flex items-center justify-end gap-2 px-6 py-3 print:hidden">
+          <button
+            onClick={handlePrint}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-sans font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          >
+            <Printer className="w-4 h-4" />
+            Imprimir
+          </button>
+          <button
+            onClick={handleDownloadPDF}
+            disabled={generating}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-sans font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-sm"
+          >
+            <Download className="w-4 h-4" />
+            Baixar PDF
+          </button>
+        </div>
+
+        <div className="max-w-prose mx-auto px-5 sm:px-6 py-10 lg:py-12 prose-manual print:max-w-none print:px-8">
           {children}
         </div>
       </main>
