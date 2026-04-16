@@ -19,8 +19,9 @@ export function Finalizacao() {
 
       <Callout type="tip" title="Boa prática">
         <p>
-          Após a remessa, acompanhe o processo no SEI!RIO e trate rapidamente qualquer
-          devolução ou diligência. Respostas ágeis evitam acúmulo de pendências.
+          Após a remessa, acompanhe o processo no SEI!RIO e responda tempestivamente a
+          qualquer devolução ou diligência. A celeridade no atendimento evita o acúmulo
+          de pendências.
         </p>
       </Callout>
 

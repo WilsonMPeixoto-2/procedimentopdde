@@ -151,8 +151,8 @@ export function Abertura() {
           <code>PDDE — Exercício 2025 — E/CRE (04.30.502) — Ciep Elis Regina — 00.000.000/0001-00</code>
         </p>
         <p>
-          Essa padronização interna evita confusão entre anos, ações e prestações de contas
-          diferentes, sem pretensão de fixar nomenclatura única para toda a SME.
+          Essa padronização interna assegura a distinção precisa entre exercícios, ações e
+          prestações de contas distintas, sem pretensão de fixar nomenclatura única para toda a SME.
         </p>
       </Callout>
 

@@ -179,12 +179,15 @@
     border-bottom: 1px solid hsl(var(--border) / 0.7);
   }
   th {
-    font-weight: 700;
-    color: hsl(var(--primary-foreground));
+    font-weight: 800;
+    color: #ffffff;
     background: linear-gradient(135deg, hsl(var(--primary)), hsl(224 58% 38%));
-    font-size: 0.8em;
+    font-size: 0.82em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
   }
   tr:last-child td {
     border-bottom: none;
