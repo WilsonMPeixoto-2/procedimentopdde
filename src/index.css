@@ -626,7 +626,13 @@ section[id] {
 
   /* Reset wrappers so the cover is the very first printed page (no blank leaf) */
   .print-front-matter {
-    display: contents !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
+    break-after: auto !important;
+    page-break-after: auto !important;
   }
 
   .print-front-matter > section:first-child,
@@ -640,6 +646,11 @@ section[id] {
     page-break-before: avoid !important;
     break-inside: avoid-page;
     page-break-inside: avoid;
+  }
+
+  .print-front-matter > .print-cover {
+    break-before: auto !important;
+    page-break-before: auto !important;
   }
 
   main, main > div {
