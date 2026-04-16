@@ -17,7 +17,7 @@ import { Referencias } from "@/components/sections/Referencias";
 import { PrintFrontMatter, PrintColophon } from "@/components/PrintMatter";
 
 const ContentDivider = () => (
-  <div className="my-14 flex items-center gap-4 px-2">
+  <div className="content-divider my-14 flex items-center gap-4 px-2 print:hidden">
     <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     <div className="flex gap-1.5">
       <span className="w-1.5 h-1.5 rounded-full bg-primary/15" />
@@ -37,8 +37,9 @@ const Index = () => {
   };
 
   return (
-    <ManualLayout onSectionChange={scrollToSection}>
+    <>
       <PrintFrontMatter />
+      <ManualLayout onSectionChange={scrollToSection}>
       <Hero />
 
       <div className="prose prose-slate dark:prose-invert max-w-prose mx-auto px-5 sm:px-6 pb-12 prose-manual print:max-w-none print:px-8">
@@ -111,10 +112,11 @@ const Index = () => {
       <ContentDivider />
       <Referencias />
 
-      <PrintColophon />
       <InstitutionalFooter />
       </div>
-    </ManualLayout>
+      </ManualLayout>
+      <PrintColophon />
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full mb-16 px-6 py-20 sm:py-28 overflow-hidden text-center bg-gradient-to-br from-[hsl(225,30%,97%)] via-[hsl(220,25%,96%)] to-[hsl(42,25%,97%)]">
+    <section className="manual-hero relative w-full mb-16 px-6 py-20 sm:py-28 overflow-hidden text-center bg-gradient-to-br from-[hsl(225,30%,97%)] via-[hsl(220,25%,96%)] to-[hsl(42,25%,97%)]">
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 opacity-[0.025]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23264785' fill-opacity='0.5'%3E%3Cpath fill-rule='evenodd' d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E")`,
