@@ -1,4 +1,5 @@
-import { FileText, ExternalLink, Download, Zap } from "lucide-react";
+import { FileText, ArrowUpRight, Download, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const modelos = [
   {
@@ -48,10 +49,8 @@ export function Modelos() {
       </p>
 
       <h3>Ferramentas Auxiliares</h3>
-      <a
-        href="https://despacho-express-4cre.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        to="/despacho-express"
         className="group not-prose flex items-start gap-4 p-5 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 to-primary/[0.02] hover:border-primary/40 hover:shadow-md transition-all duration-200 no-underline mb-8"
       >
         <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/15 transition-colors">
@@ -63,16 +62,16 @@ export function Modelos() {
               Despacho Express — 4ª CRE
             </span>
             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold font-sans bg-primary/10 text-primary">
-              Ferramenta externa
+              Ferramenta integrada
             </span>
           </div>
           <p className="font-sans text-[12.5px] text-muted-foreground leading-relaxed m-0">
-            Gerador de despachos administrativos padronizados para apoiar a redação das peças
-            internas do processo no SEI!RIO.
+            Gerador automático dos três despachos da prestação de contas (encaminhamento,
+            análise da GAD e aprovação) em formato Word, prontos para o SEI!RIO.
           </p>
         </div>
-        <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 mt-1 transition-colors" />
-      </a>
+        <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 mt-1 transition-colors" />
+      </Link>
 
       {modelos.map((cat) => (
         <div key={cat.category}>
