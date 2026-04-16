@@ -353,6 +353,7 @@ const DespachoExpress = () => {
           <span>4ª CRE · GAD · {new Date().getFullYear()}</span>
         </div>
       </footer>
+      <BackToTop />
     </div>
   );
 };
