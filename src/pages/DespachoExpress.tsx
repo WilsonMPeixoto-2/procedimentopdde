@@ -77,7 +77,7 @@ const DespachoExpress = () => {
   const onSubmit = async (data: FormData) => {
     try {
       setIsGenerating(true);
-      await generateDespachoDocx(data);
+      await generateDespachoDocx(data as Required<FormData>);
       toast.success("Despachos gerados com sucesso!", {
         description: "O arquivo .docx foi baixado com os três despachos prontos para revisão.",
       });
