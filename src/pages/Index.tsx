@@ -14,6 +14,7 @@ import { Modelos } from "@/components/sections/Modelos";
 import { ChecklistSection } from "@/components/sections/Checklist";
 import { Contatos } from "@/components/sections/Contatos";
 import { Referencias } from "@/components/sections/Referencias";
+import { PrintFrontMatter, PrintColophon } from "@/components/PrintMatter";
 
 const ContentDivider = () => (
   <div className="my-14 flex items-center gap-4 px-2">
@@ -37,6 +38,7 @@ const Index = () => {
 
   return (
     <ManualLayout onSectionChange={scrollToSection}>
+      <PrintFrontMatter />
       <Hero />
 
       <div className="prose prose-slate dark:prose-invert max-w-prose mx-auto px-5 sm:px-6 pb-12 prose-manual print:max-w-none print:px-8">
@@ -109,6 +111,7 @@ const Index = () => {
       <ContentDivider />
       <Referencias />
 
+      <PrintColophon />
       <InstitutionalFooter />
       </div>
     </ManualLayout>

@@ -484,14 +484,18 @@ section[id] {
   margin: 0;
 }
 
-/* Print styles */
+/* ==========================================================
+   PRINT / PDF — Editorial layout
+   Cover, half-title, TOC and colophon use named @page rules
+   so headers/footers only appear on body content pages.
+   ========================================================== */
 @media print {
   html, body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-    font-size: 11pt;
-    line-height: 1.6;
-    color: #000;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #15192a;
     background: #fff;
   }
 
@@ -502,7 +506,7 @@ section[id] {
 
   h1, h2, h3, h4 {
     page-break-after: avoid;
-    color: #1a1a2e;
+    color: #15243f;
   }
 
   section {
@@ -530,16 +534,412 @@ section[id] {
     word-break: break-all;
   }
 
+  /* ---------- Default page: body content ---------- */
   @page {
-    margin: 2cm 1.5cm;
-    @bottom-center {
-      content: "POP — Prestação de Contas PDDE · 4ª CRE/GAD";
+    size: A4;
+    margin: 22mm 18mm 24mm 18mm;
+
+    @top-left {
+      content: "POP — Prestação de Contas PDDE";
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      color: #6b7280;
+      letter-spacing: 0.04em;
+    }
+    @top-right {
+      content: "4ª CRE / GAD";
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      color: #6b7280;
+      letter-spacing: 0.04em;
+    }
+    @bottom-left {
+      content: "v1.0 · Rio de Janeiro";
       font-family: 'Inter', sans-serif;
       font-size: 8pt;
-      color: #999;
+      color: #9ca3af;
+    }
+    @bottom-right {
+      content: "Pág. " counter(page) " / " counter(pages);
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #6b7280;
+      font-variant-numeric: tabular-nums;
     }
   }
 
+  /* ---------- Cover page (no header/footer) ---------- */
+  @page cover {
+    margin: 0;
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-left { content: none; }
+    @bottom-right { content: none; }
+  }
+
+  /* ---------- Half-title (contracapa) ---------- */
+  @page halftitle {
+    margin: 28mm 22mm;
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-left { content: none; }
+    @bottom-right {
+      content: "ii";
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 9pt;
+      color: #9ca3af;
+    }
+  }
+
+  /* ---------- TOC ---------- */
+  @page toc {
+    margin: 22mm 18mm;
+    @top-left {
+      content: "Sumário";
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      color: #6b7280;
+      letter-spacing: 0.04em;
+    }
+    @top-right {
+      content: "POP — PDDE · 4ª CRE";
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      color: #6b7280;
+    }
+    @bottom-right { content: none; }
+    @bottom-left { content: none; }
+  }
+
+  /* ---------- Colophon ---------- */
+  @page colophon {
+    margin: 28mm 22mm;
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-left { content: none; }
+    @bottom-right { content: none; }
+  }
+
+  /* Section bindings */
+  .print-cover     { page: cover;     break-after: page; }
+  .print-half-title{ page: halftitle; break-after: page; }
+  .print-toc       { page: toc;       break-after: page; }
+  .print-colophon  { page: colophon;  break-before: page; }
+
+  /* ---------- COVER ---------- */
+  .print-cover {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 30mm 26mm 26mm 26mm;
+    margin: 0;
+    color: #fff;
+    background:
+      radial-gradient(circle at 18% 15%, rgba(255,255,255,0.10) 0, transparent 38%),
+      radial-gradient(circle at 80% 85%, rgba(255,255,255,0.08) 0, transparent 42%),
+      linear-gradient(160deg, hsl(224 64% 33%) 0%, hsl(224 58% 24%) 60%, hsl(224 60% 18%) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  .print-cover-mark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .print-cover-icon {
+    width: 26px;
+    height: 26px;
+    color: rgba(255,255,255,0.85);
+  }
+  .print-cover-org {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .print-cover-org-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.65);
+    margin-top: 2px;
+  }
+
+  .print-cover-body {
+    margin-top: -40mm;
+  }
+  .print-cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 18px;
+    padding-left: 44px;
+    position: relative;
+  }
+  .print-cover-eyebrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 32px;
+    height: 1.5px;
+    background: rgba(255,255,255,0.55);
+  }
+  .print-cover-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 54pt;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    color: #fff;
+    margin: 0 0 8px;
+  }
+  .print-cover-title-accent {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 46pt;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: -0.02em;
+    margin-top: 6px;
+  }
+  .print-cover-subtitle {
+    margin-top: 24px;
+    max-width: 130mm;
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5pt;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.78);
+    font-weight: 400;
+  }
+
+  .print-cover-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+  .print-cover-meta-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 4px;
+  }
+  .print-cover-meta-value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ---------- HALF-TITLE / CONTRACAPA ---------- */
+  .print-half-title {
+    min-height: 240mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 14mm;
+    color: #1f2937;
+  }
+  .print-half-title-rule {
+    width: 56px;
+    height: 2px;
+    background: hsl(var(--primary));
+    margin: 24px auto;
+  }
+  .print-half-title-text {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 14pt;
+    font-style: italic;
+    line-height: 1.55;
+    text-align: center;
+    color: #374151;
+    max-width: 130mm;
+    margin: 0 auto;
+  }
+  .print-half-title-meta {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 150mm;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .print-half-title-meta > div {
+    text-align: center;
+  }
+  .print-half-title-meta span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 6px;
+  }
+  .print-half-title-meta strong {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: #1f2937;
+    line-height: 1.4;
+  }
+
+  /* ---------- TOC ---------- */
+  .print-toc {
+    padding-top: 8mm;
+  }
+  .print-toc-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: hsl(var(--primary));
+    margin-bottom: 6px;
+  }
+  .print-toc-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28pt;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #15243f;
+    margin: 0 0 18mm;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .print-toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc;
+  }
+  .print-toc-item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px dotted #e5e7eb;
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+  }
+  .print-toc-num {
+    flex-shrink: 0;
+    width: 26px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    font-weight: 700;
+    color: hsl(var(--primary));
+    text-align: center;
+  }
+  .print-toc-label {
+    color: #1f2937;
+    font-weight: 500;
+  }
+  .print-toc-leader {
+    flex: 1;
+    border-bottom: 1px dotted #d1d5db;
+    margin-bottom: 4px;
+  }
+
+  /* ---------- COLOPHON ---------- */
+  .print-colophon {
+    min-height: 230mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 14mm;
+    color: #1f2937;
+    text-align: center;
+  }
+  .print-colophon-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+  .print-colophon-rule {
+    width: 32px;
+    height: 1px;
+    background: #d1d5db;
+  }
+  .print-colophon-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #15243f;
+    margin: 0 0 16px;
+  }
+  .print-colophon-text {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: #4b5563;
+    max-width: 130mm;
+    margin: 0 auto 28px;
+  }
+  .print-colophon-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 32px;
+    max-width: 140mm;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .print-colophon-meta > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0;
+    border-top: 1px solid #e5e7eb;
+  }
+  .print-colophon-meta dt {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+  .print-colophon-meta dd {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    color: #1f2937;
+    font-weight: 500;
+  }
+  .print-colophon-foot {
+    margin-top: 32px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 10pt;
+    color: #9ca3af;
+  }
+
+  /* Body content adjustments */
   .system-preview {
     border: 1px solid #ccc;
     box-shadow: none;
