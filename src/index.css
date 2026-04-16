@@ -408,25 +408,29 @@ section[id] {
 /* Mobile typography adjustments */
 @media (max-width: 640px) {
   body {
-    font-size: 15px;
-    line-height: 1.78;
+    font-size: 15.5px;
+    line-height: 1.72;
   }
 
-  h1 {
-    font-size: 1.5rem;
+  .prose-manual section > p:first-of-type {
+    font-size: 1.04em;
   }
 
-  h2 {
-    font-size: 1.2rem;
-    margin-top: 2.25rem;
+  .prose-manual blockquote {
+    font-size: 1em;
+    padding: 1.1rem 1.2rem;
+  }
+
+  .prose-manual section#apresentacao > p:first-of-type::first-letter {
+    font-size: 3.6em;
   }
 
   table {
-    font-size: 0.82em;
+    font-size: 0.85em;
   }
 
   th, td {
-    padding: 0.55rem 0.65rem;
+    padding: 0.6rem 0.7rem;
   }
 }
 
