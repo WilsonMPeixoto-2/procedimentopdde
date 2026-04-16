@@ -6,16 +6,17 @@ export function Assinatura() {
     <section id="assinatura">
 
       <p>
-        O bloco de assinatura reúne os documentos internos do SEI!RIO que necessitam de
-        assinatura eletrônica antes da remessa do processo à GAD. Documentos externos
-        (digitalizados ou nato-digitais) <strong>não</strong> entram no bloco de assinatura.
+        O <strong>bloco de assinatura</strong> reúne os documentos internos do SEI!RIO que
+        necessitam de <strong>assinatura eletrônica</strong> antes da remessa do processo à GAD.
+        Documentos externos (digitalizados ou nato-digitais) <strong>não</strong> entram no bloco
+        de assinatura.
       </p>
 
       <h2>5.1. Criação do bloco</h2>
       <p>
-        Crie o bloco de assinatura a partir do menu do processo. Inclua apenas os documentos
-        internos que exigem assinatura — tipicamente o ofício de encaminhamento e eventuais
-        declarações produzidas no SEI!RIO.
+        Crie o bloco de assinatura a partir do menu do processo. Inclua apenas os{" "}
+        <strong>documentos internos que exigem assinatura</strong> — tipicamente o ofício de
+        encaminhamento e eventuais declarações produzidas no SEI!RIO.
       </p>
 
       <SystemPreview title="Bloco de assinatura — documentos incluídos">
@@ -45,8 +46,8 @@ export function Assinatura() {
 
       <h2>5.2. Assinaturas</h2>
       <p>
-        Conclua as assinaturas internas necessárias. Após a última assinatura, gere o despacho
-        de encaminhamento e remeta o processo à GAD.
+        Conclua as <strong>assinaturas internas</strong> necessárias. Após a última assinatura,
+        gere o <strong>despacho de encaminhamento</strong> e remeta o processo à GAD.
       </p>
 
       <Callout type="info" title="Bloco de assinatura">
@@ -69,8 +70,8 @@ export function Assinatura() {
       <h2>5.3. Remessa à GAD</h2>
       <p>
         Após concluir as assinaturas e gerar o despacho, utilize a funcionalidade de envio
-        do processo para encaminhá-lo à 4ª CRE/GAD. Confirme que todos os documentos estão
-        na ordem correta na árvore antes de enviar.
+        do processo para encaminhá-lo à <strong>4ª CRE/GAD</strong>. Confirme que todos os
+        documentos estão na <strong>ordem correta na árvore</strong> antes de enviar.
       </p>
 
       <SystemPreview title="Envio do processo">

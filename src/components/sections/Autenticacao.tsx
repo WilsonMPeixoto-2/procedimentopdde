@@ -14,32 +14,34 @@ export function Autenticacao() {
 
       <h2>4.1. Quando autenticar</h2>
       <p>
-        Autentique toda peça que tenha sido escaneada ou fotografada a partir de um original
-        físico: notas fiscais impressas, atas manuscritas, recibos em papel, extratos impressos.
-        A autenticação registra que a cópia digital <strong>confere com o original</strong>.
+        Autentique <strong>toda peça que tenha sido escaneada ou fotografada a partir de um
+        original físico</strong>: notas fiscais impressas, atas manuscritas, recibos em papel,
+        extratos impressos. A autenticação registra que a cópia digital{" "}
+        <strong>confere com o original</strong>.
       </p>
 
       <h2>4.2. Quando não autenticar</h2>
       <p>
-        Não autentique documentos que já nasceram digitais: DANFE gerada eletronicamente,
-        extrato bancário baixado do internet banking, comprovante de transferência eletrônica,
-        documentos gerados no próprio SEI!RIO.
+        <strong>Não autentique</strong> documentos que já nasceram digitais: DANFE gerada
+        eletronicamente, extrato bancário baixado do internet banking, comprovante de transferência
+        eletrônica, documentos gerados no próprio SEI!RIO.
       </p>
 
       <Callout type="warning" title="Atenção">
         <p>
-          Confundir autenticação com assinatura eletrônica é um dos erros mais comuns. A
-          autenticação atesta que uma cópia digital corresponde ao original físico. A assinatura
-          eletrônica é ato de manifestação de vontade ou concordância sobre o conteúdo do documento.
+          Confundir <strong>autenticação</strong> com <strong>assinatura eletrônica</strong> é um
+          dos erros mais comuns. A <strong>autenticação</strong> atesta que uma cópia digital
+          corresponde ao original físico. A <strong>assinatura eletrônica</strong> é ato de
+          manifestação de vontade ou concordância sobre o conteúdo do documento.
         </p>
       </Callout>
 
       <h2>4.3. Procedimento no SEI!RIO</h2>
       <p>
         Acesse o documento digitalizado na árvore do processo, utilize a funcionalidade de
-        autenticação e selecione a opção que declara conformidade com o original.
-        Os originais físicos devem permanecer arquivados na unidade escolar pelo prazo
-        regulamentar.
+        autenticação e selecione a opção que declara <strong>conformidade com o original</strong>.
+        Os <strong>originais físicos</strong> devem permanecer arquivados na unidade escolar pelo
+        prazo regulamentar.
       </p>
 
       <SystemPreview title="Autenticação de documento digitalizado">

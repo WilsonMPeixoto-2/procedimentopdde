@@ -7,9 +7,9 @@ export function Abertura() {
 
       <h2>1.1. Sobre esta etapa</h2>
       <p>
-        A etapa inicial compreende a autuação do processo administrativo eletrônico em que serão
-        registrados os dados básicos da prestação de contas, definidos os campos de identificação
-        e criada a base formal sobre a qual a instrução seguirá nas etapas posteriores.
+        A etapa inicial compreende a <strong>autuação do processo administrativo eletrônico</strong>{" "}
+        em que serão registrados os dados básicos da prestação de contas, definidos os campos de
+        identificação e criada a base formal sobre a qual a instrução seguirá nas etapas posteriores.
       </p>
 
       <Callout type="tip" title="Antes de começar">
@@ -52,9 +52,9 @@ export function Abertura() {
 
       <h2>1.3. Tipo correto de processo</h2>
       <p>
-        Ao acessar a criação do processo, o sistema solicitará a seleção do tipo processual.
-        Use o tipo padronizado da prestação de contas do CEC, evitando resultados de busca
-        semelhantes, porém estranhos a este fluxo.
+        Ao acessar a criação do processo, o sistema solicitará a seleção do <strong>tipo
+        processual</strong>. Use o tipo padronizado da prestação de contas do CEC, evitando
+        resultados de busca semelhantes, porém estranhos a este fluxo.
       </p>
 
       <Callout type="info" title="Tipo de processo correto">
@@ -92,9 +92,9 @@ export function Abertura() {
 
       <h2>1.4. Classificação por Assuntos</h2>
       <p>
-        A classificação por assuntos decorre do tipo de processo escolhido na etapa anterior.
-        Ela deve permanecer coerente com a autuação e não precisa ser reinventada pelo cadastrante
-        quando o tipo correto já tiver sido selecionado.
+        A <strong>classificação por assuntos</strong> decorre do tipo de processo escolhido na
+        etapa anterior. Ela deve permanecer coerente com a autuação e <strong>não precisa ser
+        reinventada</strong> pelo cadastrante quando o tipo correto já tiver sido selecionado.
       </p>
       <p>
         Classificação automática esperada:{" "}
@@ -158,9 +158,10 @@ export function Abertura() {
 
       <h2>1.6. Nível de acesso</h2>
       <p>
-        A definição do nível de acesso é decisão administrativa relacionada à publicidade do
-        processo, à transparência da prestação de contas, à rastreabilidade do fluxo e à proteção
-        de dados pessoais quando a documentação exigir tratamento específico.
+        A definição do <strong>nível de acesso</strong> é decisão administrativa relacionada à
+        publicidade do processo, à transparência da prestação de contas, à rastreabilidade do fluxo
+        e à <strong>proteção de dados pessoais</strong> quando a documentação exigir tratamento
+        específico.
       </p>
 
       <table>
@@ -197,8 +198,9 @@ export function Abertura() {
 
       <h2>1.7. Interessados do processo</h2>
       <p>
-        Registre as unidades que possuem interesse direto no processo. Para o fluxo da prestação
-        de contas do PDDE, a GAD e a unidade escolar devem constar desde a abertura.
+        Registre as unidades que possuem <strong>interesse direto no processo</strong>. Para o
+        fluxo da prestação de contas do PDDE, a <strong>GAD</strong> e a <strong>unidade
+        escolar</strong> devem constar desde a abertura.
       </p>
       <ul>
         <li>
