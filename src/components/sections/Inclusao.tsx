@@ -6,10 +6,10 @@ export function Inclusao() {
     <section id="inclusao">
 
       <p>
-        Nesta etapa, os documentos reunidos na instrução processual serão inseridos na árvore
-        do processo eletrônico. A correta classificação entre documento <strong>digitalizado</strong>{" "}
-        e <strong>nato-digital</strong> é essencial para determinar se a peça seguirá para
-        autenticação ou será juntada diretamente como original.
+        Nesta etapa, os documentos reunidos na instrução processual serão inseridos na{" "}
+        <strong>árvore do processo eletrônico</strong>. A correta classificação entre documento{" "}
+        <strong>digitalizado</strong> e <strong>nato-digital</strong> é essencial para determinar
+        se a peça seguirá para autenticação ou será juntada diretamente como original.
       </p>
 
       <h2>3.1. Documento digitalizado vs. nato-digital</h2>
@@ -44,9 +44,10 @@ export function Inclusao() {
 
       <h2>3.2. Procedimento de inclusão</h2>
       <p>
-        Para incluir um documento externo, acesse a árvore do processo e utilize a opção de
-        incluir documento. Preencha os campos de identificação com clareza: tipo do documento,
-        data, número (quando houver) e formato (digitalizado ou nato-digital).
+        Para incluir um <strong>documento externo</strong>, acesse a árvore do processo e utilize
+        a opção de incluir documento. Preencha os campos de identificação com clareza:{" "}
+        <strong>tipo do documento, data, número</strong> (quando houver) e <strong>formato</strong>{" "}
+        (digitalizado ou nato-digital).
       </p>
 
       <SystemPreview title="Inclusão de documento externo">
@@ -80,9 +81,9 @@ export function Inclusao() {
 
       <h2>3.3. Ordem de inserção</h2>
       <p>
-        Insira os documentos na ordem lógica da instrução: ofício, planejamento, pesquisa de
-        preços, demonstrativo, extratos, notas fiscais, atas. A árvore do processo deve refletir
-        a sequência natural de leitura da prestação de contas.
+        Insira os documentos na <strong>ordem lógica da instrução</strong>: ofício, planejamento,
+        pesquisa de preços, demonstrativo, extratos, notas fiscais, atas. A árvore do processo
+        deve refletir a <strong>sequência natural de leitura</strong> da prestação de contas.
       </p>
 
       <SystemPreview title="Árvore do processo — ordem sugerida">
