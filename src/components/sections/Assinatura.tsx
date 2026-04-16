@@ -57,13 +57,14 @@ export function Assinatura() {
         </p>
       </Callout>
 
-      <Callout type="tip" title="Despacho Express">
+      <Callout type="tip" title="Atalho: Despacho Express">
         <p>
-          Para a redação do despacho de encaminhamento, utilize o{" "}
-          <a href="https://despacho-express-4cre.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Para a redação do despacho de encaminhamento, utilize o gerador interno{" "}
+          <a href="/despacho-express">
             <strong>Despacho Express — 4ª CRE</strong>
-          </a>{" "}
-          como apoio à padronização do texto.
+          </a>
+          . Os três despachos padronizados são gerados em <strong>.docx</strong> a partir dos
+          dados da unidade escolar.
         </p>
       </Callout>
 
