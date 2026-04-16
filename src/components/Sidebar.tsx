@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BookOpen, FileText, FolderOpen, Shield, PenTool, Send, Phone, Scale, ClipboardList, Paperclip, FileCheck } from "lucide-react";
+import { BookOpen, FileText, FolderOpen, Shield, PenTool, Send, Phone, Scale, ClipboardList, Paperclip, FileCheck, Zap, ExternalLink } from "lucide-react";
 
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 
@@ -134,6 +134,19 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
                   </a>
                 );
               })}
+              {group.key === "apoio" && (
+                <a
+                  href="https://despacho-express-4cre.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] transition-all duration-200 mb-0.5 text-sidebar-foreground/60 hover:text-sidebar-primary hover:bg-sidebar-accent/60"
+                  style={{ textDecoration: 'none', borderLeft: 'none' }}
+                >
+                  <Zap className="w-3.5 h-3.5 shrink-0 text-sidebar-foreground/35 group-hover:text-sidebar-primary transition-colors" />
+                  <span className="truncate leading-tight">Despacho Express</span>
+                  <ExternalLink className="ml-auto w-3 h-3 shrink-0 text-sidebar-foreground/30 group-hover:text-sidebar-primary" />
+                </a>
+              )}
             </div>
           );
         })}

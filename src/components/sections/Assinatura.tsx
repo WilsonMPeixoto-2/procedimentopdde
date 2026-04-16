@@ -56,6 +56,16 @@ export function Assinatura() {
         </p>
       </Callout>
 
+      <Callout type="tip" title="Despacho Express">
+        <p>
+          Para a redação do despacho de encaminhamento, utilize o{" "}
+          <a href="https://despacho-express-4cre.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <strong>Despacho Express — 4ª CRE</strong>
+          </a>{" "}
+          como apoio à padronização do texto.
+        </p>
+      </Callout>
+
       <h2>5.3. Remessa à GAD</h2>
       <p>
         Após concluir as assinaturas e gerar o despacho, utilize a funcionalidade de envio
