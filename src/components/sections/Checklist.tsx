@@ -29,9 +29,13 @@ function ProgressBar({ done, total }: { done: number; total: number }) {
     <div className="flex items-center gap-3 mb-5 font-sans">
       <div className="flex-1 h-2.5 rounded-full bg-muted overflow-hidden shadow-inner">
         <div
-          className={`h-full rounded-full transition-all duration-300 ease-out ${isComplete ? "bg-[hsl(var(--tip-border))]" : "bg-primary"}`}
+          className={`h-full rounded-full transition-all duration-300 ease-out relative overflow-hidden ${isComplete ? "bg-[hsl(var(--tip-border))]" : "bg-primary"}`}
           style={{ width: `${pct}%` }}
-        />
+        >
+          {pct > 0 && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-[shimmer_2s_infinite]" />
+          )}
+        </div>
       </div>
       <span className={`text-xs font-bold tabular-nums min-w-[36px] text-right ${isComplete ? "text-[hsl(var(--tip-fg))]" : "text-muted-foreground"}`}>
         {done}/{total}
