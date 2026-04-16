@@ -627,11 +627,25 @@ section[id] {
   .print-toc       { page: toc;       break-after: page; }
   .print-colophon  { page: colophon;  break-before: page; }
 
+  /* Reset wrappers so the cover is the very first printed page (no blank leaf) */
+  .print-front-matter,
+  .print-front-matter > section:first-child {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    break-before: avoid-page !important;
+    page-break-before: avoid !important;
+  }
+  main, main > div {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   /* ---------- COVER ---------- */
   .print-cover {
     width: 210mm;
+    height: 297mm;
     min-height: 297mm;
-    padding: 30mm 26mm 26mm 26mm;
+    padding: 22mm 20mm 22mm 22mm;
     margin: 0;
     color: #fff;
     background:
