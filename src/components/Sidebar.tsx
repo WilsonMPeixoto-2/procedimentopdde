@@ -66,7 +66,7 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
           </div>
         </div>
 
-        {/* Progress bar */}
+        {/* Progress bar with shimmer */}
         <div className="mt-3">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-sidebar-foreground/35">
@@ -76,11 +76,13 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
               {Math.round(progress)}%
             </span>
           </div>
-          <div className="h-1 rounded-full bg-sidebar-accent overflow-hidden">
+          <div className="h-1.5 rounded-full bg-sidebar-accent overflow-hidden">
             <div
-              className="h-full rounded-full bg-sidebar-primary transition-[width] duration-200 ease-out"
+              className="h-full rounded-full bg-gradient-to-r from-sidebar-primary to-[hsl(215,65%,58%)] transition-[width] duration-200 ease-out relative overflow-hidden"
               style={{ width: `${progress}%` }}
-            />
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_2s_infinite]" />
+            </div>
           </div>
         </div>
       </div>
@@ -103,9 +105,9 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
                   <a
                     key={s.id}
                     href={`#${s.id}`}
-                    className={`group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] transition-all duration-200 mb-0.5 ${
+                    className={`group relative flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] transition-all duration-200 mb-0.5 ${
                       isActive
-                        ? "bg-sidebar-primary/12 text-sidebar-primary font-semibold shadow-sm active"
+                        ? "bg-sidebar-primary/12 text-sidebar-primary font-semibold shadow-sm"
                         : "text-sidebar-foreground/60 hover:text-sidebar-foreground/90 hover:bg-sidebar-accent/60"
                     }`}
                     style={{ textDecoration: 'none', borderLeft: 'none' }}
@@ -114,6 +116,10 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
                       onSectionChange(s.id);
                     }}
                   >
+                    {/* Active indicator bar */}
+                    {isActive && (
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full bg-sidebar-primary transition-all duration-300" />
+                    )}
                     <Icon className={`w-3.5 h-3.5 shrink-0 transition-colors ${
                       isActive ? "text-sidebar-primary" : "text-sidebar-foreground/35 group-hover:text-sidebar-foreground/60"
                     }`} />
