@@ -510,10 +510,6 @@ section[id] {
     color: #15243f;
   }
 
-  section {
-    page-break-inside: avoid;
-  }
-
   table {
     page-break-inside: avoid;
   }
@@ -629,24 +625,55 @@ section[id] {
   .print-colophon  { page: colophon;  break-before: page; }
 
   /* Reset wrappers so the cover is the very first printed page (no blank leaf) */
-  .print-front-matter,
-  .print-front-matter > section:first-child {
+  .print-front-matter {
+    display: contents !important;
+  }
+
+  .print-front-matter > section:first-child,
+  .print-cover,
+  .print-half-title,
+  .print-toc,
+  .print-colophon {
     margin: 0 !important;
     padding-top: 0 !important;
     break-before: avoid-page !important;
     page-break-before: avoid !important;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
   }
+
   main, main > div {
     margin: 0 !important;
     padding: 0 !important;
   }
 
+  .prose-manual section {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .section-banner {
+    margin: 9mm 0 4mm !important;
+    padding: 8mm 7mm !important;
+    break-after: avoid-page;
+    page-break-after: avoid;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  .manual-hero {
+    margin: 0 0 10mm !important;
+    padding: 14mm 10mm 12mm !important;
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
   /* ---------- COVER ---------- */
   .print-cover {
-    width: 210mm;
+    width: 100%;
     height: 297mm;
     min-height: 297mm;
-    padding: 22mm 20mm 22mm 22mm;
+    padding: 12mm 14mm 14mm;
     margin: 0;
     color: #fff;
     background:
@@ -657,6 +684,7 @@ section[id] {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   .print-cover-mark {
@@ -685,7 +713,11 @@ section[id] {
   }
 
   .print-cover-body {
-    margin-top: -40mm;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18mm 0 14mm;
   }
   .print-cover-eyebrow {
     font-family: 'Inter', sans-serif;
@@ -709,7 +741,7 @@ section[id] {
   }
   .print-cover-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 54pt;
+    font-size: 58pt;
     font-weight: 800;
     line-height: 0.98;
     letter-spacing: -0.035em;
@@ -721,14 +753,14 @@ section[id] {
     font-family: 'Fraunces', Georgia, serif;
     font-style: italic;
     font-weight: 500;
-    font-size: 46pt;
+    font-size: 48pt;
     color: rgba(255,255,255,0.92);
     letter-spacing: -0.02em;
     margin-top: 6px;
   }
   .print-cover-subtitle {
-    margin-top: 24px;
-    max-width: 130mm;
+    margin-top: 18px;
+    max-width: 142mm;
     font-family: 'Inter', sans-serif;
     font-size: 11.5pt;
     line-height: 1.55;

@@ -14,7 +14,7 @@ export function SectionBanner({ number, title, subtitle, id }: SectionBannerProp
     <div
       ref={ref}
       id={id}
-      className={`relative -mx-6 my-16 px-6 py-14 sm:py-18 bg-gradient-to-br from-[hsl(224,22%,14%)] to-[hsl(224,22%,9%)] text-white overflow-hidden rounded-xl transition-all duration-700 ${
+      className={`section-banner relative -mx-6 my-16 px-6 py-14 sm:py-18 bg-gradient-to-br from-[hsl(224,22%,14%)] to-[hsl(224,22%,9%)] text-white overflow-hidden rounded-xl transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
     >
