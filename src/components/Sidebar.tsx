@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BookOpen, FileText, FolderOpen, Shield, PenTool, Send, Phone, Scale, ClipboardList, Paperclip, FileCheck } from "lucide-react";
+import { BookOpen, FileText, FolderOpen, Shield, PenTool, Send, Phone, Scale, ClipboardList, Paperclip, FileCheck, Zap, ExternalLink } from "lucide-react";
 
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 
