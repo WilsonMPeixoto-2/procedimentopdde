@@ -1,4 +1,4 @@
-import { FileText, ExternalLink, Download } from "lucide-react";
+import { FileText, ExternalLink, Download, Zap } from "lucide-react";
 
 const modelos = [
   {
