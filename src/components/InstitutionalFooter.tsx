@@ -39,22 +39,24 @@ export function InstitutionalFooter() {
       </div>
 
       {/* Developer credits */}
-      <div className="mt-8 pt-6 border-t border-border/50 text-center">
-        <p className="font-sans text-sm text-muted-foreground mb-1">
-          Desenvolvido por <strong className="text-foreground font-semibold">Wilson M. Peixoto</strong> — SME/RJ
-        </p>
-        <p className="font-sans text-sm italic text-muted-foreground/70 mb-4">
-          Inovação para a Gestão Pública
-        </p>
-        <div className="flex items-center justify-center gap-6 font-sans text-sm text-muted-foreground">
-          <a href="tel:+5521994974132" className="flex items-center gap-1.5 hover:text-primary transition-colors no-underline">
-            <Phone className="w-4 h-4" />
-            (21) 99497-4132
-          </a>
-          <a href="mailto:wilsonmp2@gmail.com" className="flex items-center gap-1.5 hover:text-primary transition-colors no-underline">
-            <Mail className="w-4 h-4" />
-            wilsonmp2@gmail.com
-          </a>
+      <div className="mt-8 pt-6 border-t border-border/50">
+        <div className="flex flex-col items-center text-center gap-1.5">
+          <p className="font-sans text-sm text-muted-foreground m-0">
+            Desenvolvido por <strong className="text-foreground font-semibold">Wilson M. Peixoto</strong> — SME/RJ
+          </p>
+          <p className="font-sans text-sm italic text-muted-foreground/70 m-0">
+            Inovação para a Gestão Pública
+          </p>
+          <div className="mt-3 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 font-sans text-sm text-muted-foreground">
+            <a href="tel:+5521994974132" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors no-underline">
+              <Phone className="w-4 h-4 shrink-0" />
+              <span className="leading-none">(21) 99497-4132</span>
+            </a>
+            <a href="mailto:wilsonmp2@gmail.com" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors no-underline">
+              <Mail className="w-4 h-4 shrink-0" />
+              <span className="leading-none">wilsonmp2@gmail.com</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
