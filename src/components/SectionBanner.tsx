@@ -42,7 +42,7 @@ export function SectionBanner({ number, title, subtitle, id }: SectionBannerProp
             {title}
           </h2>
           {subtitle && (
-            <p className="font-sans text-[13px] text-[hsl(var(--sidebar-foreground)/0.6)] leading-relaxed mt-1.5 !text-left">
+            <p className="font-sans text-[13px] text-[hsl(var(--sidebar-foreground)/0.85)] leading-relaxed mt-1.5 !text-left">
               {subtitle}
             </p>
           )}
