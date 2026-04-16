@@ -142,7 +142,7 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
                   style={{ textDecoration: 'none', borderLeft: 'none' }}
                 >
                   <Zap className="w-3.5 h-3.5 shrink-0 text-sidebar-foreground/35 group-hover:text-sidebar-primary transition-colors" />
-                  <span className="truncate leading-tight">Despacho Express</span>
+                  <span className="truncate leading-tight">Despacho Digital</span>
                   <ArrowUpRight className="ml-auto w-3 h-3 shrink-0 text-sidebar-foreground/30 group-hover:text-sidebar-primary" />
                 </Link>
               )}

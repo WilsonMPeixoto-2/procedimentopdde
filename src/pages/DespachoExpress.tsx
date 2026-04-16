@@ -131,7 +131,7 @@ const DespachoExpress = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15">
               <Zap className="w-3.5 h-3.5 text-amber-300" />
               <span className="text-[11px] font-sans font-bold uppercase tracking-[0.14em] text-white/95">
-                Despacho Express
+                Despacho Digital
               </span>
             </div>
           </div>

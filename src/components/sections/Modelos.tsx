@@ -59,7 +59,7 @@ export function Modelos() {
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-1">
             <span className="font-sans text-sm font-bold text-heading group-hover:text-primary transition-colors">
-              Despacho Express — 4ª CRE
+              Despacho Digital — 4ª CRE
             </span>
             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold font-sans bg-primary/10 text-primary">
               Ferramenta integrada
