@@ -19,7 +19,7 @@ export const generateDespachoDocx = async (data: DespachoData) => {
   });
 
   const doc = new Document({
-    creator: "Despacho Express",
+    creator: "Despacho Digital",
     title: "Despachos - Prestação de Contas",
     styles: {
       default: {
