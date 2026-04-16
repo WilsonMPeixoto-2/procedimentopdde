@@ -34,7 +34,7 @@ export function Hero() {
           PDDE no SEI!RIO
         </h1>
 
-        <p className="font-sans text-[0.94rem] leading-[1.7] text-muted-foreground mb-12 max-w-md mx-auto !text-center animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'both' }}>
+        <p className="text-[1.02rem] sm:text-[1.08rem] leading-[1.62] text-muted-foreground mb-12 max-w-md mx-auto !text-center animate-fade-in italic" style={{ animationDelay: '400ms', animationFillMode: 'both', fontFamily: "'Fraunces', Georgia, serif", fontWeight: 400, letterSpacing: '-0.005em' }}>
           Orientações para abertura, instrução e finalização do processo de prestação de contas do PDDE no SEI!RIO.
         </p>
 
