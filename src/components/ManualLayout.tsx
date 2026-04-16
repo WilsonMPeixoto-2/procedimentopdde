@@ -38,7 +38,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
 
       {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-foreground/50 backdrop-blur-sm lg:hidden transition-opacity duration-300 print:hidden ${
+        className={`fixed inset-0 z-40 bg-foreground/40 backdrop-blur-md lg:hidden transition-opacity duration-300 print:hidden ${
           sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setSidebarOpen(false)}
@@ -47,7 +47,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 z-50 h-full w-[270px] bg-sidebar overflow-y-auto transition-transform duration-300 ease-out lg:translate-x-0 print:hidden ${
-          sidebarOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
+          sidebarOpen ? "translate-x-0 shadow-2xl shadow-black/30" : "-translate-x-full"
         }`}
       >
         {sidebarOpen && (
@@ -64,19 +64,19 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
       {/* Main content */}
       <main className="flex-1 lg:ml-[270px] print:ml-0">
         {/* Mobile header */}
-        <div className="sticky top-0 z-30 flex items-center gap-2 border-b border-border bg-background/95 backdrop-blur-md px-4 py-2.5 lg:hidden shadow-sm print:hidden">
+        <div className="sticky top-0 z-30 flex items-center gap-2 border-b border-border/60 bg-background/80 backdrop-blur-xl px-4 py-2.5 lg:hidden shadow-[0_1px_3px_hsl(224,30%,50%,0.06)] print:hidden">
           <button
             onClick={() => setSidebarOpen(true)}
             className="p-2 rounded-lg hover:bg-muted transition-colors"
           >
             <Menu className="w-5 h-5 text-foreground" />
           </button>
-          <span className="font-sans text-sm font-bold text-heading truncate flex-1">
+          <span className="font-heading text-sm font-bold text-heading truncate flex-1 tracking-tight">
             POP — Prestação de Contas PDDE
           </span>
           <button
             onClick={handlePrint}
-            className="p-2 rounded-lg hover:bg-muted transition-colors text-primary/70 hover:text-primary"
+            className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-primary"
             title="Imprimir"
           >
             <Printer className="w-4.5 h-4.5" />
@@ -84,7 +84,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
           <button
             onClick={handleDownloadPDF}
             disabled={generating}
-            className="p-2 rounded-lg bg-primary/10 hover:bg-primary/15 transition-colors text-primary"
+            className="p-2 rounded-lg bg-primary/[0.08] hover:bg-primary/[0.14] transition-colors text-primary"
             title="Baixar PDF"
           >
             <Download className="w-4.5 h-4.5" />
@@ -95,7 +95,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
         <div className="hidden lg:flex items-center justify-end gap-2 px-6 py-3 print:hidden">
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-sans font-semibold text-muted-foreground hover:text-foreground hover:bg-muted border border-transparent hover:border-border transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-sans font-semibold text-muted-foreground hover:text-foreground hover:bg-muted border border-transparent hover:border-border transition-all duration-200"
           >
             <Printer className="w-4 h-4" />
             Imprimir
@@ -103,7 +103,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
           <button
             onClick={handleDownloadPDF}
             disabled={generating}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-sans font-bold bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-md shadow-primary/20"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-sans font-bold bg-gradient-to-b from-primary to-[hsl(224,58%,28%)] text-primary-foreground hover:shadow-lg hover:shadow-primary/25 transition-all duration-200 shadow-md shadow-primary/15"
           >
             <Download className="w-4 h-4" />
             Baixar PDF
