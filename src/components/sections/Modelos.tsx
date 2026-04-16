@@ -47,6 +47,33 @@ export function Modelos() {
         produção das peças internas. Todos os arquivos abaixo estão em formato PDF.
       </p>
 
+      <h3>Ferramentas Auxiliares</h3>
+      <a
+        href="https://despacho-express-4cre.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group not-prose flex items-start gap-4 p-5 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 to-primary/[0.02] hover:border-primary/40 hover:shadow-md transition-all duration-200 no-underline mb-8"
+      >
+        <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/15 transition-colors">
+          <Zap className="w-5 h-5 text-primary" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2 mb-1">
+            <span className="font-sans text-sm font-bold text-heading group-hover:text-primary transition-colors">
+              Despacho Express — 4ª CRE
+            </span>
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold font-sans bg-primary/10 text-primary">
+              Ferramenta externa
+            </span>
+          </div>
+          <p className="font-sans text-[12.5px] text-muted-foreground leading-relaxed m-0">
+            Gerador de despachos administrativos padronizados para apoiar a redação das peças
+            internas do processo no SEI!RIO.
+          </p>
+        </div>
+        <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary shrink-0 mt-1 transition-colors" />
+      </a>
+
       {modelos.map((cat) => (
         <div key={cat.category}>
           <h3>{cat.category}</h3>
