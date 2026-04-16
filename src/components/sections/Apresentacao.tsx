@@ -32,6 +32,6 @@ export function Apresentacao() {
         <strong>Conte com a 4ª CRE/GAD.</strong> Seguimos à disposição para orientar, ouvir e
         aprimorar continuamente esses materiais, em parceria com vocês.
       </p>
-
+    </section>
   );
 }
