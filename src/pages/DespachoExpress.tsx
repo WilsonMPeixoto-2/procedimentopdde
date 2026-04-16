@@ -26,6 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { generateDespachoDocx } from "@/lib/templates/docxTemplate";
+import { BackToTop } from "@/components/BackToTop";
 
 const formatCNPJ = (value: string) => {
   const digits = value.replace(/\D/g, "").slice(0, 14);
