@@ -44,6 +44,15 @@ export function Instrucao() {
         </p>
       </Callout>
 
+      <Callout type="tip" title="Despacho Express">
+        <p>
+          Para agilizar a elaboração de despachos padronizados, utilize o{" "}
+          <a href="https://despacho-express-4cre.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <strong>Despacho Express — 4ª CRE</strong>
+          </a>.
+        </p>
+      </Callout>
+
       <h2>2.1. Regras operacionais</h2>
       <p>
         Antes de montar os autos, consulte rapidamente estes pontos para evitar fragilidade
