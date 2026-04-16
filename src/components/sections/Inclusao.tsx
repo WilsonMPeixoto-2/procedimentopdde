@@ -63,11 +63,18 @@ export function Inclusao() {
         </div>
       </SystemPreview>
 
-      <Callout type="tip" title="Nome claro na árvore">
+      <Callout type="warning" title="Atenção: nomenclatura precisa é obrigatória">
         <p>
-          Use nomes descritivos para cada peça: "Extrato Bancário – Jan a Dez 2025",
-          "Ata de Aprovação do Plano de Gastos", etc. Nomes genéricos como "Documento 1"
-          dificultam a conferência posterior.
+          <strong>A nomeação correta de cada documento na árvore do processo é etapa crítica
+          da instrução.</strong> Utilize sempre nomes descritivos, coerentes com o conteúdo do
+          anexo, indicando tipo, período e referência — por exemplo: <em>"Extrato Bancário —
+          Jan a Dez 2025"</em>, <em>"Ata de Aprovação do Plano de Gastos — 12/03/2025"</em>,
+          <em> "Nota Fiscal nº 4521 — Material de Limpeza"</em>.
+        </p>
+        <p>
+          Nomes genéricos como <em>"Documento 1"</em>, <em>"Anexo"</em> ou <em>"Arquivo"</em>{" "}
+          comprometem a rastreabilidade, dificultam a conferência pela GAD e podem gerar
+          devolução do processo.
         </p>
       </Callout>
 
