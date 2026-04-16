@@ -178,16 +178,20 @@
     text-align: left;
     border-bottom: 1px solid hsl(var(--border) / 0.7);
   }
-  th {
-    font-weight: 800;
-    color: #ffffff;
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(224 58% 38%));
-    font-size: 0.82em;
+  th,
+  .prose th,
+  .prose-manual th,
+  .prose.prose-slate th {
+    font-weight: 800 !important;
+    color: hsl(var(--primary-foreground)) !important;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(224 58% 38%)) !important;
+    font-size: 0.82em !important;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 1px 2px hsl(220 30% 8% / 0.45);
     padding-top: 0.85rem;
     padding-bottom: 0.85rem;
+    opacity: 1 !important;
   }
   tr:last-child td {
     border-bottom: none;
