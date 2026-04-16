@@ -44,12 +44,15 @@ export function Instrucao() {
         </p>
       </Callout>
 
-      <Callout type="tip" title="Despacho Express">
+      <Callout type="tip" title="Atalho: Despacho Express">
         <p>
-          Para agilizar a elaboração de despachos padronizados, utilize o{" "}
-          <a href="https://despacho-express-4cre.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Para agilizar a elaboração dos despachos padronizados desta etapa, utilize o gerador
+          interno{" "}
+          <a href="/despacho-express">
             <strong>Despacho Express — 4ª CRE</strong>
-          </a>.
+          </a>
+          . Preencha os dados da unidade escolar e baixe os três despachos prontos em{" "}
+          <strong>.docx</strong>.
         </p>
       </Callout>
 
