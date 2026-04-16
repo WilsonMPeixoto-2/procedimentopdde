@@ -7,7 +7,7 @@ export function Finalizacao() {
       <p>
         Após a remessa, o processo segue para análise da GAD. Nesta fase, a unidade escolar
         deve acompanhar o andamento no SEI!RIO e responder prontamente a qualquer devolução
-        ou diligência.
+        ou diligência apresentada pela coordenadoria.
       </p>
 
       <h2>6.1. Acompanhamento</h2>
