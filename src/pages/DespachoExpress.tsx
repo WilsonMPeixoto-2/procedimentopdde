@@ -37,28 +37,12 @@ const formatCNPJ = (value: string) => {
     .replace(/(\d{4})(\d)/, "$1-$2");
 };
 
-const formatProcessoSei = (value: string) => {
-  const digits = value.replace(/\D/g, "").slice(0, 18);
-  let out = digits;
-  if (digits.length > 6) out = `${digits.slice(0, 6)}.${digits.slice(6)}`;
-  if (digits.length > 12) out = `${digits.slice(0, 6)}.${digits.slice(6, 12)}/${digits.slice(12)}`;
-  if (digits.length > 16) out = `${digits.slice(0, 6)}.${digits.slice(6, 12)}/${digits.slice(12, 16)}-${digits.slice(16)}`;
-  return out;
-};
-
-const processoSeiSchema = z
-  .string()
-  .regex(
-    /^\d{6}\.\d{6}\/\d{4}(-\d{2})?$/,
-    "Use 000704.001704/2026 ou 000704.001704/2026-10",
-  );
-
 const formSchema = z.object({
   unidadeEscolar: z.string().min(1, "Campo obrigatório"),
   programa: z.string().min(1, "Selecione o programa"),
   presidente: z.string().min(1, "Campo obrigatório"),
-  cnpj: z.string().min(18, "CNPJ incompleto"),
-  processo: processoSeiSchema,
+  cnpj: z.string().min(1, "Campo obrigatório"),
+  processo: z.string().min(1, "Campo obrigatório"),
 });
 
 type FormData = z.infer<typeof formSchema>;
