@@ -15,9 +15,11 @@ export function Inclusao() {
       <h2>3.1. Documento digitalizado vs. nato-digital</h2>
       <p>
         <strong>Digitalizado</strong> é o documento que teve origem em papel e foi convertido
-        para formato eletrônico por meio de scanner ou fotografia. <strong>Nato-digital</strong>{" "}
-        é o documento que já nasceu em meio eletrônico — foi criado, assinado ou emitido
-        diretamente no ambiente digital.
+        para formato eletrônico por meio de scanner ou fotografia. <em>Ex: Notas fiscais, planejamentos físicos, ATAs do CEC, orçamentos assinados fisicamente, etc.</em>
+      </p>
+      <p>
+        <strong>Nato-digital</strong> é o documento que já nasceu em meio eletrônico — foi criado,
+        assinado ou emitido diretamente no ambiente digital. <em>Ex: Planejamentos e planos de ação realizados no PDDE INTERATIVO, extratos bancários via Chave J, orçamentos via internet, etc.</em>
       </p>
 
       <table>

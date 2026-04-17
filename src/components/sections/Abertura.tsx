@@ -241,15 +241,15 @@ export function Abertura() {
             000704.000123/2026-45
           </div>
           <div className="text-[11px] text-muted-foreground font-sans mt-2">
-            Registre este número no controle interno da GCGR.
+            Registre este número no controle de processos da sua unidade escolar.
           </div>
         </div>
       </SystemPreview>
 
       <Callout type="tip" title="Após a criação">
         <p>
-          Registre o <strong>NUP</strong> (Número Único de Protocolo) no controle de processos
-          utilizado para controle interno da GCGR, de modo a manter a rastreabilidade desde a
+          Registre o <strong>NUP</strong> (Número Único de Protocolo) em um controle de processos
+          diário da sua própria unidade escolar, de modo a manter a rastreabilidade interna desde a
           abertura. Exemplo: <code>000704.000123/2026-45</code>
         </p>
       </Callout>

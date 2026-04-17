@@ -64,7 +64,7 @@ export function Instrucao() {
 
       <Expandable title="Pesquisa de preços e SRP">
         <p>
-          A rotina exige <strong>três orçamentos</strong> sempre que viável. Quando o número for
+          A rotina exige <strong>três orçamentos</strong> sempre que viável. Os orçamentos devem ser de empresas ativas e que possuam CNAE habilitado para o serviço ou aquisição realizada, devendo vir acompanhados das respectivas consultas de CNPJ. Quando o número for
           inferior, é necessário justificativa idônea ou uso documentado de Sistema de Registro
           de Preços (SRP). Use esta referência apenas para não montar o processo com documentação
           insuficiente.
@@ -74,8 +74,7 @@ export function Instrucao() {
       <Expandable title="Compras pela internet">
         <p>
           Registre o valor final da aquisição e preserve os comprovantes que sustentam a peça
-          juntada ao processo. Print de tela com preço, data e identificação do fornecedor
-          é o mínimo esperado.
+          juntada ao processo. Em compras pela internet, os comprovantes devem conter o link do site oficial, data, horário, identificação do formato, foto do bem, valor e frete, caso haja.
         </p>
       </Expandable>
 
