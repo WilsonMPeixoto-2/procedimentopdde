@@ -237,19 +237,10 @@ const DespachoExpress = () => {
                   hint="00.000.000/0000-00"
                   error={errors.cnpj?.message}
                 >
-                  <Controller
-                    control={control}
-                    name="cnpj"
-                    render={({ field: { onChange, value, ...field } }) => (
-                      <Input
-                        {...field}
-                        id="cnpj"
-                        inputMode="numeric"
-                        placeholder="00.000.000/0000-00"
-                        value={value}
-                        onChange={(e) => onChange(formatCNPJ(e.target.value))}
-                      />
-                    )}
+                  <Input
+                    id="cnpj"
+                    placeholder="00.000.000/0000-00"
+                    {...register("cnpj")}
                   />
                 </Field>
 
@@ -257,22 +248,13 @@ const DespachoExpress = () => {
                   icon={Hash}
                   label="Processo SEI"
                   htmlFor="processo"
-                  hint="000704.001704/2026 ou 000704.001704/2026-10"
+                  hint="Ex.: 000704.001704/2026"
                   error={errors.processo?.message}
                 >
-                  <Controller
-                    control={control}
-                    name="processo"
-                    render={({ field: { onChange, value, ...field } }) => (
-                      <Input
-                        {...field}
-                        id="processo"
-                        inputMode="numeric"
-                        placeholder="Ex.: 000704.001704/2026"
-                        value={value}
-                        onChange={(e) => onChange(formatProcessoSei(e.target.value))}
-                      />
-                    )}
+                  <Input
+                    id="processo"
+                    placeholder="Ex.: 000704.001704/2026"
+                    {...register("processo")}
                   />
                 </Field>
               </div>
