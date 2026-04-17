@@ -89,6 +89,46 @@
     hyphens: none;
   }
 
+  strong, b {
+    font-weight: 700;
+    color: hsl(224 55% 26%); 
+    letter-spacing: -0.01em;
+  }
+
+  ul, ol {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    padding-left: 1.2rem;
+  }
+
+  li {
+    margin-bottom: 0.6rem;
+    line-height: 1.7;
+    position: relative;
+    padding-left: 0.2rem;
+  }
+
+  ul li::marker {
+    color: hsl(var(--primary) / 0.7);
+  }
+
+  ol li::marker {
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: hsl(var(--heading-color) / 0.8);
+  }
+
+  blockquote {
+    border-left: 4px solid hsl(var(--primary) / 0.3);
+    background-color: hsl(var(--accent) / 0.4);
+    font-style: italic;
+    color: hsl(220 18% 30%);
+    padding: 1rem 1.4rem;
+    margin: 1.8rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     color: hsl(var(--heading-color));
