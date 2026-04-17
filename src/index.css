@@ -474,6 +474,148 @@ section[id] {
   100% { transform: translateX(100%); }
 }
 
+/* ==========================================================
+   HERO — Decorative floating SVG animations
+   Four different orbits to avoid mechanical uniformity.
+   ========================================================== */
+@keyframes hero-float-a {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(3deg); }
+}
+@keyframes hero-float-b {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-8px) rotate(-2deg); }
+}
+@keyframes hero-float-c {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-10px) scale(1.05); }
+}
+@keyframes hero-float-d {
+  0%, 100% { transform: translate(0, 0); opacity: 0.08; }
+  50%      { transform: translate(4px, -6px); opacity: 0.14; }
+}
+
+.hero-float-a { animation: hero-float-a 7s ease-in-out infinite; }
+.hero-float-b { animation: hero-float-b 9s ease-in-out infinite; }
+.hero-float-c { animation: hero-float-c 8s ease-in-out infinite; }
+.hero-float-d { animation: hero-float-d 6s ease-in-out infinite; }
+
+/* ==========================================================
+   MICRO-ANIMATIONS — Enriched hover & interaction states
+   ========================================================== */
+
+/* Callout boxes — subtle lift on hover */
+.callout,
+[class*="callout"] > div {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* System preview cards — enhanced hover lift */
+.system-preview {
+  transition: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.35s ease;
+}
+.system-preview:hover {
+  transform: translateY(-3px);
+  border-color: hsl(var(--primary) / 0.18);
+}
+
+/* Section banner — glow pulse on hover */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(215 55% 68% / 0); }
+  50%      { box-shadow: 0 0 20px 4px hsl(215 55% 68% / 0.12); }
+}
+.section-banner:hover [class*="rounded-2xl"] {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+.section-banner {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.section-banner:hover {
+  transform: scale(1.005);
+}
+
+/* Code blocks — subtle highlight on hover */
+code {
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+code:hover {
+  background: hsl(var(--code-bg) / 0.85);
+  border-color: hsl(var(--primary) / 0.2);
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.05);
+}
+
+/* Content divider — subtle shimmer on hover */
+.content-divider span {
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+.content-divider:hover span {
+  background: hsl(var(--primary) / 0.5);
+  transform: scale(1.3);
+}
+.content-divider:hover span:nth-child(2) {
+  background: hsl(var(--primary) / 0.6);
+  transform: scale(1.5);
+  transition-delay: 0.05s;
+}
+
+/* Checklist items — interactive feel */
+.checklist-item {
+  transition: transform 0.2s ease, background 0.2s ease;
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.checklist-item:hover {
+  transform: translateX(4px);
+  background: hsl(var(--accent) / 0.4);
+}
+
+/* Section number tag — hover accent */
+.section-number {
+  transition: background 0.25s ease, padding-right 0.3s ease;
+}
+.section-number:hover {
+  background: hsl(var(--accent) / 1.5);
+  padding-right: 1.1rem;
+}
+
+/* Strong/bold text — subtle glow on hover (for key terms) */
+.prose-manual strong {
+  transition: color 0.2s ease;
+}
+
+/* Sidebar active link — smooth indicator transition */
+.sidebar-nav a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================
+   ACCESSIBILITY — Respect prefers-reduced-motion
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero-float-a,
+  .hero-float-b,
+  .hero-float-c,
+  .hero-float-d {
+    animation: none !important;
+  }
+
+  .section-banner:hover [class*="rounded-2xl"] {
+    animation: none !important;
+  }
+
+  .content-divider span,
+  .checklist-item,
+  .system-preview,
+  .section-banner,
+  code {
+    transition: none !important;
+  }
+}
+
 /* Table mobile wrapper */
 .prose-manual .table-wrapper {
   overflow-x: auto;
