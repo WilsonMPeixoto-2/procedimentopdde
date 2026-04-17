@@ -46,12 +46,19 @@ const formatProcessoSei = (value: string) => {
   return out;
 };
 
+const processoSeiSchema = z
+  .string()
+  .regex(
+    /^\d{6}\.\d{6}\/\d{4}(-\d{2})?$/,
+    "Use 000704.001704/2026 ou 000704.001704/2026-10",
+  );
+
 const formSchema = z.object({
   unidadeEscolar: z.string().min(1, "Campo obrigatório"),
   programa: z.string().min(1, "Selecione o programa"),
   presidente: z.string().min(1, "Campo obrigatório"),
   cnpj: z.string().min(18, "CNPJ incompleto"),
-  processo: z.string().min(22, "Processo incompleto"),
+  processo: processoSeiSchema,
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -94,7 +101,8 @@ const DespachoExpress = () => {
 
   const handleValidationErrors = () => {
     toast.error("Preencha todos os campos corretamente.", {
-      description: "Verifique CNPJ (00.000.000/0000-00) e Processo SEI (000000.000000/0000-00).",
+      description:
+        "Verifique CNPJ (00.000.000/0000-00) e Processo SEI (000704.001704/2026 ou 000704.001704/2026-10).",
     });
   };
 
@@ -265,7 +273,7 @@ const DespachoExpress = () => {
                   icon={Hash}
                   label="Processo SEI"
                   htmlFor="processo"
-                  hint="000000.000000/0000-00"
+                  hint="000704.001704/2026 ou 000704.001704/2026-10"
                   error={errors.processo?.message}
                 >
                   <Controller
@@ -276,7 +284,7 @@ const DespachoExpress = () => {
                         {...field}
                         id="processo"
                         inputMode="numeric"
-                        placeholder="Ex.: 000704.000000/2026-00"
+                        placeholder="Ex.: 000704.001704/2026"
                         value={value}
                         onChange={(e) => onChange(formatProcessoSei(e.target.value))}
                       />
