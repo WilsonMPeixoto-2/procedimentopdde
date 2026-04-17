@@ -55,7 +55,7 @@ export function PrintFrontMatter() {
         <div className="print-cover-footer">
           <div>
             <div className="print-cover-meta-label">Edição</div>
-            <div className="print-cover-meta-value">v1.0 · {today}</div>
+            <div className="print-cover-meta-value">v2.5 · {today}</div>
           </div>
           <div>
             <div className="print-cover-meta-label">Órgão</div>
@@ -140,7 +140,7 @@ export function PrintColophon() {
         </div>
         <div>
           <dt>Edição</dt>
-          <dd>v1.0</dd>
+          <dd>v2.5</dd>
         </div>
         <div>
           <dt>Revisão</dt>

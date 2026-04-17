@@ -89,7 +89,7 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto py-3 px-2.5">
+      <nav aria-label="Sumário do manual" className="flex-1 overflow-y-auto py-3 px-2.5">
         {groups.map((group) => {
           const groupSections = sections.filter((s) => s.group === group.key);
           return (
@@ -155,7 +155,7 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
       <div className="px-5 py-3 border-t border-sidebar-border">
         <div className="text-[10px] text-sidebar-foreground/25 leading-relaxed">
           4ª CRE · GAD<br />
-          Abril 2025 · v1.0
+          Abril 2026 · v2.5
         </div>
       </div>
     </div>

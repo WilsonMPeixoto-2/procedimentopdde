@@ -551,7 +551,7 @@ section[id] {
       letter-spacing: 0.04em;
     }
     @bottom-left {
-      content: "v1.0 · Rio de Janeiro";
+      content: "v2.5 · Rio de Janeiro";
       font-family: 'Inter', sans-serif;
       font-size: 8pt;
       color: #9ca3af;
