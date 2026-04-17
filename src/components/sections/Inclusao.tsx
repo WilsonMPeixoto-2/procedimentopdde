@@ -53,10 +53,10 @@ export function Inclusao() {
       <SystemPreview title="Inclusão de documento externo">
         <div className="space-y-0">
           <SeiField label="Tipo do Documento" value="Extrato Bancário" />
-          <SeiField label="Data do Documento" value="31/12/2025" />
+          <SeiField label="Data do Documento" value="31/12/2026" />
           <SeiField label="Formato" value="Nato-digital (documento original eletrônico)" highlight />
           <SeiField label="Nível de Acesso" value="Público" />
-          <SeiField label="Anexar Arquivo" value="extrato_jan_dez_2025.pdf" />
+          <SeiField label="Anexar Arquivo" value="extrato_jan_dez_2026.pdf" />
         </div>
         <div className="mt-3 flex gap-2">
           <SeiButton primary>Confirmar Dados</SeiButton>
@@ -69,7 +69,7 @@ export function Inclusao() {
           <strong>A nomeação correta de cada documento na árvore do processo é etapa crítica
           da instrução.</strong> Utilize sempre nomes descritivos, coerentes com o conteúdo do
           anexo, indicando tipo, período e referência — por exemplo: <em>"Extrato Bancário —
-          Jan a Dez 2025"</em>, <em>"Ata de Aprovação do Plano de Gastos — 12/03/2025"</em>,
+          Jan a Dez 2026"</em>, <em>"Ata de Aprovação do Plano de Gastos — 12/03/2026"</em>,
           <em> "Nota Fiscal nº 4521 — Material de Limpeza"</em>.
         </p>
         <p>
@@ -92,7 +92,7 @@ export function Inclusao() {
           <SeiTreeItem icon="📋" label="Plano de Aplicação / Plano de Gastos" />
           <SeiTreeItem icon="📊" label="Pesquisa de Preços (3 orçamentos)" />
           <SeiTreeItem icon="📑" label="Demonstrativo Financeiro" />
-          <SeiTreeItem icon="🏦" label="Extrato Bancário – Jan a Dez 2025" active />
+          <SeiTreeItem icon="🏦" label="Extrato Bancário – Jan a Dez 2026" active />
           <SeiTreeItem icon="🧾" label="Notas Fiscais (NF-e / DANFE)" />
           <SeiTreeItem icon="📝" label="Ata de Aprovação da Prestação de Contas" />
           <SeiTreeItem icon="📝" label="Ata de Eleição do CEC" />

@@ -87,7 +87,7 @@ export function Hero() {
             { icon: Building2, title: "GAD", desc: "Gerência de Administração", delay: 500 },
             { icon: BookOpen, title: "POP", desc: "Procedimento Operacional Padrão", delay: 575 },
             { icon: FileText, title: "SEI!RIO", desc: "Sistema Eletrônico", delay: 650 },
-            { icon: Calendar, title: "V. 2.5", desc: "Abril/2026", delay: 725 },
+            { icon: Calendar, title: "V. 2.6", desc: "Abril/2026", delay: 725 },
           ].map(({ icon: Icon, title, desc, delay }) => (
             <div key={title} className="group flex flex-col items-center gap-2.5 p-4 rounded-xl bg-background/60 backdrop-blur-xl border border-border/40 shadow-[0_2px_8px_hsl(224,30%,50%,0.06)] hover:shadow-[0_8px_24px_hsl(224,30%,50%,0.12)] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 ease-out animate-fade-in" style={{ animationDelay: `${delay}ms`, animationFillMode: 'both' }}>
               <div className="w-10 h-10 rounded-xl bg-primary/[0.08] flex items-center justify-center group-hover:bg-primary/[0.14] group-hover:scale-110 transition-all duration-300">

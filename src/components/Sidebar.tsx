@@ -155,7 +155,7 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
       <div className="px-5 py-3 border-t border-sidebar-border">
         <div className="text-[10px] text-sidebar-foreground/25 leading-relaxed">
           4ª CRE · GAD<br />
-          Abril 2026 · v2.5
+          Abril 2026 · v2.6
         </div>
       </div>
     </div>

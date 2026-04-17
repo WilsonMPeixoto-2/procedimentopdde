@@ -135,7 +135,7 @@ export function Abertura() {
         <div className="space-y-0">
           <SeiField label="Tipo do Processo" value="GESTÃO DOS CONSELHOS MUNICIPAIS DE EDUCAÇÃO: PRESTAÇÃO DE CONTAS DO CONSELHO ESCOLA COMUNIDADE - CEC" />
           <SeiField label="Classificação" value="03.04.01.02 - PRESTAÇÃO DE CONTAS DO CONSELHO ESCOLA COMUNIDADE - CEC" />
-          <SeiField label="Especificação" value="PDDE — Exercício 2025 — E/CRE (04.30.502) — Ciep Elis Regina — 00.000.000/0001-00" highlight />
+          <SeiField label="Especificação" value="PDDE — Exercício 2026 — E/CRE (04.30.502) — Ciep Elis Regina — 00.000.000/0001-00" highlight />
           <SeiField label="Interessados" value="E/4a.CRE/GAD · Ciep Elis Regina" />
           <SeiField label="Nível de Acesso" value="Público" />
           <SeiField label="Observações" value="INSERIR CNPJ DO CEC DA UNIDADE (00.000.000/0001-00)" />
@@ -148,7 +148,7 @@ export function Abertura() {
 
       <Callout type="tip" title="Exemplo prático">
         <p>
-          <code>PDDE — Exercício 2025 — E/CRE (04.30.502) — Ciep Elis Regina — 00.000.000/0001-00</code>
+          <code>PDDE — Exercício 2026 — E/CRE (04.30.502) — Ciep Elis Regina — 00.000.000/0001-00</code>
         </p>
         <p>
           Essa padronização interna assegura a distinção precisa entre exercícios, ações e

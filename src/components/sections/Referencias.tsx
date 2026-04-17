@@ -21,12 +21,20 @@ export function Referencias() {
           </a>{" "}
           — Orientações para a prestação de contas dos recursos recebidos em 2024.
         </li>
+        <li>
+          Decreto Rio nº 57.250, de 19 de novembro de 2025{" "}
+          — Institui o SEI!RIO como sistema corporativo de processos administrativos eletrônicos no âmbito do Poder Executivo municipal e define as categorias de documentos digitais (digitalizado e externo).
+        </li>
+        <li>
+          Decreto Rio nº 54.844, de 29 de julho de 2024{" "}
+          — Disciplina assinaturas eletrônicas no Município do Rio de Janeiro e estabelece a definição de documento nato-digital, incluindo as modalidades nativo e capturado.
+        </li>
       </ul>
 
       <div className="mt-12 pt-6 border-t border-border text-sm text-muted-foreground font-sans">
         <p>Procedimento Operacional Padrão — Prestação de Contas PDDE</p>
         <p>4ª Coordenadoria Regional de Educação | GAD</p>
-        <p className="mt-2">Versão 2.5 · Abril 2026</p>
+        <p className="mt-2">Versão 2.6 · Abril 2026</p>
       </div>
     </section>
   );
