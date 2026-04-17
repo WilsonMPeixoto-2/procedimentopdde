@@ -32,7 +32,7 @@ export function ManualLayout({ children, onSectionChange }: ManualLayoutProps) {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen print:block print:min-h-0">
       {/* Skip-to-content — acessibilidade (WCAG 2.4.1) */}
       <a
         href="#main-content"
