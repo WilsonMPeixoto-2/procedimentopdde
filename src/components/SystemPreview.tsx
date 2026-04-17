@@ -19,13 +19,15 @@ export function SystemPreview({ title, children }: SystemPreviewProps) {
           Simulação
         </span>
       </div>
-      <div className="sei-window rounded-xl overflow-hidden shadow-[0_4px_16px_hsl(224,30%,50%,0.1),0_1px_3px_hsl(224,30%,50%,0.06)] border border-[hsl(225,18%,84%)]">
-        {/* Window chrome */}
-        <div className="flex items-center gap-1.5 px-4 py-2.5 bg-gradient-to-b from-[hsl(224,22%,18%)] to-[hsl(224,22%,14%)]">
-          <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0,70%,62%)] shadow-[inset_0_-1px_1px_hsl(0,70%,50%),0_0_4px_hsl(0,70%,62%,0.3)]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[hsl(42,70%,58%)] shadow-[inset_0_-1px_1px_hsl(42,70%,46%),0_0_4px_hsl(42,70%,58%,0.3)]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[hsl(135,50%,50%)] shadow-[inset_0_-1px_1px_hsl(135,50%,38%),0_0_4px_hsl(135,50%,50%,0.3)]" />
-          <div className="ml-3 flex-1 bg-[hsl(224,20%,22%)] rounded-md px-3 py-1 text-[10px] text-[hsl(0,0%,100%,0.4)] font-sans text-center max-w-[200px] shadow-inner">
+      <div className="sei-window rounded-xl overflow-hidden shadow-[0_24px_48px_-12px_rgba(0,0,0,0.12),0_8px_16px_-4px_rgba(0,0,0,0.06)] border border-black/[0.04] ring-1 ring-black/[0.02] transform transition-transform hover:scale-[1.005] duration-500">
+        {/* Window chrome - Glassmorphism */}
+        <div className="flex items-center gap-2 px-4 py-3 bg-[hsl(224,22%,14%,0.85)] backdrop-blur-2xl border-b border-white/[0.08]">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56] shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.2)] border border-[#e0443e]/50" />
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.2)] border border-[#dea123]/50" />
+            <div className="w-3 h-3 rounded-full bg-[#27c93f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.2)] border border-[#1aab29]/50" />
+          </div>
+          <div className="ml-4 flex-1 bg-black/25 rounded px-3 py-1 text-[10.5px] text-white/40 font-sans text-center max-w-[220px] shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)] border border-white/5 mx-auto">
             sei.rio.rj.gov.br
           </div>
         </div>
