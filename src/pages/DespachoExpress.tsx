@@ -51,7 +51,7 @@ const formSchema = z.object({
   programa: z.string().min(1, "Selecione o programa"),
   presidente: z.string().min(1, "Campo obrigatório"),
   cnpj: z.string().min(18, "CNPJ incompleto"),
-  processo: z.string().min(19, "Processo incompleto"),
+  processo: z.string().min(22, "Processo incompleto"),
 });
 
 type FormData = z.infer<typeof formSchema>;
