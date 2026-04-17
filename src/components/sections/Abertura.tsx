@@ -94,7 +94,7 @@ export function Abertura() {
       <p>
         A <strong>classificação por assuntos</strong> decorre do tipo de processo escolhido na
         etapa anterior. Ela deve permanecer coerente com a autuação e <strong>não precisa ser
-        reinventada</strong> pelo cadastrante quando o tipo correto já tiver sido selecionado.
+        reinventada</strong> quando o tipo correto já tiver sido selecionado.
       </p>
       <p>
         Classificação automática esperada:{" "}
@@ -103,8 +103,8 @@ export function Abertura() {
 
       <h2>1.5. Padrão de identificação</h2>
       <p>
-        Para fins de triagem, busca e padronização interna da 4ª CRE/GAD, o cadastrante deverá
-        digitar a especificação seguindo o padrão abaixo, incluindo sempre o <strong>exercício</strong>{" "}
+        Para fins de triagem, busca e padronização interna da 4ª CRE/GAD, digite a
+        especificação seguindo o padrão abaixo, incluindo sempre o <strong>exercício</strong>{" "}
         (ano de referência) e a <strong>ação do PDDE</strong> quando aplicável.
       </p>
 

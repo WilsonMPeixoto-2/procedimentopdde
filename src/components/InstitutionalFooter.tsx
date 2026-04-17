@@ -27,7 +27,7 @@ export function InstitutionalFooter() {
         </p>
 
         {/* CRE badge */}
-        <div className="inline-flex items-center gap-3 bg-background border border-border rounded-xl px-5 py-3 shadow-sm mb-6">
+        <div className="inline-flex items-center gap-3 bg-background border border-border rounded-xl px-5 py-3 shadow-sm">
           <div className="w-10 h-10 rounded-lg bg-[hsl(var(--sidebar-background))] text-[hsl(var(--sidebar-foreground))] flex items-center justify-center font-sans text-sm font-bold">
             4ª
           </div>
@@ -38,24 +38,34 @@ export function InstitutionalFooter() {
         </div>
       </div>
 
-      {/* Developer credits */}
+      {/* Combined: Metadata + Developer credits */}
       <div className="mt-8 pt-6 border-t border-border/50">
-        <div className="flex flex-col items-center text-center gap-1.5">
-          <p className="font-sans text-sm text-muted-foreground m-0">
-            Desenvolvido por <strong className="text-foreground font-semibold">Wilson M. Peixoto</strong> — SME/RJ
-          </p>
-          <p className="font-sans text-sm italic text-muted-foreground/70 m-0">
-            Inovação para a Gestão Pública
-          </p>
-          <div className="mt-3 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 font-sans text-sm text-muted-foreground">
-            <a href="tel:+5521994974132" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors no-underline">
-              <Phone className="w-4 h-4 shrink-0" />
-              <span className="leading-none">(21) 99497-4132</span>
-            </a>
-            <a href="mailto:wilsonmp2@gmail.com" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors no-underline">
-              <Mail className="w-4 h-4 shrink-0" />
-              <span className="leading-none">wilsonmp2@gmail.com</span>
-            </a>
+        <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 sm:gap-8">
+          {/* Left: Version metadata */}
+          <div className="text-center sm:text-left font-sans text-sm text-muted-foreground space-y-0.5">
+            <p className="m-0 font-medium text-foreground/80">Procedimento Operacional Padrão — Prestação de Contas PDDE</p>
+            <p className="m-0">4ª Coordenadoria Regional de Educação | GAD</p>
+            <p className="m-0 text-xs">Versão 2.6 · Abril 2026</p>
+          </div>
+
+          {/* Right: Developer */}
+          <div className="text-center sm:text-right shrink-0 space-y-1">
+            <p className="font-sans text-sm text-muted-foreground m-0">
+              Desenvolvido por <strong className="text-foreground font-semibold">Wilson M. Peixoto</strong> — SME/RJ
+            </p>
+            <p className="font-sans text-xs italic text-muted-foreground/70 m-0">
+              Inovação para a Gestão Pública
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-2 sm:gap-5 font-sans text-sm text-muted-foreground mt-2">
+              <a href="tel:+5521994974132" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors no-underline">
+                <Phone className="w-3.5 h-3.5 shrink-0" />
+                <span className="leading-none">(21) 99497-4132</span>
+              </a>
+              <a href="mailto:wilsonmp2@gmail.com" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors no-underline">
+                <Mail className="w-3.5 h-3.5 shrink-0" />
+                <span className="leading-none">wilsonmp2@gmail.com</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

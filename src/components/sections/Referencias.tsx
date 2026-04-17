@@ -30,12 +30,6 @@ export function Referencias() {
           — Disciplina assinaturas eletrônicas no Município do Rio de Janeiro e estabelece a definição de documento nato-digital, incluindo as modalidades nativo e capturado.
         </li>
       </ul>
-
-      <div className="mt-12 pt-6 border-t border-border text-sm text-muted-foreground font-sans">
-        <p>Procedimento Operacional Padrão — Prestação de Contas PDDE</p>
-        <p>4ª Coordenadoria Regional de Educação | GAD</p>
-        <p className="mt-2">Versão 2.6 · Abril 2026</p>
-      </div>
     </section>
   );
 }

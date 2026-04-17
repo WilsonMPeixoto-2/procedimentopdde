@@ -5,9 +5,9 @@ export function Finalizacao() {
     <section id="finalizacao">
 
       <p>
-        Após a remessa, o processo segue para <strong>análise da GAD</strong>. Nesta fase, a
-        unidade escolar deve <strong>acompanhar o andamento no SEI!RIO</strong> e responder
-        prontamente a qualquer devolução ou diligência apresentada pela coordenadoria.
+        Após a remessa, o processo segue para <strong>análise da GAD</strong>. Nesta fase,
+        acompanhe o andamento no SEI!RIO e responda <strong>tempestivamente</strong> a qualquer
+        devolução ou diligência apresentada pela coordenadoria.
       </p>
 
       <h2>6.1. Acompanhamento</h2>
@@ -16,14 +16,6 @@ export function Finalizacao() {
         podem atrasar a conclusão da prestação de contas e gerar <strong>pendências acumuladas</strong>{" "}
         para o exercício seguinte.
       </p>
-
-      <Callout type="tip" title="Boa prática">
-        <p>
-          Após a remessa, acompanhe o processo no SEI!RIO e responda <strong>tempestivamente</strong>{" "}
-          a qualquer devolução ou diligência. A celeridade no atendimento evita o acúmulo de
-          pendências.
-        </p>
-      </Callout>
 
       <h2>6.2. Diligências</h2>
       <p>

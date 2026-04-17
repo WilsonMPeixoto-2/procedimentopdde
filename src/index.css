@@ -17,7 +17,7 @@
     --secondary: 42 18% 94%;
     --secondary-foreground: 220 18% 13%;
     --muted: 42 12% 95%;
-    --muted-foreground: 220 12% 44%;
+    --muted-foreground: 220 14% 38%;
     --accent: 220 45% 96%;
     --accent-foreground: 220 50% 28%;
     --destructive: 0 72% 51%;
@@ -194,7 +194,7 @@
       0 4px 14px hsl(var(--shadow-color) / 0.06);
   }
   th, td {
-    padding: 0.85rem 1.1rem;
+    padding: 1rem 1.35rem;
     text-align: left;
     border-bottom: 1px solid hsl(var(--border) / 0.65);
     line-height: 1.55;
