@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, FileText, FolderOpen, Shield, PenTool, Send, Phone, Scale, ClipboardList, Paperclip, FileCheck, Zap, ArrowUpRight } from "lucide-react";
+import { BookOpen, FileText, FolderOpen, Shield, PenTool, Send, Phone, Scale, ClipboardList, Paperclip, FileCheck, Zap, ArrowUpRight, Search } from "lucide-react";
 
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 
@@ -66,6 +66,23 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
             </div>
           </div>
         </div>
+
+        {/* Search Bar Trigger */}
+        <button
+          onClick={() => {
+            window.dispatchEvent(new Event("open-search"));
+            onSectionChange(""); // Trick to close mobile sidebar
+          }}
+          className="w-full flex items-center justify-between gap-2 mt-4 px-3 py-2 bg-sidebar-accent/50 hover:bg-sidebar-accent border border-sidebar-border rounded-lg text-sidebar-foreground/50 transition-colors group"
+        >
+          <div className="flex items-center gap-2">
+            <Search className="w-4 h-4 text-sidebar-foreground/40 group-hover:text-sidebar-primary transition-colors" />
+            <span className="text-xs font-medium">Pesquisar no POP...</span>
+          </div>
+          <kbd className="hidden sm:inline-flex h-5 items-center gap-1 rounded border border-sidebar-border bg-sidebar-background px-1.5 font-mono text-[10px] font-medium text-sidebar-foreground/40">
+            <span className="text-xs">⌘</span>K
+          </kbd>
+        </button>
 
         {/* Progress bar with shimmer */}
         <div className="mt-3">
@@ -140,6 +157,7 @@ export function Sidebar({ onSectionChange }: SidebarProps) {
                   to="/despacho-express"
                   className="group relative flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] transition-all duration-200 mb-0.5 text-sidebar-foreground/60 hover:text-sidebar-primary hover:bg-sidebar-accent/60"
                   style={{ textDecoration: 'none', borderLeft: 'none' }}
+                  onClick={() => onSectionChange("")}
                 >
                   <Zap className="w-3.5 h-3.5 shrink-0 text-sidebar-foreground/35 group-hover:text-sidebar-primary transition-colors" />
                   <span className="truncate leading-tight">Despacho Digital</span>

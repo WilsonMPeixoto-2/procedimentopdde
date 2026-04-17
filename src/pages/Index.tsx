@@ -15,6 +15,7 @@ import { ChecklistSection } from "@/components/sections/Checklist";
 import { Contatos } from "@/components/sections/Contatos";
 import { Referencias } from "@/components/sections/Referencias";
 import { PrintFrontMatter, PrintColophon } from "@/components/PrintMatter";
+import { SearchCommand } from "@/components/SearchCommand";
 
 const ContentDivider = () => (
   <div className="content-divider my-14 flex items-center gap-4 px-2 print:hidden">
@@ -39,6 +40,7 @@ const Index = () => {
   return (
     <>
       <PrintFrontMatter />
+      <SearchCommand />
       <ManualLayout onSectionChange={scrollToSection}>
       <Hero />
 
