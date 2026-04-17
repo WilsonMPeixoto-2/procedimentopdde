@@ -28,37 +28,13 @@ import {
 import { generateDespachoDocx } from "@/lib/templates/docxTemplate";
 import { BackToTop } from "@/components/BackToTop";
 
-const formatCNPJ = (value: string) => {
-  const digits = value.replace(/\D/g, "").slice(0, 14);
-  return digits
-    .replace(/^(\d{2})(\d)/, "$1.$2")
-    .replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
-    .replace(/\.(\d{3})(\d)/, ".$1/$2")
-    .replace(/(\d{4})(\d)/, "$1-$2");
-};
-
-const formatProcessoSei = (value: string) => {
-  const digits = value.replace(/\D/g, "").slice(0, 18);
-  let out = digits;
-  if (digits.length > 6) out = `${digits.slice(0, 6)}.${digits.slice(6)}`;
-  if (digits.length > 12) out = `${digits.slice(0, 6)}.${digits.slice(6, 12)}/${digits.slice(12)}`;
-  if (digits.length > 16) out = `${digits.slice(0, 6)}.${digits.slice(6, 12)}/${digits.slice(12, 16)}-${digits.slice(16)}`;
-  return out;
-};
-
-const processoSeiSchema = z
-  .string()
-  .regex(
-    /^\d{6}\.\d{6}\/\d{4}(-\d{2})?$/,
-    "Use 000704.001704/2026 ou 000704.001704/2026-10",
-  );
 
 const formSchema = z.object({
   unidadeEscolar: z.string().min(1, "Campo obrigatório"),
   programa: z.string().min(1, "Selecione o programa"),
   presidente: z.string().min(1, "Campo obrigatório"),
-  cnpj: z.string().min(18, "CNPJ incompleto"),
-  processo: processoSeiSchema,
+  cnpj: z.string().min(1, "Campo obrigatório"),
+  processo: z.string().min(1, "Campo obrigatório"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -253,19 +229,10 @@ const DespachoExpress = () => {
                   hint="00.000.000/0000-00"
                   error={errors.cnpj?.message}
                 >
-                  <Controller
-                    control={control}
-                    name="cnpj"
-                    render={({ field: { onChange, value, ...field } }) => (
-                      <Input
-                        {...field}
-                        id="cnpj"
-                        inputMode="numeric"
-                        placeholder="00.000.000/0000-00"
-                        value={value}
-                        onChange={(e) => onChange(formatCNPJ(e.target.value))}
-                      />
-                    )}
+                  <Input
+                    id="cnpj"
+                    placeholder="00.000.000/0000-00"
+                    {...register("cnpj")}
                   />
                 </Field>
 
@@ -273,22 +240,13 @@ const DespachoExpress = () => {
                   icon={Hash}
                   label="Processo SEI"
                   htmlFor="processo"
-                  hint="000704.001704/2026 ou 000704.001704/2026-10"
+                  hint="Ex.: 000704.001704/2026"
                   error={errors.processo?.message}
                 >
-                  <Controller
-                    control={control}
-                    name="processo"
-                    render={({ field: { onChange, value, ...field } }) => (
-                      <Input
-                        {...field}
-                        id="processo"
-                        inputMode="numeric"
-                        placeholder="Ex.: 000704.001704/2026"
-                        value={value}
-                        onChange={(e) => onChange(formatProcessoSei(e.target.value))}
-                      />
-                    )}
+                  <Input
+                    id="processo"
+                    placeholder="Ex.: 000704.001704/2026"
+                    {...register("processo")}
                   />
                 </Field>
               </div>
