@@ -4,7 +4,7 @@ test("manual público carrega e busca navega para uma seção", async ({ page })
   await page.goto("/");
 
   await expect(
-    page.getByText("Procedimento Operacional Padrão", { exact: true }),
+    page.locator("#main-content").getByText("Procedimento Operacional Padrão", { exact: true }),
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: /Prestação\s*de Contas/i }).first(),
@@ -28,7 +28,9 @@ test("Despacho Express valida campos obrigatórios", async ({ page }) => {
   ).toBeVisible();
   await page.getByRole("button", { name: /Gerar e baixar Word/i }).click();
 
-  await expect(page.getByText("Selecione o programa")).toBeVisible();
+  await expect(
+    page.getByRole("paragraph").filter({ hasText: "Selecione o programa" }),
+  ).toBeVisible();
   await expect(page.getByText("Campo obrigatório").first()).toBeVisible();
 });
 
