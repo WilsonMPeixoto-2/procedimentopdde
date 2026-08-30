@@ -1,4 +1,6 @@
-import type { Config } from "tailwindcss";\nimport typography from "@tailwindcss/typography";\nimport tailwindcssAnimate from "tailwindcss-animate";
+import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
