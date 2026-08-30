@@ -13,7 +13,7 @@ test("manual público carrega e busca navega para uma seção", async ({ page })
     page.locator("#main-content").getByRole("heading", { name: "PDDE", exact: true }),
   ).toBeVisible();
 
-  await page.keyboard.press("Control+K");
+  await page.getByRole("button", { name: /Pesquisar no POP/i }).click();
   const search = page.getByPlaceholder(/Digite um termo ou assunto/i);
   await expect(search).toBeVisible();
   await search.fill("Abertura");
