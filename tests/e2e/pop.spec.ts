@@ -9,7 +9,9 @@ test("manual público carrega e busca navega para uma seção", async ({ page })
   await expect(
     page.getByRole("heading", { name: /Prestação\s*de Contas/i }).first(),
   ).toBeVisible();
-  await expect(page.getByText("PDDE", { exact: true }).first()).toBeVisible();
+  await expect(
+    page.locator("#main-content").getByRole("heading", { name: "PDDE", exact: true }),
+  ).toBeVisible();
 
   await page.keyboard.press("Control+K");
   const search = page.getByPlaceholder(/Digite um termo ou assunto/i);
