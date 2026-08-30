@@ -17,7 +17,10 @@ test("manual público carrega e busca navega para uma seção", async ({ page })
   const search = page.getByPlaceholder(/Digite um termo ou assunto/i);
   await expect(search).toBeVisible();
   await search.fill("Abertura");
-  await page.getByText("Abertura do Processo", { exact: true }).click();
+  await page
+    .getByLabel("Suggestions")
+    .getByText("Abertura do Processo", { exact: true })
+    .click();
 
   await expect(page.locator("#abertura")).toBeVisible();
 });
