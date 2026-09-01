@@ -66,6 +66,12 @@ O projeto usa **npm** como gerenciador canônico. O `package-lock.json` é a fon
 
 O Dependabot verifica semanalmente dependências npm e GitHub Actions. Atualizações npm `minor` e `patch` são agrupadas; atualizações `major` permanecem fora da atualização automática de versão e devem ser avaliadas de forma controlada. Correções de segurança continuam sujeitas às regras do Dependabot Security Updates do GitHub.
 
+## Baseline de manutenção — agosto de 2026
+
+A modernização da stack foi consolidada na `main` em 31 de agosto de 2026. A baseline correspondente foi validada com instalação reproduzível, auditoria de dependências, TypeScript, lint, testes unitários, build, jornada E2E, geração real de DOCX e auditoria automatizada de acessibilidade.
+
+Alterações futuras de dependências devem preservar essa baseline e passar pelo mesmo gate antes de integração.
+
 ## Estrutura do Projeto
 
 ```
