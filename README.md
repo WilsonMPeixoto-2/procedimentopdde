@@ -45,6 +45,27 @@ npm run validate
 npm run test:e2e
 ```
 
+## Qualidade e integração contínua
+
+O workflow de CI é executado em pull requests destinados à `main`, em pushes para `main` e sob acionamento manual. O pipeline é **somente leitura** e executa, no mesmo gate:
+
+1. instalação reproduzível com `npm ci`;
+2. `npm audit --audit-level=high`;
+3. typecheck;
+4. lint;
+5. testes unitários;
+6. build de produção;
+7. testes E2E em Chromium;
+8. auditoria automatizada de acessibilidade com Axe.
+
+Os relatórios e evidências do Playwright são preservados como artefatos do GitHub Actions por 14 dias, inclusive em execuções com falha.
+
+## Gerenciador de pacotes e atualização de dependências
+
+O projeto usa **npm** como gerenciador canônico. O `package-lock.json` é a fonte de verdade do grafo de dependências e deve permanecer sincronizado com o `package.json`. O CI nunca altera nem envia commits ao repositório.
+
+O Dependabot verifica semanalmente dependências npm e GitHub Actions. Atualizações npm `minor` e `patch` são agrupadas; atualizações `major` permanecem fora da atualização automática de versão e devem ser avaliadas de forma controlada. Correções de segurança continuam sujeitas às regras do Dependabot Security Updates do GitHub.
+
 ## Estrutura do Projeto
 
 ```
@@ -65,8 +86,3 @@ src/
 ## Licença
 
 Uso institucional — Secretaria Municipal de Educação do Rio de Janeiro.
-
-
-## Gerenciador de Pacotes
-
-O projeto usa **npm** como gerenciador canônico. O `package-lock.json` é a fonte de verdade do grafo de dependências e deve permanecer sincronizado com o `package.json`.
