@@ -3,8 +3,6 @@ name: CI
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -18,6 +16,7 @@ jobs:
   validate:
     name: Typecheck, Lint, Test, Build & E2E
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
@@ -52,14 +51,3 @@ jobs:
 
       - name: E2E and accessibility
         run: npm run test:e2e
-
-      - name: Upload Playwright artifacts
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: playwright-results-${{ github.run_id }}
-          path: |
-            playwright-report/
-            test-results/
-          if-no-files-found: ignore
-          retention-days: 14
