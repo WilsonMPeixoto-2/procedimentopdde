@@ -1,13 +1,7 @@
 import { Document, Packer, Paragraph, TextRun, AlignmentType, PageBreak } from "docx";
 import { saveAs } from "file-saver";
+import { getDespachoFileName, type DespachoData } from "@/lib/despacho";
 
-export interface DespachoData {
-  unidadeEscolar: string;
-  programa: string;
-  presidente: string;
-  cnpj: string;
-  processo: string;
-}
 
 export const generateDespachoDocx = async (data: DespachoData) => {
   const { unidadeEscolar, programa, presidente, cnpj, processo } = data;
@@ -186,6 +180,6 @@ export const generateDespachoDocx = async (data: DespachoData) => {
   });
 
   const blob = await Packer.toBlob(doc);
-  const fileName = `Despachos_${unidadeEscolar.replace(/\s+/g, "_")}.docx`;
+  const fileName = getDespachoFileName(unidadeEscolar);
   saveAs(blob, fileName);
 };
