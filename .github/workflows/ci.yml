@@ -18,6 +18,7 @@ jobs:
   validate:
     name: Typecheck, Lint, Test, Build & E2E
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
