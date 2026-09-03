@@ -49,6 +49,9 @@ npm run test:e2e
 
 # Verificar arquivos e dependências sem uso
 npm run check:dead-code
+
+# Verificar orçamento do bundle após o build
+npm run check:bundle-budget
 ```
 
 ## Qualidade e integração contínua
@@ -62,12 +65,25 @@ O workflow de CI é executado em pull requests destinados à `main`, em pushes p
 5. auditoria de arquivos e dependências mortas com Knip;
 6. testes unitários com cobertura de 100% da camada `src/lib`;
 7. build de produção;
-8. testes E2E em Chromium;
-9. auditoria automatizada de acessibilidade com Axe.
+8. orçamento de bundle inicial;
+9. testes E2E em Chromium;
+10. auditoria automatizada de acessibilidade com Axe.
 
 Os relatórios e evidências do Playwright são preservados como artefatos do GitHub Actions por 14 dias, inclusive em execuções com falha.
 
 A cobertura unitária é aplicada à camada `src/lib`, onde ficam validação, utilitários e geração de DOCX, com threshold de 100% para statements, branches, functions e lines. A interface e as jornadas públicas permanecem protegidas por Playwright e Axe.
+
+## Performance
+
+O Despacho Express é carregado sob demanda, mantendo a página principal do manual livre do peso do gerador DOCX até que a ferramenta seja aberta.
+
+Baseline após a otimização:
+
+- JavaScript inicial: **188,61 kB gzip** (antes: 370,50 kB gzip; redução aproximada de 49%);
+- CSS inicial: **17,16 kB gzip**;
+- chunk do Despacho Express: **167,82 kB gzip**, carregado apenas na rota `/despacho-express`.
+
+O CI aplica orçamento máximo de **210 KiB gzip para o JavaScript inicial** e **20 KiB gzip para o CSS inicial**. Alterações que ultrapassem esses limites falham antes da integração.
 
 ## Gerenciador de pacotes e atualização de dependências
 
