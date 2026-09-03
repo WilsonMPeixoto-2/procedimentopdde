@@ -38,6 +38,9 @@ npm run build
 # Executar testes unitários
 npm test
 
+# Executar testes com cobertura da lógica central
+npm run test:coverage
+
 # Validar TypeScript, lint, testes e build
 npm run validate
 
@@ -57,12 +60,14 @@ O workflow de CI é executado em pull requests destinados à `main`, em pushes p
 3. typecheck;
 4. lint;
 5. auditoria de arquivos e dependências mortas com Knip;
-6. testes unitários;
+6. testes unitários com cobertura de 100% da camada `src/lib`;
 7. build de produção;
 8. testes E2E em Chromium;
 9. auditoria automatizada de acessibilidade com Axe.
 
 Os relatórios e evidências do Playwright são preservados como artefatos do GitHub Actions por 14 dias, inclusive em execuções com falha.
+
+A cobertura unitária é aplicada à camada `src/lib`, onde ficam validação, utilitários e geração de DOCX, com threshold de 100% para statements, branches, functions e lines. A interface e as jornadas públicas permanecem protegidas por Playwright e Axe.
 
 ## Gerenciador de pacotes e atualização de dependências
 
