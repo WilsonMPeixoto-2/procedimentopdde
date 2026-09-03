@@ -13,7 +13,6 @@ import {
   FolderOpen,
 } from "lucide-react";
 import { useForm, Controller } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,18 +25,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { generateDespachoDocx } from "@/lib/templates/docxTemplate";
+import { despachoFormSchema, type DespachoData } from "@/lib/despacho";
 import { BackToTop } from "@/components/BackToTop";
 
 
-const formSchema = z.object({
-  unidadeEscolar: z.string().min(1, "Campo obrigatório"),
-  programa: z.string().min(1, "Selecione o programa"),
-  presidente: z.string().min(1, "Campo obrigatório"),
-  cnpj: z.string().min(1, "Campo obrigatório"),
-  processo: z.string().min(1, "Campo obrigatório"),
-});
-
-type FormData = z.infer<typeof formSchema>;
+type FormData = DespachoData;
 
 const DespachoExpress = () => {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -49,7 +41,7 @@ const DespachoExpress = () => {
     reset,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(despachoFormSchema),
     defaultValues: {
       unidadeEscolar: "",
       programa: "",
@@ -62,7 +54,7 @@ const DespachoExpress = () => {
   const onSubmit = async (data: FormData) => {
     try {
       setIsGenerating(true);
-      await generateDespachoDocx(data as Required<FormData>);
+      await generateDespachoDocx(data);
       toast.success("Despachos gerados com sucesso!", {
         description: "O arquivo .docx foi baixado com os três despachos prontos para revisão.",
       });
