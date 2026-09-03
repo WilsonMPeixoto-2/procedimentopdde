@@ -43,6 +43,9 @@ npm run validate
 
 # Executar testes E2E e acessibilidade
 npm run test:e2e
+
+# Verificar arquivos e dependências sem uso
+npm run check:dead-code
 ```
 
 ## Qualidade e integração contínua
@@ -53,10 +56,11 @@ O workflow de CI é executado em pull requests destinados à `main`, em pushes p
 2. `npm audit --audit-level=high`;
 3. typecheck;
 4. lint;
-5. testes unitários;
-6. build de produção;
-7. testes E2E em Chromium;
-8. auditoria automatizada de acessibilidade com Axe.
+5. auditoria de arquivos e dependências mortas com Knip;
+6. testes unitários;
+7. build de produção;
+8. testes E2E em Chromium;
+9. auditoria automatizada de acessibilidade com Axe.
 
 Os relatórios e evidências do Playwright são preservados como artefatos do GitHub Actions por 14 dias, inclusive em execuções com falha.
 
