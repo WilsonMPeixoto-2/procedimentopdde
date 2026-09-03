@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "sonner";
+import { Toaster as Sonner, toast } from "@/components/ui/sonner";
 import {
   FileDown,
   ArrowLeft,
@@ -312,6 +312,7 @@ const DespachoExpress = () => {
           <span>4ª CRE · GAD · {new Date().getFullYear()}</span>
         </div>
       </footer>
+      <Sonner />
       <BackToTop />
     </div>
   );
