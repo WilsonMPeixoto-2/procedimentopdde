@@ -45,8 +45,8 @@ jobs:
       - name: Dead code check
         run: npm run check:dead-code
 
-      - name: Unit tests
-        run: npm test
+      - name: Unit tests with core coverage
+        run: npm run test:coverage
 
       - name: Build
         run: npm run build
