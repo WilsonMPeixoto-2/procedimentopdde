@@ -85,6 +85,10 @@ Baseline após a otimização:
 
 O CI aplica orçamento máximo de **210 KiB gzip para o JavaScript inicial** e **20 KiB gzip para o CSS inicial**. Alterações que ultrapassem esses limites falham antes da integração.
 
+## Publicação
+
+A publicação em produção é feita a partir da branch `main`. Pull requests e branches de trabalho devem ser validados pelo GitHub Actions antes da integração; o domínio oficial continua sendo `procedimentopdde.vercel.app`.
+
 ## Gerenciador de pacotes e atualização de dependências
 
 O projeto usa **npm** como gerenciador canônico. O `package-lock.json` é a fonte de verdade do grafo de dependências e deve permanecer sincronizado com o `package.json`. O CI nunca altera nem envia commits ao repositório.
