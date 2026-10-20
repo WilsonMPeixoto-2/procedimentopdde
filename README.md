@@ -1,12 +1,14 @@
 # Procedimento PDDE — 4ª CRE
 
-Guia institucional de Prestação de Contas do **PDDE** (Programa Dinheiro Direto na Escola) no **SEI!RIO**, elaborado pela Gerência de Administração (GAD) da 4ª Coordenadoria Regional de Educação — Secretaria Municipal de Educação do Rio de Janeiro.
+Manual digital interativo sobre **instrução processual e fiscalização da prestação de contas do PDDE**, elaborado pela Gerência de Administração (GAD) da 4ª Coordenadoria Regional de Educação — Secretaria Municipal de Educação do Rio de Janeiro.
 
 ## Sobre
 
-Este Procedimento Operacional Padrão (POP) orienta diretores, secretários escolares e servidores administrativos vinculados à 4ª CRE na abertura, instrução, assinatura e finalização do processo de prestação de contas do PDDE no Sistema Eletrônico de Informações do Município do Rio de Janeiro (SEI!RIO).
+O produto reúne dois eixos complementares: **como instruir corretamente o processo no SEI!RIO** e **como fiscalizar a prestação de contas já instruída**. A proposta é ensinar o fluxo, os critérios de leitura, os confrontos documentais, a lógica de diligência e a reanálise, sem substituir o julgamento técnico do servidor.
 
-**Arquitetura:** aplicação web pública e estática. Não possui login, autenticação, banco de dados ou backend próprio. O Despacho Express gera os arquivos DOCX localmente no navegador.
+**Fronteira do produto:** é um manual público, digital, interativo e orientativo. Não possui login, banco de dados ou backend próprio; não controla carteira de escolas, não registra o histórico oficial de análises e não substitui os sistemas institucionais de gestão da fiscalização.
+
+A ferramenta de geração documental integrada produz apenas a **minuta de encaminhamento** da prestação de contas. Parecer de análise e aprovação permanecem condicionados ao resultado efetivo da fiscalização.
 
 **Acesse o manual:** [procedimentopdde.vercel.app](https://procedimentopdde.vercel.app)
 
@@ -59,15 +61,16 @@ npm run check:bundle-budget
 O workflow de CI é executado em pull requests destinados à `main`, em pushes para `main` e sob acionamento manual. O pipeline é **somente leitura** e executa, no mesmo gate:
 
 1. instalação reproduzível com `npm ci`;
-2. `npm audit --audit-level=high`;
-3. typecheck;
-4. lint;
-5. auditoria de arquivos e dependências mortas com Knip;
-6. testes unitários com cobertura de 100% da camada `src/lib`;
-7. build de produção;
-8. orçamento de bundle inicial;
-9. testes E2E em Chromium;
-10. auditoria automatizada de acessibilidade com Axe.
+2. auditoria bloqueante das dependências de produção (`npm audit --omit=dev --audit-level=high`);
+3. auditoria informativa da toolchain de desenvolvimento;
+4. typecheck;
+5. lint;
+6. auditoria de arquivos e dependências mortas com Knip;
+7. testes unitários com cobertura de 100% da camada `src/lib`;
+8. build de produção;
+9. orçamento de bundle inicial;
+10. testes E2E em Chromium;
+11. auditoria automatizada de acessibilidade com Axe.
 
 Os relatórios e evidências do Playwright são preservados como artefatos do GitHub Actions por 14 dias, inclusive em execuções com falha.
 
@@ -94,6 +97,12 @@ A publicação em produção é feita a partir da branch `main`. Pull requests e
 O projeto usa **npm** como gerenciador canônico. O `package-lock.json` é a fonte de verdade do grafo de dependências e deve permanecer sincronizado com o `package.json`. O CI nunca altera nem envia commits ao repositório.
 
 O Dependabot verifica semanalmente dependências npm e GitHub Actions. Atualizações npm `minor` e `patch` são agrupadas; atualizações `major` permanecem fora da atualização automática de versão e devem ser avaliadas de forma controlada. Correções de segurança continuam sujeitas às regras do Dependabot Security Updates do GitHub.
+
+## Direção de produto — outubro de 2026
+
+A versão 3.0 reorganiza o manual em dois caminhos de leitura: **Instrução Processual** e **Fiscalização**. A nova seção de fiscalização ensina sequência de análise, eixos de conferência, classificação de achados, diligência e reanálise. A antiga automação de três despachos foi restringida à minuta de encaminhamento para evitar que a ferramenta antecipe parecer favorável ou aprovação.
+
+O princípio de produto é: **orientar melhor o trabalho sem duplicar os sistemas que já fazem a gestão da fiscalização**.
 
 ## Baseline de manutenção — agosto de 2026
 

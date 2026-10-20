@@ -2,35 +2,32 @@ export function Apresentacao() {
   return (
     <section id="apresentacao">
       <div className="section-number">Apresentação institucional</div>
-      <h1>Prezados(as) Diretores(as),</h1>
+      <h1>Um manual para instruir e analisar melhor</h1>
 
       <p>
-        A rotina de uma gestão escolar é intensa. Entre demandas pedagógicas, cuidado com pessoas
-        e urgências do dia a dia, sabemos que a organização administrativa exige tempo, atenção e,
-        muitas vezes, decisões rápidas. Por isso, a 4ª Coordenadoria Regional de Educação, por meio
-        da Gerência de Administração (GAD), reafirma aqui um compromisso simples e objetivo:{" "}
-        <strong>estar ao lado das equipes gestoras, com orientação clara, apoio contínuo e diálogo.</strong>
+        A prestação de contas do PDDE envolve dois trabalhos que se conectam, mas não são a mesma
+        coisa: <strong>instruir corretamente o processo</strong> e <strong>fiscalizar o conteúdo
+        apresentado</strong>. Quando essas duas etapas são confundidas, aumentam as dúvidas, as
+        devoluções e o retrabalho tanto para as unidades escolares quanto para quem realiza a análise.
       </p>
 
       <p>
-        A chegada do <strong>SEI!RIO</strong> representa uma mudança importante na forma como
-        registramos, acompanhamos e formalizamos os processos administrativos. Toda transição traz
-        desafios — e é exatamente nesse momento que a <strong>parceria entre CRE e escolas</strong>{" "}
-        faz diferença. Este material foi pensado para facilitar o caminho, reduzir inseguranças,
-        evitar retrabalho e dar mais previsibilidade às rotinas.
+        Este manual digital foi reorganizado para acompanhar essas duas perspectivas. A primeira
+        parte orienta a preparação e a tramitação no <strong>SEI!RIO</strong>. A segunda explica
+        como ler o processo já instruído: quais relações devem ser verificadas, como identificar
+        inconsistências, quando uma diligência é necessária e o que precisa ser reavaliado antes de
+        uma manifestação conclusiva.
       </p>
 
       <p>
-        Este é o primeiro de uma <strong>série de documentos de orientação</strong> que a 4ª CRE
-        está construindo para apoiar as direções, tanto nos procedimentos de gestão escolar quanto
-        no uso do novo sistema processual SEI!RIO. A cada novo guia, nossa intenção é a mesma:
-        transformar regras e etapas em rotinas mais simples, seguras e executáveis, respeitando o
-        contexto real de cada unidade.
+        O objetivo não é substituir o SEI!RIO nem os sistemas usados para controle da fiscalização.
+        O papel deste produto é outro: <strong>transformar regras, documentos e critérios de análise
+        em orientação prática, consultável e interativa</strong>.
       </p>
 
       <p>
-        <strong>Conte com a 4ª CRE/GAD.</strong> Seguimos à disposição para orientar, ouvir e
-        aprimorar continuamente esses materiais, em parceria com vocês.
+        <strong>Conte com a 4ª CRE/GAD.</strong> O manual deve permanecer vivo, acompanhando as
+        mudanças normativas e os problemas que aparecem no trabalho real.
       </p>
     </section>
   );

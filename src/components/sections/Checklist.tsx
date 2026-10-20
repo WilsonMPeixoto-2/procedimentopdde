@@ -61,12 +61,12 @@ export function ChecklistSection() {
   return (
     <section id="checklist">
       <div className="section-number">Recurso</div>
-      <h1>Checklist — Prestação de Contas do PDDE</h1>
+      <h1>Checklist — Instrução do Processo</h1>
       <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6 !text-left">
-        Use esta lista para conferir a documentação antes de remeter o processo.
+        Use esta lista como pré-conferência da instrução antes da remessa. Ela não substitui a fiscalização do conteúdo das peças.
       </p>
 
-      <h2>Bloco A — Documentos federais mínimos</h2>
+      <h2>Bloco A — Peças essenciais para instrução</h2>
       <p>
         Núcleo da comprovação da execução e da prestação de contas.
       </p>

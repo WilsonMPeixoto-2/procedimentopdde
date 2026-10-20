@@ -1,10 +1,9 @@
-import { Document, Packer, Paragraph, TextRun, AlignmentType, PageBreak } from "docx";
+import { AlignmentType, Document, Packer, Paragraph, TextRun } from "docx";
 import { saveAs } from "file-saver";
 import { getDespachoFileName, type DespachoData } from "@/lib/despacho";
 
-
 export const generateDespachoDocx = async (data: DespachoData) => {
-  const { unidadeEscolar, programa, presidente, cnpj, processo } = data;
+  const { unidadeEscolar, programa, exercicio, presidente, cnpj, processo } = data;
 
   const dataAtual = new Date().toLocaleDateString("pt-BR", {
     day: "2-digit",
@@ -13,8 +12,8 @@ export const generateDespachoDocx = async (data: DespachoData) => {
   });
 
   const doc = new Document({
-    creator: "Despacho Digital",
-    title: "Despachos - Prestação de Contas",
+    creator: "POP Digital — 4ª CRE/GAD",
+    title: "Minuta de Encaminhamento - Prestação de Contas PDDE",
     styles: {
       default: {
         document: {
@@ -33,7 +32,6 @@ export const generateDespachoDocx = async (data: DespachoData) => {
       {
         properties: {},
         children: [
-          // ========== DESPACHO 01 ==========
           new Paragraph({
             alignment: AlignmentType.CENTER,
             children: [
@@ -45,7 +43,14 @@ export const generateDespachoDocx = async (data: DespachoData) => {
           }),
           new Paragraph({
             alignment: AlignmentType.CENTER,
-            children: [new TextRun({ text: "REF. CONTÁBIL/2025", bold: true })],
+            children: [
+              new TextRun({ text: `REF. CONTÁBIL/${exercicio}`, bold: true }),
+            ],
+          }),
+          new Paragraph({ text: "" }),
+          new Paragraph({
+            alignment: AlignmentType.JUSTIFIED,
+            text: `Processo nº ${processo}`,
           }),
           new Paragraph({ text: "" }),
           new Paragraph({ text: "À GAD/4ª CRE," }),
@@ -69,117 +74,11 @@ export const generateDespachoDocx = async (data: DespachoData) => {
           }),
           new Paragraph({ text: "" }),
           new Paragraph({ text: `Rio de Janeiro, ${dataAtual}` }),
-
-          new Paragraph({ children: [new PageBreak()] }),
-
-          // ========== DESPACHO 02 ==========
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            children: [new TextRun({ text: "PRESTAÇÃO DE CONTAS DE PDDE", bold: true })],
-          }),
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            children: [
-              new TextRun({ text: "ANÁLISE PELA GAD – REF. CONTÁBIL/2025", bold: true }),
-            ],
-          }),
-          new Paragraph({ text: "" }),
-          new Paragraph({ text: "À Coordenadora da 4ª CRE," }),
-          new Paragraph({
-            alignment: AlignmentType.JUSTIFIED,
-            children: [
-              new TextRun({
-                text: `Trata-se da análise da Prestação de Contas (FNDE/${programa}) encaminhada pelo Conselho Escola Comunidade (CEC) da `,
-              }),
-              new TextRun({ text: unidadeEscolar, bold: true }),
-              new TextRun({ text: " (CNPJ: " }),
-              new TextRun({ text: cnpj, bold: true }),
-              new TextRun({ text: "), representado por " }),
-              new TextRun({ text: presidente, bold: true }),
-              new TextRun({ text: "." }),
-            ],
-          }),
-          new Paragraph({
-            alignment: AlignmentType.JUSTIFIED,
-            text: "Após análise por esta GAD (Gerência de Administração), constata-se que a documentação apresentada atende integralmente às normatizações e orientações vigentes do FNDE aplicáveis à matéria.",
-          }),
-          new Paragraph({
-            alignment: AlignmentType.JUSTIFIED,
-            text: "Diante do exposto, encaminho os autos com parecer favorável à aprovação das contas supracitadas.",
-          }),
-          new Paragraph({ text: "" }),
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            text: `Rio de Janeiro, ${dataAtual}`,
-          }),
-          new Paragraph({ text: "" }),
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            children: [new TextRun({ text: "BIANCA BARRETO DA FONSECA COELHO", bold: true })],
-          }),
-          new Paragraph({ alignment: AlignmentType.CENTER, text: "Gerente II" }),
-          new Paragraph({ alignment: AlignmentType.CENTER, text: "E/4ªCRE/GAD" }),
-          new Paragraph({ alignment: AlignmentType.CENTER, text: "Matrícula: 1993567" }),
-
-          new Paragraph({ children: [new PageBreak()] }),
-
-          // ========== DESPACHO 03 ==========
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            children: [new TextRun({ text: "PRESTAÇÃO DE CONTAS DE PDDE", bold: true })],
-          }),
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            children: [
-              new TextRun({ text: "APROVAÇÃO E PUBLICAÇÃO - REF. CONTÁBIL/2025", bold: true }),
-            ],
-          }),
-          new Paragraph({ text: "" }),
-          new Paragraph({
-            alignment: AlignmentType.JUSTIFIED,
-            text: `Processo nº ${processo}`,
-          }),
-          new Paragraph({
-            alignment: AlignmentType.JUSTIFIED,
-            children: [
-              new TextRun({
-                text: "Com fulcro na análise técnica exarada pela Gerência, APROVO a Prestação de Contas referente aos recursos do Programa Dinheiro Direto na Escola (FNDE/",
-              }),
-              new TextRun({
-                text: `${programa}), executados pelo Conselho Escola Comunidade (CEC) da `,
-              }),
-              new TextRun({ text: unidadeEscolar, bold: true }),
-              new TextRun({ text: " (CNPJ: " }),
-              new TextRun({ text: cnpj, bold: true }),
-              new TextRun({ text: "), neste ato representado por seu(sua) presidente, " }),
-              new TextRun({ text: presidente, bold: true }),
-              new TextRun({ text: "." }),
-            ],
-          }),
-          new Paragraph({ text: "" }),
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            children: [new TextRun({ text: "PUBLIQUE-SE.", bold: true })],
-          }),
-          new Paragraph({ text: "" }),
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            text: `Rio de Janeiro, ${dataAtual}`,
-          }),
-          new Paragraph({ text: "" }),
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            children: [new TextRun({ text: "FÁTIMA DAS GRAÇAS LIMA BARROS", bold: true })],
-          }),
-          new Paragraph({ alignment: AlignmentType.CENTER, text: "Coordenadora I" }),
-          new Paragraph({ alignment: AlignmentType.CENTER, text: "E/4ª CRE" }),
-          new Paragraph({ alignment: AlignmentType.CENTER, text: "Matrícula: 2025591" }),
         ],
       },
     ],
   });
 
   const blob = await Packer.toBlob(doc);
-  const fileName = getDespachoFileName(unidadeEscolar);
-  saveAs(blob, fileName);
+  saveAs(blob, getDespachoFileName(unidadeEscolar, exercicio));
 };

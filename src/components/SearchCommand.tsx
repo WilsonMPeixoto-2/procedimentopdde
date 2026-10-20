@@ -7,7 +7,16 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { FileText, Search, BookOpen, Send, ClipboardList } from "lucide-react";
+import {
+  BookOpen,
+  ClipboardList,
+  FileText,
+  RotateCcw,
+  Search,
+  SearchCheck,
+  Send,
+  TriangleAlert,
+} from "lucide-react";
 
 export function SearchCommand() {
   const [open, setOpen] = useState(false);
@@ -16,14 +25,13 @@ export function SearchCommand() {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen((open) => !open);
+        setOpen((current) => !current);
       }
     };
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
 
-  // Event listener manual para o botão da Sidebar acionar a busca
   useEffect(() => {
     const handleTrigger = () => setOpen(true);
     window.addEventListener("open-search", handleTrigger);
@@ -33,20 +41,17 @@ export function SearchCommand() {
   const handleSelect = (id: string) => {
     setOpen(false);
     setTimeout(() => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 150); // Delay for Dialog close animation
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 150);
   };
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
-      <CommandInput placeholder="Digite um termo ou assunto (ex: Diligência)..." />
+      <CommandInput placeholder="Digite um assunto (ex.: diligência, autenticação, fiscalização)..." />
       <CommandList>
-        <CommandEmpty>Nenhum resultado encontrado.</CommandEmpty>
-        
-        <CommandGroup heading="Etapas do Processo">
+        <CommandEmpty>Nenhum tópico encontrado.</CommandEmpty>
+
+        <CommandGroup heading="Instrução Processual">
           <CommandItem onSelect={() => handleSelect("abertura")}>
             <FileText className="mr-2 h-4 w-4" />
             <span>Abertura do Processo</span>
@@ -57,7 +62,7 @@ export function SearchCommand() {
           </CommandItem>
           <CommandItem onSelect={() => handleSelect("inclusao")}>
             <FileText className="mr-2 h-4 w-4" />
-            <span>Inclusão de Documentos (Digitais/Externos)</span>
+            <span>Inclusão de Documentos</span>
           </CommandItem>
           <CommandItem onSelect={() => handleSelect("autenticacao")}>
             <FileText className="mr-2 h-4 w-4" />
@@ -69,18 +74,37 @@ export function SearchCommand() {
           </CommandItem>
           <CommandItem onSelect={() => handleSelect("finalizacao")}>
             <Send className="mr-2 h-4 w-4" />
-            <span>Finalização, Andamento e Diligências</span>
+            <span>Remessa, acompanhamento e diligências</span>
+          </CommandItem>
+        </CommandGroup>
+
+        <CommandGroup heading="Fiscalização">
+          <CommandItem onSelect={() => handleSelect("fiscalizacao")}>
+            <SearchCheck className="mr-2 h-4 w-4" />
+            <span>Roteiro de Fiscalização</span>
+          </CommandItem>
+          <CommandItem onSelect={() => handleSelect("fiscalizacao-achados")}>
+            <TriangleAlert className="mr-2 h-4 w-4" />
+            <span>Classificação dos Achados</span>
+          </CommandItem>
+          <CommandItem onSelect={() => handleSelect("fiscalizacao-diligencia")}>
+            <Search className="mr-2 h-4 w-4" />
+            <span>Como elaborar uma diligência</span>
+          </CommandItem>
+          <CommandItem onSelect={() => handleSelect("fiscalizacao-reanalise")}>
+            <RotateCcw className="mr-2 h-4 w-4" />
+            <span>Reanálise após diligência</span>
           </CommandItem>
         </CommandGroup>
 
         <CommandGroup heading="Apoio e Consultas">
           <CommandItem onSelect={() => handleSelect("modelos")}>
             <BookOpen className="mr-2 h-4 w-4" />
-            <span>Modelos de Documentos e Anexos</span>
+            <span>Modelos e Anexos</span>
           </CommandItem>
           <CommandItem onSelect={() => handleSelect("checklist")}>
             <ClipboardList className="mr-2 h-4 w-4" />
-            <span>Checklist Documental</span>
+            <span>Checklist de Instrução</span>
           </CommandItem>
           <CommandItem onSelect={() => handleSelect("referencias")}>
             <Search className="mr-2 h-4 w-4" />

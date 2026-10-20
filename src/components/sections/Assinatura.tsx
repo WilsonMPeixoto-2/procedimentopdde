@@ -57,11 +57,11 @@ export function Assinatura() {
         </p>
       </Callout>
 
-      <Callout type="tip" title="Atalho: Despacho Digital">
+      <Callout type="tip" title="Atalho: minuta de encaminhamento">
         <p>
           Para a redação do despacho de encaminhamento, utilize o gerador interno{" "}
           <a href="/despacho-express">
-            <strong>Despacho Digital — 4ª CRE</strong>
+            <strong>Minuta de Encaminhamento — 4ª CRE</strong>
           </a>
           . Os três despachos padronizados são gerados em <strong>.docx</strong> a partir dos
           dados da unidade escolar.

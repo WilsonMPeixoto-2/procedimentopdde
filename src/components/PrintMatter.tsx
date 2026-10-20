@@ -15,11 +15,12 @@ const tocItems = [
   { num: "3", label: "Inclusão de Documentos" },
   { num: "4", label: "Autenticação de Documentos" },
   { num: "5", label: "Bloco de Assinatura" },
-  { num: "6", label: "Despacho e Finalização" },
+  { num: "6", label: "Remessa e Acompanhamento" },
+  { num: "7", label: "Fiscalização da Prestação de Contas" },
   { num: "", label: "Modelos e Anexos" },
-  { num: "", label: "Checklist" },
-  { num: "7", label: "Contatos" },
-  { num: "8", label: "Referências" },
+  { num: "", label: "Checklist de Instrução" },
+  { num: "8", label: "Contatos" },
+  { num: "9", label: "Referências" },
 ];
 
 export function PrintFrontMatter() {
@@ -47,15 +48,15 @@ export function PrintFrontMatter() {
             <span className="print-cover-title-accent">PDDE</span>
           </h1>
           <p className="print-cover-subtitle">
-            Guia institucional de tramitação no SEI!RIO — abertura, instrução,
-            assinatura e finalização do processo.
+            Manual institucional de instrução processual e fiscalização da prestação
+            de contas do PDDE.
           </p>
         </div>
 
         <div className="print-cover-footer">
           <div>
             <div className="print-cover-meta-label">Edição</div>
-            <div className="print-cover-meta-value">v2.6 · {today}</div>
+            <div className="print-cover-meta-value">v3.0 · {today}</div>
           </div>
           <div>
             <div className="print-cover-meta-label">Órgão</div>
@@ -72,10 +73,9 @@ export function PrintFrontMatter() {
       <section className="print-half-title">
         <div className="print-half-title-rule" />
         <p className="print-half-title-text">
-          Este documento orienta as Unidades Escolares vinculadas à 4ª CRE quanto à
-          tramitação da Prestação de Contas do Programa Dinheiro Direto na Escola
-          (PDDE) no Sistema Eletrônico de Informações do Município do Rio de Janeiro
-          (SEI!RIO).
+          Este documento orienta a instrução processual da Prestação de Contas do
+          Programa Dinheiro Direto na Escola (PDDE) no SEI!RIO e apresenta o roteiro
+          institucional para fiscalização, diligência, reanálise e conclusão.
         </p>
         <div className="print-half-title-rule" />
         <div className="print-half-title-meta">
@@ -85,7 +85,7 @@ export function PrintFrontMatter() {
           </div>
           <div>
             <span>Público</span>
-            <strong>Diretores, secretários escolares e servidores administrativos</strong>
+            <strong>Equipes gestoras, servidores administrativos e responsáveis pela análise</strong>
           </div>
           <div>
             <span>Vigência</span>
@@ -130,8 +130,8 @@ export function PrintColophon() {
       <p className="print-colophon-text">
         Este Procedimento Operacional Padrão foi elaborado pela Gerência de
         Administração da 4ª Coordenadoria Regional de Educação, com o objetivo de
-        padronizar a tramitação dos processos de Prestação de Contas do PDDE no
-        SEI!RIO.
+        padronizar a orientação sobre instrução processual e fiscalização das
+        Prestações de Contas do PDDE.
       </p>
       <dl className="print-colophon-meta">
         <div>
@@ -140,7 +140,7 @@ export function PrintColophon() {
         </div>
         <div>
           <dt>Edição</dt>
-          <dd>v2.6</dd>
+          <dd>v3.0</dd>
         </div>
         <div>
           <dt>Revisão</dt>
