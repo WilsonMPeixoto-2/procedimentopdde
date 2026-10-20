@@ -61,15 +61,16 @@ npm run check:bundle-budget
 O workflow de CI é executado em pull requests destinados à `main`, em pushes para `main` e sob acionamento manual. O pipeline é **somente leitura** e executa, no mesmo gate:
 
 1. instalação reproduzível com `npm ci`;
-2. `npm audit --audit-level=high`;
-3. typecheck;
-4. lint;
-5. auditoria de arquivos e dependências mortas com Knip;
-6. testes unitários com cobertura de 100% da camada `src/lib`;
-7. build de produção;
-8. orçamento de bundle inicial;
-9. testes E2E em Chromium;
-10. auditoria automatizada de acessibilidade com Axe.
+2. auditoria bloqueante das dependências de produção (`npm audit --omit=dev --audit-level=high`);
+3. auditoria informativa da toolchain de desenvolvimento;
+4. typecheck;
+5. lint;
+6. auditoria de arquivos e dependências mortas com Knip;
+7. testes unitários com cobertura de 100% da camada `src/lib`;
+8. build de produção;
+9. orçamento de bundle inicial;
+10. testes E2E em Chromium;
+11. auditoria automatizada de acessibilidade com Axe.
 
 Os relatórios e evidências do Playwright são preservados como artefatos do GitHub Actions por 14 dias, inclusive em execuções com falha.
 
