@@ -10,6 +10,7 @@ import { Inclusao } from "@/components/sections/Inclusao";
 import { Autenticacao } from "@/components/sections/Autenticacao";
 import { Assinatura } from "@/components/sections/Assinatura";
 import { Finalizacao } from "@/components/sections/Finalizacao";
+import { Fiscalizacao } from "@/components/sections/Fiscalizacao";
 import { Modelos } from "@/components/sections/Modelos";
 import { ChecklistSection } from "@/components/sections/Checklist";
 import { Contatos } from "@/components/sections/Contatos";
@@ -32,9 +33,7 @@ const ContentDivider = () => (
 const Index = () => {
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -42,80 +41,54 @@ const Index = () => {
       <PrintFrontMatter />
       <SearchCommand />
       <ManualLayout onSectionChange={scrollToSection}>
-      <Hero />
+        <Hero />
 
-      <div className="prose prose-slate dark:prose-invert max-w-prose mx-auto px-5 sm:px-6 pb-12 prose-manual print:max-w-none print:px-8">
-        <Apresentacao />
-        <ContentDivider />
-      <Escopo />
+        <div className="prose prose-slate dark:prose-invert max-w-prose mx-auto px-5 sm:px-6 pb-12 prose-manual print:max-w-none print:px-8">
+          <Apresentacao />
+          <ContentDivider />
+          <Escopo />
 
-      <SectionBanner
-        number={1}
-        title="Abertura do Processo"
-        subtitle="Acesso ao SEI!RIO, criação do processo, numeração e identificação."
-        id="abertura-banner"
-      />
-      <Abertura />
+          <SectionBanner number={1} title="Abertura do Processo" subtitle="Acesso ao SEI!RIO, criação do processo, numeração e identificação." id="abertura-banner" />
+          <Abertura />
 
-      <SectionBanner
-        number={2}
-        title="Instrução Processual"
-        subtitle="Criação de documentos internos, despacho e ofício no SEI!RIO."
-        id="instrucao-banner"
-      />
-      <Instrucao />
+          <SectionBanner number={2} title="Instrução Processual" subtitle="Organização documental e preparação das peças que formarão a prestação de contas." id="instrucao-banner" />
+          <Instrucao />
 
-      <SectionBanner
-        number={3}
-        title="Inclusão de Documentos"
-        subtitle="Como incluir documentos digitalizados e nato-digitais no SEI!RIO."
-        id="inclusao-banner"
-      />
-      <Inclusao />
+          <SectionBanner number={3} title="Inclusão de Documentos" subtitle="Como incluir documentos digitalizados e nato-digitais no SEI!RIO." id="inclusao-banner" />
+          <Inclusao />
 
-      <SectionBanner
-        number={4}
-        title="Autenticação de Documentos"
-        subtitle="Procedimento para autenticar documentos externos no SEI!RIO."
-        id="autenticacao-banner"
-      />
-      <Autenticacao />
+          <SectionBanner number={4} title="Autenticação de Documentos" subtitle="Procedimento para autenticar documentos externos no SEI!RIO." id="autenticacao-banner" />
+          <Autenticacao />
 
-      <SectionBanner
-        number={5}
-        title="Bloco de Assinatura"
-        subtitle="Criação do bloco, assinaturas internas, despacho de encaminhamento e remessa."
-        id="assinatura-banner"
-      />
-      <Assinatura />
+          <SectionBanner number={5} title="Bloco de Assinatura" subtitle="Criação do bloco, assinaturas internas, despacho de encaminhamento e remessa." id="assinatura-banner" />
+          <Assinatura />
 
-      <SectionBanner
-        number={6}
-        title="Despacho e Finalização"
-        subtitle="Análise pela GAD, diligências e etapas finais de aprovação."
-        id="finalizacao-banner"
-      />
-      <Finalizacao />
+          <SectionBanner number={6} title="Remessa e Acompanhamento" subtitle="Encaminhamento à GAD, acompanhamento do processo e atendimento a diligências." id="finalizacao-banner" />
+          <Finalizacao />
 
-      <ContentDivider />
+          <ContentDivider />
 
-      <Modelos />
-      <ContentDivider />
-      <ChecklistSection />
+          <SectionBanner
+            number={7}
+            title="Fiscalização da Prestação de Contas"
+            subtitle="Como examinar evidências, confrontar documentos, classificar achados e orientar diligências."
+            id="fiscalizacao-banner"
+          />
+          <Fiscalizacao />
 
-      <SectionBanner
-        number={7}
-        title="Contatos"
-        subtitle="Canais de atendimento e suporte da GAD/4ª CRE."
-        id="contatos-banner"
-      />
-      <Contatos />
+          <ContentDivider />
+          <Modelos />
+          <ContentDivider />
+          <ChecklistSection />
 
-      <ContentDivider />
-      <Referencias />
+          <SectionBanner number={8} title="Contatos" subtitle="Canais de atendimento e suporte da GAD/4ª CRE." id="contatos-banner" />
+          <Contatos />
 
-      <InstitutionalFooter />
-      </div>
+          <ContentDivider />
+          <Referencias />
+
+          <InstitutionalFooter />
+        </div>
       </ManualLayout>
       <PrintColophon />
     </>
