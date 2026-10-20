@@ -3,7 +3,8 @@ import { despachoFormSchema, getDespachoFileName } from "./despacho";
 
 const validData = {
   unidadeEscolar: "Escola Municipal Teste",
-  programa: "PDDE BÁSICO/2025",
+  programa: "PDDE BÁSICO",
+  exercicio: "2026",
   presidente: "Maria da Silva",
   cnpj: "12.345.678/0001-95",
   processo: "000704.001704/2026",
@@ -21,7 +22,11 @@ describe("despachoFormSchema", () => {
     }
   });
 
-  it("preserva a regra atual de exigir conteúdo sem impor máscara", () => {
+  it("exige exercício com quatro dígitos", () => {
+    expect(despachoFormSchema.safeParse({ ...validData, exercicio: "26" }).success).toBe(false);
+  });
+
+  it("preserva a regra de não impor máscara a CNPJ e processo", () => {
     const relaxed = {
       ...validData,
       cnpj: "CEC sem máscara",
@@ -32,9 +37,9 @@ describe("despachoFormSchema", () => {
 });
 
 describe("getDespachoFileName", () => {
-  it("converte blocos de espaço em underscores", () => {
-    expect(getDespachoFileName("Escola   Municipal\nTeste")).toBe(
-      "Despachos_Escola_Municipal_Teste.docx",
+  it("inclui unidade e exercício no nome do arquivo", () => {
+    expect(getDespachoFileName("Escola   Municipal\nTeste", "2026")).toBe(
+      "Encaminhamento_Escola_Municipal_Teste_2026.docx",
     );
   });
 });
