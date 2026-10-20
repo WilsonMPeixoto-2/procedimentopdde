@@ -1,64 +1,77 @@
+# Direção de Produto — POP Digital PDDE v3
 
+## Propósito
 
-## Objetivo
+O POP Digital PDDE é um **manual online, público e interativo** da 4ª CRE/GAD. Seu objetivo é transformar normas, procedimentos e critérios de análise em orientação prática para dois momentos do trabalho:
 
-Integrar o projeto **Despacho Express 4ª CRE** (https://despacho-express-4cre.vercel.app/) ao manual POP atual, oferecendo aos usuários a ferramenta de geração rápida de despachos diretamente do manual.
+1. **Instrução processual** — como formar, organizar, assinar, remeter e acompanhar a prestação de contas no SEI!RIO.
+2. **Fiscalização** — como examinar o processo instruído, confrontar evidências, classificar achados, diligenciar, reanalisar e chegar a uma conclusão tecnicamente sustentada.
 
-## Investigação inicial
+## O que o produto não é
 
-Antes de propor a integração definitiva, preciso entender o que o projeto externo faz. Pelo nome e URL pública, trata-se de um gerador de despachos administrativos voltado à 4ª CRE — o que é altamente complementar ao POP de Prestação de Contas (que inclui justamente despachos no SEI!RIO, etapas 1, 2, 5 e 6).
+Este projeto **não é um sistema de gestão da fiscalização**. Não deve evoluir para:
 
-Existem duas abordagens possíveis de integração, com trade-offs distintos.
+- carteira de escolas ou processos;
+- login, perfis ou permissões;
+- banco institucional de análises;
+- workflow multiusuário;
+- controle de prazos e pendências por unidade;
+- substituição do SEI!RIO;
+- julgamento ou aprovação automáticos.
 
-## Opções de integração
+Essas necessidades pertencem aos sistemas específicos de gestão da fiscalização.
 
-### Opção A — Link externo destacado (rápido, baixo risco)
-Adicionar um card/botão de destaque em pontos estratégicos do manual apontando para `https://despacho-express-4cre.vercel.app/` em nova aba.
+## Princípios
 
-**Onde inserir:**
-1. Nova subseção em **Modelos e Anexos** — card "Ferramenta: Gerador de Despachos" com descrição, screenshot/ícone e CTA "Abrir ferramenta".
-2. Callout discreto nas seções **2. Instrução Processual** e **5. Bloco de Assinatura** (onde despachos são redigidos) — "Use o Despacho Express para agilizar a redação".
-3. Item no menu lateral (`Sidebar.tsx`) na seção "Material de Apoio".
+- **Ensinar antes de automatizar.**
+- **Explicar o raciocínio**, não apenas listar documentos.
+- **Interatividade pedagógica**, não persistência operacional.
+- **Uma fonte de orientação**, evitando duplicação de sistemas.
+- **Modelos e minutas são apoio**, nunca conclusão automática.
+- **Conteúdo normativo e fluxo real** têm prioridade sobre efeitos visuais.
 
-**Prós:** Implementação imediata, sem dependências, sempre atualizado pelo projeto fonte.
-**Contras:** Tira o usuário do manual.
+## Arquitetura de informação
 
-### Opção B — Embed via iframe (imersivo)
-Criar uma rota interna (ex: `/despacho-express`) que carrega a ferramenta dentro de um iframe responsivo, mantendo o usuário no contexto do manual.
+### Parte I — Instrução Processual
+1. Abertura do Processo
+2. Instrução Processual
+3. Inclusão de Documentos
+4. Autenticação
+5. Bloco de Assinatura
+6. Remessa e Acompanhamento
 
-**Prós:** Experiência unificada.
-**Contras:** Depende de o site externo permitir embedding (CSP/X-Frame-Options); pode quebrar se o projeto externo mudar; não funciona offline/PDF.
+### Parte II — Fiscalização
+7. Fiscalização da Prestação de Contas
+   - sequência sugerida de análise;
+   - integridade documental;
+   - coerência da despesa;
+   - trilha financeira;
+   - execução e patrimônio;
+   - classificação dos achados;
+   - diligência;
+   - reanálise e conclusão.
 
-### Opção C — Remix/cópia do código (integração nativa)
-Trazer o código do repositório GitHub para dentro deste projeto como rota interna real (`/despacho-express`), totalmente integrado ao design system do manual.
+### Material de Apoio
+- modelos e anexos;
+- checklist de instrução;
+- minuta de encaminhamento;
+- contatos;
+- referências normativas.
 
-**Prós:** Integração visual perfeita, controle total, sem dependência externa.
-**Contras:** Maior esforço, precisa de manutenção paralela, requer permissão para copiar.
+## Ferramenta de minuta
 
-## Recomendação
+A rota `/despacho-express` permanece por compatibilidade, mas sua função é **gerar somente a minuta de encaminhamento da unidade escolar à GAD**.
 
-**Opção A** como primeira entrega — rápida, segura e já entrega valor. Caso aprovada, podemos posteriormente migrar para B ou C.
+Ela não deve gerar automaticamente:
+- parecer favorável;
+- diligência sem apontamentos fornecidos pelo usuário;
+- aprovação;
+- qualquer conclusão que dependa da fiscalização.
 
-## Detalhamento da Opção A (proposta)
+## Evoluções seguintes
 
-**Arquivos a alterar:**
-
-1. **`src/components/sections/Modelos.tsx`**
-   - Adicionar bloco "Ferramentas Auxiliares" com card destacado:
-     - Ícone (ex: `Zap` ou `FileEdit` do lucide-react)
-     - Título: "Despacho Express — 4ª CRE"
-     - Descrição institucional (1-2 linhas) sobre o uso para gerar despachos padronizados
-     - Botão `<a href="..." target="_blank" rel="noopener noreferrer">` estilizado como CTA primário
-     - Badge "Ferramenta externa"
-
-2. **`src/components/sections/Instrucao.tsx`** e **`src/components/sections/Assinatura.tsx`**
-   - Inserir um `Callout` tipo `tip` com link para a ferramenta, texto curto: "Para agilizar a elaboração de despachos padronizados, utilize o **Despacho Express**."
-
-3. **`src/components/Sidebar.tsx`**
-   - Adicionar item no grupo "apoio": `{ id: "ferramentas", label: "Despacho Express", icon: Zap, group: "apoio", external: true }` com tratamento para abrir em nova aba (ícone de link externo `ExternalLink` ao lado).
-
-4. **`src/pages/Index.tsx`**
-   - Garantir âncora `id="ferramentas"` se necessário (provavelmente integrada à seção Modelos).
-
-**Questões abertas que preciso confirmar com você:**
-
+1. busca full-text real sobre o conteúdo do manual;
+2. exemplos interativos de análise por cenário;
+3. matriz pedagógica “documento → o que conferir → erro frequente → consequência”;
+4. revisão normativa completa e versionada;
+5. melhorias de acessibilidade e navegação específicas para leitura longa.
