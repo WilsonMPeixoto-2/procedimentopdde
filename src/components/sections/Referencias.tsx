@@ -1,7 +1,7 @@
 export function Referencias() {
   return (
     <section id="referencias">
-      <div className="section-number">Seção 8</div>
+      <div className="section-number">Seção 9</div>
       <h1>Referências Normativas</h1>
 
       <p>
