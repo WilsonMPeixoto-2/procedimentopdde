@@ -44,12 +44,12 @@ export function Instrucao() {
         </p>
       </Callout>
 
-      <Callout type="tip" title="Atalho: Despacho Digital">
+      <Callout type="tip" title="Atalho: minuta de encaminhamento">
         <p>
           Para agilizar a elaboração dos despachos padronizados desta etapa, utilize o gerador
           interno{" "}
           <a href="/despacho-express">
-            <strong>Despacho Digital — 4ª CRE</strong>
+            <strong>Minuta de Encaminhamento — 4ª CRE</strong>
           </a>
           . Preencha os dados da unidade escolar e baixe os três despachos prontos em{" "}
           <strong>.docx</strong>.
