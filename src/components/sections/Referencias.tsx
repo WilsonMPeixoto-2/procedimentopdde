@@ -28,6 +28,12 @@ export function Referencias() {
           — Altera a Resolução CD/FNDE nº 25/2024 para dispor sobre a prestação de contas do PDDE e de suas ações integradas.
         </li>
         <li>
+          <a href="https://mecnormas.mec.gov.br/pesquisa/detalhar/15515" target="_blank" rel="noopener noreferrer">
+            Resolução CD/FNDE nº 16, de 25 de setembro de 2026
+          </a>{" "}
+          — Estabelece a Plataforma Contrata+Brasil como ferramenta de apoio à execução dos recursos do PDDE, observadas as regras gerais do programa.
+        </li>
+        <li>
           <a href="https://www.gov.br/fnde/pt-br/acesso-a-informacao/legislacao/resolucoes/2026" target="_blank" rel="noopener noreferrer">
             Resoluções CD/FNDE — 2026
           </a>{" "}

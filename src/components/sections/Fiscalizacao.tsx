@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Callout } from "../Callout";
 import { FiscalizacaoMatriz } from "./FiscalizacaoMatriz";
+import { FiscalizacaoCasos } from "./FiscalizacaoCasos";
 
 const etapas = [
   {
@@ -274,6 +275,15 @@ export function Fiscalizacao() {
         Ao concluir, verifique se ainda existe algum <strong>ajuste necessário</strong>. Somente
         depois dessa revisão a análise deve avançar para a manifestação conclusiva cabível.
       </p>
+
+      <h2 id="fiscalizacao-casos">7.7. Casos guiados: pratique o raciocínio de análise</h2>
+      <p>
+        Os exemplos abaixo não simulam um sistema de fiscalização. Eles funcionam como exercícios
+        curtos para treinar a leitura conjunta das evidências e distinguir presença documental de
+        suficiência da comprovação.
+      </p>
+
+      <FiscalizacaoCasos />
     </section>
   );
 }
