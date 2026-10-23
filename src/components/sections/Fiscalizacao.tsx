@@ -12,6 +12,7 @@ import {
   SearchCheck,
 } from "lucide-react";
 import { Callout } from "../Callout";
+import { FiscalizacaoMatriz } from "./FiscalizacaoMatriz";
 
 const etapas = [
   {
@@ -207,7 +208,16 @@ export function Fiscalizacao() {
         })}
       </div>
 
-      <h2 id="fiscalizacao-achados">7.3. Como classificar o resultado de cada verificação</h2>
+      <h2 id="fiscalizacao-matriz">7.3. Matriz prática: documento, confronto e consequência</h2>
+      <p>
+        A análise ganha qualidade quando cada peça é lida em relação às demais. Use a matriz abaixo
+        para lembrar <strong>o que conferir</strong>, <strong>com o que confrontar</strong> e
+        <strong> qual tipo de inconsistência merece atenção</strong>.
+      </p>
+
+      <FiscalizacaoMatriz />
+
+      <h2 id="fiscalizacao-achados">7.4. Como classificar o resultado de cada verificação</h2>
       <p>
         Nem toda observação exige diligência. Classificar corretamente o achado ajuda a separar
         falhas que impedem a conclusão de melhorias que apenas aperfeiçoam a instrução.
@@ -225,7 +235,7 @@ export function Fiscalizacao() {
         ))}
       </div>
 
-      <h2 id="fiscalizacao-diligencia">7.4. Quando diligenciar e como escrever um apontamento útil</h2>
+      <h2 id="fiscalizacao-diligencia">7.5. Quando diligenciar e como escrever um apontamento útil</h2>
       <p>
         A diligência deve permitir que a unidade entenda <strong>o que foi encontrado</strong> e
         <strong> o que precisa fazer</strong>. Um bom apontamento evita expressões vagas como
@@ -253,7 +263,7 @@ export function Fiscalizacao() {
         </p>
       </Callout>
 
-      <h2 id="fiscalizacao-reanalise">7.5. Reanálise após diligência</h2>
+      <h2 id="fiscalizacao-reanalise">7.6. Reanálise após diligência</h2>
       <p>
         Na reanálise, retome cada apontamento anterior e verifique se a nova documentação
         <strong> resolve especificamente a causa da diligência</strong>. A simples juntada de novos

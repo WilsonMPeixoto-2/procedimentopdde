@@ -11,13 +11,10 @@ test("manual público apresenta os dois caminhos e navega para fiscalização", 
   await expect(page.getByText("Fiscalização", { exact: true }).first()).toBeVisible();
 
   await page.getByRole("button", { name: /Pesquisar no manual/i }).click();
-  const search = page.getByPlaceholder(/Digite um assunto/i);
+  const search = page.getByPlaceholder(/Pesquise o texto do manual/i);
   await expect(search).toBeVisible();
   await search.fill("Fiscalização");
-  await page
-    .getByLabel("Suggestions")
-    .getByText("Roteiro de Fiscalização", { exact: true })
-    .click();
+  await page.getByLabel("Abrir Fiscalização", { exact: true }).click();
 
   await expect(page.locator("#fiscalizacao")).toBeVisible();
 });
@@ -57,4 +54,32 @@ test("gerador produz apenas a minuta de encaminhamento em Word", async ({ page }
   );
   await expect(page.getByText("Minuta gerada com sucesso!")).toBeVisible();
   await expect(page.getByText(/não produz parecer de análise nem aprovação/i)).toBeVisible();
+});
+
+
+test("busca full-text encontra conteúdo textual do manual", async ({ page }) => {
+  await page.goto("/");
+
+  await page.getByRole("button", { name: /Pesquisar no manual/i }).click();
+  const search = page.getByPlaceholder(/Pesquise o texto do manual/i);
+  await search.fill("nato-digital");
+
+  const result = page.getByLabel("Abrir Inclusão de Documentos", { exact: true });
+  await expect(result).toBeVisible();
+  await result.click();
+
+  await expect(page.locator("#inclusao")).toBeVisible();
+});
+
+test("matriz de fiscalização filtra e detalha o eixo financeiro", async ({ page }) => {
+  await page.goto("/#fiscalizacao-matriz");
+  await page.locator("#fiscalizacao-matriz").scrollIntoViewIfNeeded();
+
+  await page.getByRole("button", { name: "Financeiro", exact: true }).click();
+  const conciliacao = page.locator("#fiscalizacao").getByRole("button", { name: /Conciliação bancária/i });
+  await expect(conciliacao).toBeVisible();
+  await conciliacao.click();
+
+  await expect(page.getByText("Confronte com", { exact: true })).toBeVisible();
+  await expect(page.getByText(/extratos, demonstrativo e saldo em conta/i)).toBeVisible();
 });
