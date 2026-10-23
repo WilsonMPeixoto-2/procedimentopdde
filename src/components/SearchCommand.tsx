@@ -94,27 +94,39 @@ export function SearchCommand() {
     const down = (event: KeyboardEvent) => {
       if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
-        setOpen((current) => !current);
+
+        if (open) {
+          setQuery("");
+          setOpen(false);
+        } else {
+          setEntries(buildSearchIndex());
+          setOpen(true);
+        }
       }
     };
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  }, [open]);
 
   useEffect(() => {
-    const handleTrigger = () => setOpen(true);
+    const handleTrigger = () => {
+      setEntries(buildSearchIndex());
+      setOpen(true);
+    };
+
     window.addEventListener("open-search", handleTrigger);
     return () => window.removeEventListener("open-search", handleTrigger);
   }, []);
 
-  useEffect(() => {
-    if (open) {
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (nextOpen) {
       setEntries(buildSearchIndex());
     } else {
       setQuery("");
     }
-  }, [open]);
+    setOpen(nextOpen);
+  };
 
   const handleSelect = (id: string) => {
     setOpen(false);
@@ -126,7 +138,7 @@ export function SearchCommand() {
   const groups = ["Fiscalização", "Instrução Processual", "Apoio e Referências", "Introdução"];
 
   return (
-    <CommandDialog open={open} onOpenChange={setOpen}>
+    <CommandDialog open={open} onOpenChange={handleOpenChange}>
       <CommandInput
         value={query}
         onValueChange={setQuery}
