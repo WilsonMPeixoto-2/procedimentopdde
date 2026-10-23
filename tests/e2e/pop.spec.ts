@@ -11,12 +11,12 @@ test("manual público apresenta os dois caminhos e navega para fiscalização", 
   await expect(page.getByText("Fiscalização", { exact: true }).first()).toBeVisible();
 
   await page.getByRole("button", { name: /Pesquisar no manual/i }).click();
-  const search = page.getByPlaceholder(/Digite um assunto/i);
+  const search = page.getByPlaceholder(/Pesquise o texto do manual/i);
   await expect(search).toBeVisible();
   await search.fill("Fiscalização");
   await page
     .getByLabel("Suggestions")
-    .getByText("Roteiro de Fiscalização", { exact: true })
+    .getByText("Fiscalização da Prestação de Contas", { exact: true })
     .click();
 
   await expect(page.locator("#fiscalizacao")).toBeVisible();
@@ -81,7 +81,7 @@ test("matriz de fiscalização filtra e detalha o eixo financeiro", async ({ pag
   await page.locator("#fiscalizacao-matriz").scrollIntoViewIfNeeded();
 
   await page.getByRole("button", { name: "Financeiro", exact: true }).click();
-  const conciliacao = page.getByRole("button", { name: /Conciliação bancária/i });
+  const conciliacao = page.locator("#fiscalizacao").getByRole("button", { name: /Conciliação bancária/i });
   await expect(conciliacao).toBeVisible();
   await conciliacao.click();
 
