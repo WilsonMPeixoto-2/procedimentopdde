@@ -22,6 +22,18 @@ export function Referencias() {
           — Orientações para a prestação de contas dos recursos recebidos em 2024.
         </li>
         <li>
+          <a href="https://www.gov.br/fnde/pt-br/acesso-a-informacao/legislacao/resolucoes/2026/resolucao-cd-fnde-no-13-de-10-de-agosto-de-2026" target="_blank" rel="noopener noreferrer">
+            Resolução CD/FNDE nº 13, de 10 de agosto de 2026
+          </a>{" "}
+          — Altera a Resolução CD/FNDE nº 25/2024 para dispor sobre a prestação de contas do PDDE e de suas ações integradas.
+        </li>
+        <li>
+          <a href="https://www.gov.br/fnde/pt-br/acesso-a-informacao/legislacao/resolucoes/2026" target="_blank" rel="noopener noreferrer">
+            Resoluções CD/FNDE — 2026
+          </a>{" "}
+          — Relação oficial atualizada de atos do FNDE, incluindo normas recentes aplicáveis ao PDDE.
+        </li>
+        <li>
           Decreto Rio nº 57.250, de 19 de novembro de 2025{" "}
           — Institui o SEI!RIO como sistema corporativo de processos administrativos eletrônicos no âmbito do Poder Executivo municipal e define as categorias de documentos digitais (digitalizado e externo).
         </li>
