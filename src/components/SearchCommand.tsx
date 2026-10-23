@@ -185,6 +185,7 @@ export function SearchCommand() {
                   <CommandItem
                     key={entry.id}
                     value={entry.text}
+                    aria-label={"Abrir " + entry.title}
                     onSelect={() => handleSelect(entry.id)}
                     className="items-start gap-2.5"
                   >
