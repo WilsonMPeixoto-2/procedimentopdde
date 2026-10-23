@@ -16,7 +16,7 @@ test("manual público apresenta os dois caminhos e navega para fiscalização", 
   await search.fill("Fiscalização");
   await page
     .getByLabel("Suggestions")
-    .getByText("Fiscalização da Prestação de Contas", { exact: true })
+    .getByText("Fiscalização", { exact: true })
     .click();
 
   await expect(page.locator("#fiscalizacao")).toBeVisible();
