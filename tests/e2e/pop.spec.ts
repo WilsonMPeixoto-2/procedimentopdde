@@ -83,3 +83,20 @@ test("matriz de fiscalização filtra e detalha o eixo financeiro", async ({ pag
   await expect(page.getByText("Confronte com", { exact: true })).toBeVisible();
   await expect(page.getByText(/extratos, demonstrativo e saldo em conta/i)).toBeVisible();
 });
+
+
+test("caso guiado ensina o raciocínio sem registrar fiscalização", async ({ page }) => {
+  await page.goto("/#fiscalizacao-casos");
+  await page.locator("#fiscalizacao-casos").scrollIntoViewIfNeeded();
+
+  await expect(page.getByText("Regra federal", { exact: true })).toBeVisible();
+  await expect(page.getByText("Fluxo municipal/local", { exact: true })).toBeVisible();
+  await expect(page.getByText("Orientação prática", { exact: true })).toBeVisible();
+
+  await page
+    .getByRole("button", { name: /Tratar a divergência como ajuste necessário/i })
+    .click();
+
+  await expect(page.getByRole("status")).toContainText("Raciocínio adequado");
+  await expect(page.getByRole("status")).toContainText(/restabelecer a trilha documental/i);
+});
