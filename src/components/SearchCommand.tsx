@@ -29,6 +29,12 @@ const supportIds = new Set(["modelos", "checklist", "contatos", "referencias"]);
 
 const compact = (value: string) => value.replace(/\s+/g, " ").trim();
 
+const normalizeForSearch = (value: string) =>
+  compact(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("pt-BR");
+
 const groupFor = (id: string) => {
   if (instructionIds.has(id)) return "Instrução Processual";
   if (id === "fiscalizacao") return "Fiscalização";
@@ -135,6 +141,16 @@ export function SearchCommand() {
     }, 150);
   };
 
+  const normalizedQuery = normalizeForSearch(query);
+  const queryTerms = normalizedQuery.split(/\s+/).filter(Boolean);
+  const visibleEntries =
+    queryTerms.length === 0
+      ? entries
+      : entries.filter((entry) => {
+          const searchable = normalizeForSearch(entry.title + " " + entry.text);
+          return queryTerms.every((term) => searchable.includes(term));
+        });
+
   const groups = ["Fiscalização", "Instrução Processual", "Apoio e Referências", "Introdução"];
 
   return (
@@ -148,7 +164,7 @@ export function SearchCommand() {
         <CommandEmpty>Nenhum trecho do manual corresponde à pesquisa.</CommandEmpty>
 
         {groups.map((group) => {
-          const groupEntries = entries.filter((entry) => entry.group === group);
+          const groupEntries = visibleEntries.filter((entry) => entry.group === group);
           if (groupEntries.length === 0) return null;
 
           return (
