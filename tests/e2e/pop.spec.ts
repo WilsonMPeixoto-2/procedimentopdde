@@ -89,9 +89,10 @@ test("caso guiado ensina o raciocínio sem registrar fiscalização", async ({ p
   await page.goto("/#fiscalizacao-casos");
   await page.locator("#fiscalizacao-casos").scrollIntoViewIfNeeded();
 
-  await expect(page.getByText("Regra federal", { exact: true })).toBeVisible();
-  await expect(page.getByText("Fluxo municipal/local", { exact: true })).toBeVisible();
-  await expect(page.getByText("Orientação prática", { exact: true })).toBeVisible();
+  const casos = page.locator("#fiscalizacao-casos");
+  await expect(casos.getByText("Regra federal", { exact: true })).toBeVisible();
+  await expect(casos.getByText("Fluxo municipal/local", { exact: true })).toBeVisible();
+  await expect(casos.getByText("Orientação prática", { exact: true })).toBeVisible();
 
   await page
     .getByRole("button", { name: /Tratar a divergência como ajuste necessário/i })
