@@ -1,53 +1,54 @@
+import { Callout } from "../Callout";
+import { MapaNormativo } from "./MapaNormativo";
+
 export function Referencias() {
   return (
     <section id="referencias">
       <div className="section-number">Seção 9</div>
-      <h1>Referências Normativas</h1>
+      <h1>Mapa Normativo e Fontes Oficiais</h1>
 
-      <p>
-        Principais normas federais e municipais utilizadas como fundamento deste procedimento:
+      <p className="text-muted-foreground font-sans text-[0.92em] -mt-2 mb-6 !text-left">
+        Encontre a fonte pela dúvida que precisa resolver, não pelo número da norma.
       </p>
 
-      <ul>
-        <li>
-          <a href="https://www.gov.br/fnde/pt-br/acesso-a-informacao/legislacao/resolucoes/2021/resolucao-no-15-de-16-de-setembro-de-2021/view" target="_blank" rel="noopener noreferrer">
-            Resolução CD/FNDE nº 15, de 16 de setembro de 2021
-          </a>{" "}
-          — Dispõe sobre a prestação de contas do PDDE.
-        </li>
-        <li>
-          <a href="https://www.gov.br/fnde/pt-br/acesso-a-informacao/acoes-e-programas/programas/pdde/media-pdde/comunicados/2024-1/Comunicadon.47_2024Orientaesparaaprestaodecontasdosrecursosrecebidosem2024.pdf" target="_blank" rel="noopener noreferrer">
-            Comunicado PDDE nº 47/2024
-          </a>{" "}
-          — Orientações para a prestação de contas dos recursos recebidos em 2024.
-        </li>
-        <li>
-          <a href="https://www.gov.br/fnde/pt-br/acesso-a-informacao/legislacao/resolucoes/2026/resolucao-cd-fnde-no-13-de-10-de-agosto-de-2026" target="_blank" rel="noopener noreferrer">
-            Resolução CD/FNDE nº 13, de 10 de agosto de 2026
-          </a>{" "}
-          — Altera a Resolução CD/FNDE nº 25/2024 para dispor sobre a prestação de contas do PDDE e de suas ações integradas.
-        </li>
-        <li>
-          <a href="https://mecnormas.mec.gov.br/pesquisa/detalhar/15515" target="_blank" rel="noopener noreferrer">
-            Resolução CD/FNDE nº 16, de 25 de setembro de 2026
-          </a>{" "}
-          — Estabelece a Plataforma Contrata+Brasil como ferramenta de apoio à execução dos recursos do PDDE, observadas as regras gerais do programa.
-        </li>
-        <li>
-          <a href="https://www.gov.br/fnde/pt-br/acesso-a-informacao/legislacao/resolucoes/2026" target="_blank" rel="noopener noreferrer">
-            Resoluções CD/FNDE — 2026
-          </a>{" "}
-          — Relação oficial atualizada de atos do FNDE, incluindo normas recentes aplicáveis ao PDDE.
-        </li>
-        <li>
-          Decreto Rio nº 57.250, de 19 de novembro de 2025{" "}
-          — Institui o SEI!RIO como sistema corporativo de processos administrativos eletrônicos no âmbito do Poder Executivo municipal e define as categorias de documentos digitais (digitalizado e externo).
-        </li>
-        <li>
-          Decreto Rio nº 54.844, de 29 de julho de 2024{" "}
-          — Disciplina assinaturas eletrônicas no Município do Rio de Janeiro e estabelece a definição de documento nato-digital, incluindo as modalidades nativo e capturado.
-        </li>
-      </ul>
+      <p>
+        A prestação de contas do PDDE é orientada por uma <strong>base geral</strong> e por atos
+        específicos que tratam de prestação de contas, ações integradas, modalidades do programa e
+        procedimentos locais. Por isso, uma única resolução raramente responde sozinha a todas as
+        situações de um processo.
+      </p>
+
+      <Callout type="info" title="Como usar este mapa">
+        <p>
+          Comece pelo <strong>assunto da dúvida</strong>. Consulte a fonte indicada e, quando houver
+          uma norma específica do programa ou do exercício, leia-a em conjunto com a base geral do
+          PDDE. Procedimentos municipais de tramitação e assinatura complementam o fluxo local, mas
+          não substituem as regras federais de execução e prestação de contas.
+        </p>
+      </Callout>
+
+      <MapaNormativo />
+
+      <h2 id="referencias-atualizacoes">9.1. Atualizações que merecem atenção em 2026</h2>
+
+      <p>
+        O conjunto normativo continuou evoluindo em 2026. Entre as alterações relevantes para este
+        manual estão a atualização das regras de <strong>prestação de contas do PDDE e das ações
+        integradas</strong>, a nova disciplina do <strong>PDDE Equidade</strong> e a possibilidade
+        de uso da <strong>Plataforma Contrata+Brasil</strong> como ferramenta de apoio à execução
+        dos recursos do programa.
+      </p>
+
+      <p>
+        Por esse motivo, orientações antigas não devem ser aplicadas automaticamente a exercícios
+        novos. Antes de concluir uma análise, confirme se o programa ou a ação integrada recebeu
+        regulamentação específica posterior.
+      </p>
+
+      <div className="not-prose rounded-xl border border-border bg-muted/25 px-4 py-3.5 font-sans text-[11.5px] leading-relaxed text-muted-foreground">
+        <strong className="text-foreground/80">Revisão normativa deste mapa:</strong> outubro de
+        2026. Os links apontam para fontes oficiais do FNDE/MEC ou do Município do Rio de Janeiro.
+      </div>
     </section>
   );
 }
