@@ -82,6 +82,10 @@ A versão 3.0 inclui uma matriz pedagógica de fiscalização que relaciona cada
 
 A busca do manual é **full-text sobre o conteúdo efetivamente renderizado**. Ela não depende de uma lista paralela de palavras-chave: ao pesquisar um termo, o usuário encontra as seções em que aquele conteúdo realmente aparece e recebe um trecho contextual antes de navegar.
 
+### Mapa normativo por assunto
+
+A seção de referências funciona como um mapa de consulta. Em vez de apresentar apenas uma lista cronológica de normas, ela organiza fontes oficiais por problema: base geral do PDDE, prestação de contas, execução e patrimônio, ações integradas e SEI!RIO/assinatura. Cada fonte informa **quando consultar** e **o que ela ajuda a resolver**.
+
 ### Casos guiados
 
 A seção de fiscalização inclui exercícios interativos baseados em situações típicas de análise. O usuário escolhe uma conduta e recebe feedback sobre o raciocínio, sem criação de registros, histórico ou decisão automática.
