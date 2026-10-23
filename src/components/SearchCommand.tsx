@@ -7,27 +7,97 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import {
-  BookOpen,
-  ClipboardList,
-  FileText,
-  RotateCcw,
-  Search,
-  SearchCheck,
-  Send,
-  TriangleAlert,
-} from "lucide-react";
+import { BookOpen, FileText, SearchCheck } from "lucide-react";
+
+type SearchEntry = {
+  id: string;
+  title: string;
+  group: string;
+  text: string;
+};
+
+const instructionIds = new Set([
+  "abertura",
+  "instrucao",
+  "inclusao",
+  "autenticacao",
+  "assinatura",
+  "finalizacao",
+]);
+
+const supportIds = new Set(["modelos", "checklist", "contatos", "referencias"]);
+
+const compact = (value: string) => value.replace(/\s+/g, " ").trim();
+
+const groupFor = (id: string) => {
+  if (instructionIds.has(id)) return "Instrução Processual";
+  if (id === "fiscalizacao") return "Fiscalização";
+  if (supportIds.has(id)) return "Apoio e Referências";
+  return "Introdução";
+};
+
+const buildSearchIndex = (): SearchEntry[] => {
+  const root = document.getElementById("main-content");
+  if (!root) return [];
+
+  return Array.from(root.querySelectorAll<HTMLElement>("section[id]"))
+    .map((section) => {
+      const title =
+        section.querySelector<HTMLElement>("h1, h2")?.innerText.trim() ||
+        section.id;
+      const text = compact(section.innerText);
+
+      return {
+        id: section.id,
+        title,
+        group: groupFor(section.id),
+        text,
+      };
+    })
+    .filter((entry) => entry.text.length > 0);
+};
+
+const excerptFor = (text: string, query: string) => {
+  const cleaned = compact(text);
+  if (!query.trim()) {
+    return cleaned.length > 170 ? cleaned.slice(0, 167) + "…" : cleaned;
+  }
+
+  const source = cleaned.toLocaleLowerCase("pt-BR");
+  const terms = query
+    .trim()
+    .toLocaleLowerCase("pt-BR")
+    .split(/\s+/)
+    .filter(Boolean);
+
+  let index = source.indexOf(query.trim().toLocaleLowerCase("pt-BR"));
+  if (index < 0) {
+    index = Math.min(
+      ...terms
+        .map((term) => source.indexOf(term))
+        .filter((position) => position >= 0),
+    );
+  }
+  if (!Number.isFinite(index) || index < 0) index = 0;
+
+  const start = Math.max(0, index - 70);
+  const end = Math.min(cleaned.length, index + query.length + 115);
+  return (start > 0 ? "…" : "") + cleaned.slice(start, end) + (end < cleaned.length ? "…" : "");
+};
 
 export function SearchCommand() {
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const [entries, setEntries] = useState<SearchEntry[]>([]);
 
   useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
+    const down = (event: KeyboardEvent) => {
+      if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
         setOpen((current) => !current);
       }
     };
+
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
@@ -38,6 +108,14 @@ export function SearchCommand() {
     return () => window.removeEventListener("open-search", handleTrigger);
   }, []);
 
+  useEffect(() => {
+    if (open) {
+      setEntries(buildSearchIndex());
+    } else {
+      setQuery("");
+    }
+  }, [open]);
+
   const handleSelect = (id: string) => {
     setOpen(false);
     setTimeout(() => {
@@ -45,72 +123,54 @@ export function SearchCommand() {
     }, 150);
   };
 
+  const groups = ["Fiscalização", "Instrução Processual", "Apoio e Referências", "Introdução"];
+
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
-      <CommandInput placeholder="Digite um assunto (ex.: diligência, autenticação, fiscalização)..." />
-      <CommandList>
-        <CommandEmpty>Nenhum tópico encontrado.</CommandEmpty>
+      <CommandInput
+        value={query}
+        onValueChange={setQuery}
+        placeholder="Pesquise o texto do manual (ex.: conciliação, nato-digital, bem permanente)..."
+      />
+      <CommandList className="max-h-[430px]">
+        <CommandEmpty>Nenhum trecho do manual corresponde à pesquisa.</CommandEmpty>
 
-        <CommandGroup heading="Instrução Processual">
-          <CommandItem onSelect={() => handleSelect("abertura")}>
-            <FileText className="mr-2 h-4 w-4" />
-            <span>Abertura do Processo</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("instrucao")}>
-            <FileText className="mr-2 h-4 w-4" />
-            <span>Instrução Processual</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("inclusao")}>
-            <FileText className="mr-2 h-4 w-4" />
-            <span>Inclusão de Documentos</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("autenticacao")}>
-            <FileText className="mr-2 h-4 w-4" />
-            <span>Autenticação de Documentos</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("assinatura")}>
-            <FileText className="mr-2 h-4 w-4" />
-            <span>Bloco de Assinatura</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("finalizacao")}>
-            <Send className="mr-2 h-4 w-4" />
-            <span>Remessa, acompanhamento e diligências</span>
-          </CommandItem>
-        </CommandGroup>
+        {groups.map((group) => {
+          const groupEntries = entries.filter((entry) => entry.group === group);
+          if (groupEntries.length === 0) return null;
 
-        <CommandGroup heading="Fiscalização">
-          <CommandItem onSelect={() => handleSelect("fiscalizacao")}>
-            <SearchCheck className="mr-2 h-4 w-4" />
-            <span>Roteiro de Fiscalização</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("fiscalizacao-achados")}>
-            <TriangleAlert className="mr-2 h-4 w-4" />
-            <span>Classificação dos Achados</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("fiscalizacao-diligencia")}>
-            <Search className="mr-2 h-4 w-4" />
-            <span>Como elaborar uma diligência</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("fiscalizacao-reanalise")}>
-            <RotateCcw className="mr-2 h-4 w-4" />
-            <span>Reanálise após diligência</span>
-          </CommandItem>
-        </CommandGroup>
+          return (
+            <CommandGroup key={group} heading={group}>
+              {groupEntries.map((entry) => {
+                const Icon =
+                  entry.group === "Fiscalização"
+                    ? SearchCheck
+                    : entry.group === "Instrução Processual"
+                      ? FileText
+                      : BookOpen;
 
-        <CommandGroup heading="Apoio e Consultas">
-          <CommandItem onSelect={() => handleSelect("modelos")}>
-            <BookOpen className="mr-2 h-4 w-4" />
-            <span>Modelos e Anexos</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("checklist")}>
-            <ClipboardList className="mr-2 h-4 w-4" />
-            <span>Checklist de Instrução</span>
-          </CommandItem>
-          <CommandItem onSelect={() => handleSelect("referencias")}>
-            <Search className="mr-2 h-4 w-4" />
-            <span>Referências Normativas</span>
-          </CommandItem>
-        </CommandGroup>
+                return (
+                  <CommandItem
+                    key={entry.id}
+                    value={entry.text}
+                    onSelect={() => handleSelect(entry.id)}
+                    className="items-start gap-2.5"
+                  >
+                    <Icon className="mt-0.5 h-4 w-4 shrink-0 text-primary/70" />
+                    <div className="min-w-0">
+                      <div className="font-sans text-[13px] font-semibold text-foreground">
+                        {entry.title}
+                      </div>
+                      <div className="mt-0.5 line-clamp-2 font-sans text-[11.5px] leading-relaxed text-muted-foreground">
+                        {excerptFor(entry.text, query)}
+                      </div>
+                    </div>
+                  </CommandItem>
+                );
+              })}
+            </CommandGroup>
+          );
+        })}
       </CommandList>
     </CommandDialog>
   );
