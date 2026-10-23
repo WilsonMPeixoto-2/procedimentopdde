@@ -242,7 +242,24 @@ export function FiscalizacaoMatriz() {
 
       <div className="mt-4 rounded-lg border border-border bg-muted/20 px-4 py-3 font-sans text-[11.5px] leading-relaxed text-muted-foreground">
         A matriz resume critérios gerais de leitura do PDDE. Ações integradas e situações específicas
-        podem ter regras próprias. Consulte sempre a norma aplicável ao programa e ao exercício analisado.
+        podem ter regras próprias. Consulte sempre a norma aplicável ao programa e ao exercício analisado.{" "}
+        <a
+          href="https://www.gov.br/fnde/pt-br/acesso-a-informacao/legislacao/resolucoes/2021/resolucao-no-15-de-16-de-setembro-de-2021"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold text-primary underline underline-offset-2"
+        >
+          Resolução CD/FNDE nº 15/2021
+        </a>{" "}
+        ·{" "}
+        <a
+          href="https://www.gov.br/fnde/pt-br/acesso-a-informacao/acoes-e-programas/programas/pdde/resolucoes-e-formularios"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold text-primary underline underline-offset-2"
+        >
+          Formulários oficiais do PDDE
+        </a>.
       </div>
     </div>
   );
