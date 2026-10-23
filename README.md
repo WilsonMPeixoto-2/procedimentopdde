@@ -76,6 +76,12 @@ Os relatórios e evidências do Playwright são preservados como artefatos do Gi
 
 A cobertura unitária é aplicada à camada `src/lib`, onde ficam validação, utilitários e geração de DOCX, com threshold de 100% para statements, branches, functions e lines. A interface e as jornadas públicas permanecem protegidas por Playwright e Axe.
 
+## Recursos interativos de fiscalização
+
+A versão 3.0 inclui uma matriz pedagógica de fiscalização que relaciona cada documento ou situação a quatro perguntas: **o que conferir**, **com o que confrontar**, **qual sinal merece atenção** e **qual efeito pode ter na análise**. A matriz pode ser filtrada por Planejamento, Despesa, Financeiro e Patrimônio.
+
+A busca do manual é **full-text sobre o conteúdo efetivamente renderizado**. Ela não depende de uma lista paralela de palavras-chave: ao pesquisar um termo, o usuário encontra as seções em que aquele conteúdo realmente aparece e recebe um trecho contextual antes de navegar.
+
 ## Performance
 
 O Despacho Express é carregado sob demanda, mantendo a página principal do manual livre do peso do gerador DOCX até que a ferramenta seja aberta.
