@@ -82,6 +82,16 @@ A versão 3.0 inclui uma matriz pedagógica de fiscalização que relaciona cada
 
 A busca do manual é **full-text sobre o conteúdo efetivamente renderizado**. Ela não depende de uma lista paralela de palavras-chave: ao pesquisar um termo, o usuário encontra as seções em que aquele conteúdo realmente aparece e recebe um trecho contextual antes de navegar.
 
+### Casos guiados
+
+A seção de fiscalização inclui exercícios interativos baseados em situações típicas de análise. O usuário escolhe uma conduta e recebe feedback sobre o raciocínio, sem criação de registros, histórico ou decisão automática.
+
+O manual também diferencia visualmente três naturezas de orientação:
+
+- **Regra federal** — norma, guia ou formulário oficial do FNDE;
+- **Fluxo municipal/local** — procedimento de tramitação ou organização definido no ambiente municipal/4ª CRE;
+- **Orientação prática** — método recomendado para organizar a análise, sem criar obrigação normativa nova.
+
 ## Performance
 
 O Despacho Express é carregado sob demanda, mantendo a página principal do manual livre do peso do gerador DOCX até que a ferramenta seja aberta.
