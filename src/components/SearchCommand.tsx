@@ -48,7 +48,11 @@ const buildSearchIndex = (): SearchEntry[] => {
 
   return Array.from(root.querySelectorAll<HTMLElement>("section[id]"))
     .map((section) => {
+      const navigationTitle = document.querySelector<HTMLElement>(
+        `.sidebar-nav a[href="#${section.id}"] span`,
+      )?.innerText.trim();
       const title =
+        navigationTitle ||
         section.querySelector<HTMLElement>("h1, h2")?.innerText.trim() ||
         section.id;
       const text = compact(section.innerText);
