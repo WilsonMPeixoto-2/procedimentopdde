@@ -14,10 +14,7 @@ test("manual público apresenta os dois caminhos e navega para fiscalização", 
   const search = page.getByPlaceholder(/Pesquise o texto do manual/i);
   await expect(search).toBeVisible();
   await search.fill("Fiscalização");
-  await page
-    .getByLabel("Suggestions")
-    .getByText("Fiscalização", { exact: true })
-    .click();
+  await page.getByLabel("Abrir Fiscalização", { exact: true }).click();
 
   await expect(page.locator("#fiscalizacao")).toBeVisible();
 });
@@ -67,9 +64,7 @@ test("busca full-text encontra conteúdo textual do manual", async ({ page }) =>
   const search = page.getByPlaceholder(/Pesquise o texto do manual/i);
   await search.fill("nato-digital");
 
-  const result = page
-    .getByLabel("Suggestions")
-    .getByText("Inclusão de Documentos", { exact: true });
+  const result = page.getByLabel("Abrir Inclusão de Documentos", { exact: true });
   await expect(result).toBeVisible();
   await result.click();
 
