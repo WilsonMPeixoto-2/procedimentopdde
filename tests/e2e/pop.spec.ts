@@ -100,3 +100,37 @@ test("caso guiado ensina o raciocínio sem registrar fiscalização", async ({ p
   await expect(page.getByRole("status")).toContainText("Raciocínio adequado");
   await expect(page.getByRole("status")).toContainText(/restabelecer a trilha documental/i);
 });
+
+
+test("mapa normativo é pesquisável por assunto e fonte", async ({ page }) => {
+  await page.goto("/");
+
+  await page.getByRole("button", { name: /Pesquisar no manual/i }).click();
+  const search = page.getByPlaceholder(/Pesquise o texto do manual/i);
+  await search.fill("Contrata+Brasil");
+
+  const result = page.getByLabel("Abrir Referências", { exact: true });
+  await expect(result).toBeVisible();
+  await result.click();
+
+  await expect(page.locator("#referencias")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: /Resolução CD\/FNDE nº 16\/2026/i }),
+  ).toBeVisible();
+});
+
+test("mapa normativo filtra normas locais de SEI e assinatura", async ({ page }) => {
+  await page.goto("/#referencias");
+  await page.locator("#referencias").scrollIntoViewIfNeeded();
+
+  await page
+    .locator("#referencias")
+    .getByRole("button", { name: "SEI!RIO e assinatura", exact: true })
+    .click();
+
+  await expect(page.getByRole("heading", { name: /Decreto Rio nº 57\.250\/2025/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Decreto Rio nº 54\.844\/2024/i })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: /Resolução CD\/FNDE nº 15\/2021/i }),
+  ).toHaveCount(0);
+});
